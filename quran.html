@@ -313,6 +313,26 @@
             text-align: right;
         }
 
+        .word-span {
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-block;
+            border-radius: 4px;
+            padding: 0 4px;
+            margin: 0 2px;
+        }
+
+        .word-span:hover {
+            background: rgba(46, 204, 113, 0.2);
+        }
+
+        .word-span.highlighted {
+            background: rgba(46, 204, 113, 0.4);
+            color: #2ecc71;
+            text-shadow: 0 0 10px rgba(46, 204, 113, 0.5);
+            font-weight: 700;
+        }
+
         .ayah-footer {
             display: flex;
             align-items: center;
@@ -493,6 +513,16 @@
 
         let currentLang = localStorage.getItem('ramadanLang') || 'en';
         let surahsData = [];
+        let highlightedWords = JSON.parse(localStorage.getItem('quranHighlights') || '{}');
+
+        function toggleWordHighlight(id) {
+            highlightedWords[id] = !highlightedWords[id];
+            if (!highlightedWords[id]) delete highlightedWords[id];
+            localStorage.setItem('quranHighlights', JSON.stringify(highlightedWords));
+
+            const el = document.getElementById(id);
+            if (el) el.classList.toggle('highlighted');
+        }
 
         function setLanguage(lang) {
             currentLang = lang;
@@ -613,38 +643,8 @@
                     text = text.replace('بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ', '').trim();
                 }
 
-                const ayahCard = document.createElement('div');
-                ayahCard.className = 'ayah-card';
-                ayahCard.innerHTML = `
-                    <div class="ayah-arabic">${text}</div>
-                    <div class="ayah-translation" style="display: ${currentLang === 'ar' ? 'none' : 'block'}">${enSurah.ayahs[index].text}</div>
-                    <div class="ayah-footer">
-                        <div class="ayah-number-badge">${ayah.numberInSurah}</div>
-                    </div>
-                `;
-                ayahList.appendChild(ayahCard);
-            });
-        }
-
-        function showSurahList() {
-            document.getElementById('readerView').style.display = 'none';
-            document.getElementById('surahListView').style.display = 'block';
-
-            // Toggle Nav Buttons
-            document.getElementById('backBtn').style.display = 'flex';
-            document.getElementById('backToListBtn').style.display = 'none';
-
-            window.scrollTo(0, 0);
-        }
-
-        function showLoading(show) {
-            document.getElementById('loading').style.display = show ? 'flex' : 'none';
-        }
-
-        createStars();
-        setLanguage(currentLang);
-        fetchSurahs();
-    </script>
-</body>
-
-</html>
+                // Wrap words in spans for highlighting
+                const words = text.split(' ');
+                const wrappedText = words.map((word, wIdx) => {
+                    const id = `w_${arSurah.number}_${ayah.numberInSurah}_${wIdx}`;
+       
