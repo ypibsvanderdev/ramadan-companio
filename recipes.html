@@ -14,81 +14,121 @@
     <meta name="apple-mobile-web-app-title" content="Ramadan">
     <meta name="theme-color" content="#0a0a1a">
 
-    <!-- App Icons -->
-    <link rel="apple-touch-icon" href="icon.jpg">
-    <link rel="icon" type="image/jpeg" href="icon.jpg">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Outfit:wght@300;400;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
 
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         :root {
-            --primary: #1a1a2e;
+            --primary: #0a0a1a;
             --secondary: #16213e;
             --accent: #e94560;
             --gold: #ffd700;
             --gold-light: #ffed4a;
             --text: #ffffff;
             --text-muted: #a0a0a0;
-            --card-bg: rgba(255, 255, 255, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
             font-family: 'Outfit', sans-serif;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, #0f0f23 100%);
-            min-height: 100vh;
+            background-color: var(--primary);
             color: var(--text);
+            min-height: 100vh;
             overflow-x: hidden;
-        }
-
-        .stars {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .star {
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: white;
-            border-radius: 50%;
-            opacity: 0.5;
+            padding: 20px;
         }
 
         .container {
-            position: relative;
-            z-index: 2;
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Navigation */
+        .main-nav {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .nav-tab {
+            padding: 12px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            backdrop-filter: blur(5px);
+        }
+
+        .nav-tab:hover {
+            background: rgba(255, 215, 0, 0.1);
+            border-color: var(--gold);
+            transform: translateY(-2px);
+        }
+
+        .nav-tab.active {
+            background: var(--gold) !important;
+            color: var(--primary) !important;
+            border-color: var(--gold);
+        }
+
+        /* Language Switch */
+        .lang-switch {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            gap: 8px;
+        }
+
+        .lang-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--gold);
+            padding: 6px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .lang-btn.active {
+            background: var(--gold);
+            color: var(--primary);
         }
 
         header {
             text-align: center;
-            padding: 40px 0 20px;
+            margin-bottom: 40px;
+            margin-top: 40px;
         }
 
         h1 {
-            font-size: 2.8rem;
-            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-size: 2.5rem;
+            color: var(--gold);
             margin-bottom: 10px;
+            background: linear-gradient(to right, var(--gold), #fff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .subtitle {
@@ -96,33 +136,34 @@
             font-size: 1.1rem;
         }
 
-        /* Search Bar */
-        .search-container {
-            margin-bottom: 30px;
+        /* Search & Filters */
+        .controls {
+            margin-bottom: 40px;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
         }
 
-        .search-wrapper {
+        .search-container {
             position: relative;
             width: 100%;
             max-width: 500px;
         }
 
-        .search-input {
+        .search-bar {
             width: 100%;
+            padding: 15px 20px 15px 45px;
             background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 215, 0, 0.3);
-            border-radius: 25px;
-            padding: 12px 20px 12px 45px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
             color: white;
             font-size: 1rem;
-            font-family: 'Outfit', sans-serif;
-            transition: 0.3s;
             outline: none;
+            transition: all 0.3s;
         }
 
-        .search-input:focus {
+        .search-bar:focus {
             border-color: var(--gold);
             background: rgba(255, 255, 255, 0.1);
             box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
@@ -133,155 +174,84 @@
             left: 15px;
             top: 50%;
             transform: translateY(-50%);
-            font-size: 1.2rem;
-            opacity: 0.5;
+            color: var(--gold);
+            opacity: 0.7;
         }
 
-        .main-nav {
+        .category-filters {
             display: flex;
-            justify-content: center;
             gap: 10px;
-            margin-bottom: 30px;
             flex-wrap: wrap;
-        }
-
-        .nav-tab {
-            padding: 10px 20px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            color: var(--text);
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(5px);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .nav-tab:hover {
-            background: rgba(255, 215, 0, 0.1);
-            border-color: var(--gold);
-        }
-
-        .nav-tab.active {
-            background: linear-gradient(135deg, var(--gold) 0%, #ffb700 100%);
-            color: var(--primary);
-        }
-
-        /* Category Filter Tabs */
-        .category-tabs {
-            display: flex;
             justify-content: center;
-            gap: 8px;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
         }
 
         .cat-btn {
-            background: rgba(255, 255, 255, 0.03);
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            color: var(--text-muted);
-            padding: 8px 16px;
             border-radius: 20px;
+            color: white;
             cursor: pointer;
-            font-size: 0.9rem;
-            transition: 0.3s;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .cat-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
         }
 
         .cat-btn.active {
-            background: var(--accent);
-            color: white;
-            border-color: var(--accent);
+            background: var(--gold);
+            color: var(--primary);
+            border-color: var(--gold);
         }
 
+        /* Recipe Grid */
         .recipe-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
-            min-height: 200px;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
         }
 
         .recipe-card {
-            background: var(--card-bg);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 20px;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+            padding: 25px;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
             border-bottom: 4px solid var(--gold);
         }
 
         .recipe-card:hover {
-            transform: translateY(-8px);
-            background: rgba(255, 215, 0, 0.08);
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.06);
             border-color: var(--gold);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
         }
 
         .card-tag {
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
             color: var(--gold);
+            letter-spacing: 2px;
             font-weight: 700;
-            letter-spacing: 1px;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             display: block;
         }
 
         .recipe-name {
-            font-size: 1.2rem;
-            color: var(--gold-light);
+            font-size: 1.4rem;
             font-weight: 700;
-            margin-bottom: 8px;
+            margin-bottom: 12px;
+            color: #fff;
         }
 
         .recipe-desc {
-            font-size: 0.9rem;
             color: var(--text-muted);
-            line-height: 1.5;
-        }
-
-        .lang-switch {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            display: flex;
-            gap: 8px;
-        }
-
-        .lang-btn {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--gold);
-            color: var(--gold);
-            padding: 4px 10px;
-            border-radius: 15px;
-            cursor: pointer;
-            font-size: 0.8rem;
-            font-weight: 700;
-        }
-
-        .lang-btn.active {
-            background: var(--gold);
-            color: var(--primary);
-        }
-
-        [dir="rtl"] {
-            font-family: 'Amiri', serif;
-        }
-
-        [dir="rtl"] .recipe-card {
-            text-align: right;
-        }
-
-        [dir="rtl"] .search-input {
-            padding: 12px 45px 12px 20px;
-        }
-
-        [dir="rtl"] .search-icon {
-            left: auto;
-            right: 15px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
         }
 
         .no-results {
@@ -427,22 +397,65 @@
             padding: 40px 0;
             color: var(--text-muted);
         }
+
+        /* Background Stars */
+        #stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.5;
+            animation: twinkle var(--duration, 3s) infinite ease-in-out;
+        }
+
+        @keyframes twinkle {
+
+            0%,
+            100% {
+                opacity: 0.3;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.2);
+            }
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .nav-tab {
+                padding: 10px 15px;
+                font-size: 0.85rem;
+            }
+
+            .recipe-card {
+                padding: 20px;
+            }
+        }
     </style>
 </head>
 
 <body>
-    <div class="stars" id="stars"></div>
-
-    <div class="lang-switch">
-        <button onclick="changeLang('en')" id="enBtn" class="lang-btn">EN</button>
-        <button onclick="changeLang('ar')" id="arBtn" class="lang-btn">AR</button>
-    </div>
+    <div id="stars"></div>
 
     <div class="container">
-        <header>
-            <h1 id="recipesTitle">🍳 Ramadan Kitchen</h1>
-            <p class="subtitle" id="recipesSubtitle">Authentic Middle Eastern flavors for your Ramadan.</p>
-        </header>
+        <div class="lang-switch">
+            <button onclick="changeLang('en')" id="enBtn" class="lang-btn">EN</button>
+            <button onclick="changeLang('ar')" id="arBtn" class="lang-btn">AR</button>
+        </div>
 
         <nav class="main-nav">
             <a href="index.html" class="nav-tab" id="homeTab">🏠 Home</a>
@@ -450,20 +463,25 @@
             <a href="recipes.html" class="nav-tab active" id="recipesTab">🍳 Recipes</a>
         </nav>
 
-        <div class="search-container">
-            <div class="search-wrapper">
+        <header>
+            <h1 id="recipesTitle">🍳 Ramadan Kitchen</h1>
+            <p class="subtitle" id="recipesSubtitle">Authentic flavors for your Ramadan.</p>
+        </header>
+
+        <div class="controls">
+            <div class="search-container">
                 <span class="search-icon">🔍</span>
-                <input type="text" id="recipeSearch" class="search-input" placeholder="Search for recipes..."
+                <input type="text" class="search-bar" id="recipeSearch" placeholder="Search recipes..."
                     oninput="filterRecipes()">
             </div>
-        </div>
 
-        <div class="category-tabs">
-            <button onclick="filterCategory('all')" class="cat-btn active" id="btn-all">All</button>
-            <button onclick="filterCategory('breakfast')" class="cat-btn" id="btn-breakfast">Suhoor</button>
-            <button onclick="filterCategory('lunch')" class="cat-btn" id="btn-lunch">Iftar</button>
-            <button onclick="filterCategory('dinner')" class="cat-btn" id="btn-dinner">Dinner</button>
-            <button onclick="filterCategory('dessert')" class="cat-btn" id="btn-dessert">Dessert</button>
+            <div class="category-filters">
+                <button class="cat-btn active" id="btn-all" onclick="filterCategory('all')">All</button>
+                <button class="cat-btn" id="btn-suhoor" onclick="filterCategory('suhoor')">Suhoor</button>
+                <button class="cat-btn" id="btn-iftar" onclick="filterCategory('iftar')">Iftar</button>
+                <button class="cat-btn" id="btn-dinner" onclick="filterCategory('dinner')">Dinner</button>
+                <button class="cat-btn" id="btn-dessert" onclick="filterCategory('dessert')">Dessert</button>
+            </div>
         </div>
 
         <div class="recipe-grid" id="recipesGrid">
@@ -498,8 +516,8 @@
                 subtitle: "Authentic Middle Eastern flavors for your Ramadan.",
                 search: "Search for recipes...",
                 all: "All",
-                breakfast: "Suhoor",
-                lunch: "Iftar",
+                suhoor: "Suhoor",
+                iftar: "Iftar",
                 dinner: "Dinner",
                 dessert: "Dessert",
                 home: "🏠 Home",
@@ -515,8 +533,8 @@
                 subtitle: "نكهات شرق أوسطية أصيلة لمائدتكم الرمضانية.",
                 search: "ابحث عن الوصفات...",
                 all: "الكل",
-                breakfast: "سحور",
-                lunch: "إفطار",
+                suhoor: "سحور",
+                iftar: "إفطار",
                 dinner: "عشاء",
                 dessert: "حلويات",
                 home: "🏠 الرئيسية",
@@ -550,8 +568,8 @@
             document.getElementById('recipesTab').textContent = t.recipes;
 
             document.getElementById('btn-all').textContent = t.all;
-            document.getElementById('btn-breakfast').textContent = t.breakfast;
-            document.getElementById('btn-lunch').textContent = t.lunch;
+            document.getElementById('btn-suhoor').textContent = t.suhoor;
+            document.getElementById('btn-iftar').textContent = t.iftar;
             document.getElementById('btn-dinner').textContent = t.dinner;
             document.getElementById('btn-dessert').textContent = t.dessert;
 
@@ -608,7 +626,6 @@
             const grid = document.getElementById('recipesGrid');
             const t = UI_STRINGS[currentLang];
 
-            // In case script hasn't loaded yet
             if (typeof RECIPES_DATA === 'undefined') {
                 grid.innerHTML = '<div class="no-results">Loading recipes... ⏳</div>';
                 return;
@@ -630,7 +647,7 @@
                 const originalIndex = RECIPES_DATA.indexOf(recipe);
                 return `
                     <div class="recipe-card">
-                        <span class="card-tag">${t[recipe.category]}</span>
+                        <span class="card-tag">${t[recipe.category] || recipe.category}</span>
                         <div class="recipe-name">${recipe[`name_${currentLang}`]}</div>
                         <div class="recipe-desc">${recipe[`desc_${currentLang}`]}</div>
                         <button class="view-btn" onclick="openRecipeModal(${originalIndex})">${t.view}</button>
@@ -639,17 +656,23 @@
             }).join('');
         }
 
-        // Initialize stars
-        const starsContainer = document.getElementById('stars');
-        for (let i = 0; i < 50; i++) {
-            const star = document.createElement('div');
-            star.className = 'star';
-            star.style.left = Math.random() * 100 + '%';
-            star.style.top = Math.random() * 100 + '%';
-            star.style.animationDelay = Math.random() * 2 + 's';
-            starsContainer.appendChild(star);
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            for (let i = 0; i < 150; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                const duration = 2 + Math.random() * 3;
+                star.style.setProperty('--duration', duration + 's');
+                const size = 1 + Math.random() * 2 + 'px';
+                star.style.width = size;
+                star.style.height = size;
+                starsContainer.appendChild(star);
+            }
         }
 
+        createStars();
         updateUI();
     </script>
 </body>
