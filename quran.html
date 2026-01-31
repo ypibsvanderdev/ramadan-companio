@@ -557,7 +557,9 @@
             en: {
                 title: "📖 The Noble Quran",
                 subtitle: "Read the word of Allah in full screen",
-                back: "Back to App",
+                home: "🏠 Home",
+                fullQuran: "📖 Full Quran",
+                recipes: "🍳 Recipes",
                 backToList: "← Back to Surah List",
                 loadingError: "Could not load Quran. Please check your connection.",
                 surahError: "Error loading Surah content.",
@@ -568,7 +570,9 @@
             ar: {
                 title: "📖 القرآن الكريم",
                 subtitle: "اقرأ كلام الله بشاشة كاملة",
-                back: "العودة للتطبيق",
+                home: "🏠 الرئيسية",
+                fullQuran: "📖 المصحف الكامل",
+                recipes: "🍳 وصفات",
                 backToList: "العودة لقائمة السور →",
                 loadingError: "تعذر تحميل القرآن. يرجى التحقق من الاتصال.",
                 surahError: "خطأ في تحميل محتوى السورة.",
@@ -614,7 +618,9 @@
             const t = TRANSLATIONS[lang];
             document.getElementById('pageTitle').textContent = t.title;
             document.getElementById('pageSubtitle').textContent = t.subtitle;
-            document.getElementById('backText').textContent = t.back;
+            document.getElementById('homeTab').textContent = t.home;
+            document.getElementById('quranTab').textContent = t.fullQuran;
+            document.getElementById('recipesTab').textContent = t.recipes;
             document.getElementById('backToListText').textContent = t.backToList;
 
             document.getElementById('enBtn').classList.toggle('active', lang === 'en');
