@@ -15,8 +15,8 @@
     <meta name="theme-color" content="#0a0a1a">
 
     <!-- App Icons -->
-    <link rel="apple-touch-icon" href="icon.png">
-    <link rel="icon" type="image/png" href="icon.png">
+    <link rel="apple-touch-icon" href="icon.jpg">
+    <link rel="icon" type="image/jpeg" href="icon.jpg">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -315,22 +315,29 @@
 
         .word-span {
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
             display: inline-block;
-            border-radius: 4px;
-            padding: 0 4px;
-            margin: 0 2px;
+            border-radius: 6px;
+            padding: 2px 6px;
+            margin: 2px 3px;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+        }
+
+        .word-span:active {
+            transform: scale(0.9);
         }
 
         .word-span:hover {
-            background: rgba(46, 204, 113, 0.2);
+            background: rgba(0, 255, 0, 0.1);
         }
 
         .word-span.highlighted {
-            background: rgba(46, 204, 113, 0.4);
-            color: #2ecc71;
-            text-shadow: 0 0 10px rgba(46, 204, 113, 0.5);
-            font-weight: 700;
+            background: rgba(0, 255, 0, 0.6) !important;
+            color: #ffffff !important;
+            text-shadow: 0 0 10px #000;
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.8);
+            font-weight: 800;
         }
 
         .ayah-footer {
@@ -647,4 +654,42 @@
                 const words = text.split(' ');
                 const wrappedText = words.map((word, wIdx) => {
                     const id = `w_${arSurah.number}_${ayah.numberInSurah}_${wIdx}`;
-       
+                    const isHighlighted = highlightedWords[id] ? 'highlighted' : '';
+                    return `<span id="${id}" class="word-span ${isHighlighted}" onclick="toggleWordHighlight('${id}')">${word}</span>`;
+                }).join(' ');
+
+                const ayahCard = document.createElement('div');
+                ayahCard.className = 'ayah-card';
+                ayahCard.innerHTML = `
+                    <div class="ayah-arabic">${wrappedText}</div>
+                    <div class="ayah-translation" style="display: ${currentLang === 'ar' ? 'none' : 'block'}">${enSurah.ayahs[index].text}</div>
+                    <div class="ayah-footer">
+                        <div class="ayah-number-badge">${ayah.numberInSurah}</div>
+                    </div>
+                `;
+                ayahList.appendChild(ayahCard);
+            });
+        }
+
+        function showSurahList() {
+            document.getElementById('readerView').style.display = 'none';
+            document.getElementById('surahListView').style.display = 'block';
+
+            // Toggle Nav Buttons
+            document.getElementById('backBtn').style.display = 'flex';
+            document.getElementById('backToListBtn').style.display = 'none';
+
+            window.scrollTo(0, 0);
+        }
+
+        function showLoading(show) {
+            document.getElementById('loading').style.display = show ? 'flex' : 'none';
+        }
+
+        createStars();
+        setLanguage(currentLang);
+        fetchSurahs();
+    </script>
+</body>
+
+</html>
