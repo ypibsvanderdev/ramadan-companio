@@ -679,6 +679,160 @@
             transform: scale(1.02);
             box-shadow: 0 4px 15px rgba(74, 222, 128, 0.4);
         }
+
+        /* Quran Ayahs Card */
+        .quran-card {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.15) 0%, rgba(59, 130, 246, 0.1) 100%);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 24px;
+            padding: 25px;
+            margin-bottom: 25px;
+            backdrop-filter: blur(10px);
+        }
+
+        .quran-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .quran-title {
+            font-size: 1.2rem;
+            color: #a78bfa;
+            font-weight: 600;
+        }
+
+        .ayah-container {
+            background: rgba(139, 92, 246, 0.1);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 15px;
+        }
+
+        .ayah-arabic {
+            font-family: 'Amiri', serif;
+            font-size: 1.8rem;
+            text-align: right;
+            direction: rtl;
+            color: #e0d4ff;
+            line-height: 2;
+            margin-bottom: 15px;
+        }
+
+        .ayah-translation {
+            font-size: 1rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        .ayah-reference {
+            margin-top: 10px;
+            font-size: 0.85rem;
+            color: #a78bfa;
+        }
+
+        .ayah-nav {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .ayah-nav-btn {
+            background: rgba(139, 92, 246, 0.2);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 12px;
+            padding: 10px 20px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .ayah-nav-btn:hover {
+            background: rgba(139, 92, 246, 0.4);
+        }
+
+        /* Adhkar Cards */
+        .adhkar-section {
+            margin-bottom: 25px;
+        }
+
+        .adhkar-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .adhkar-card.morning {
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.15) 0%, rgba(245, 158, 11, 0.1) 100%);
+            border-color: rgba(251, 191, 36, 0.3);
+        }
+
+        .adhkar-card.evening {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(79, 70, 229, 0.1) 100%);
+            border-color: rgba(99, 102, 241, 0.3);
+        }
+
+        .adhkar-card.afternoon {
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0.15) 0%, rgba(219, 39, 119, 0.1) 100%);
+            border-color: rgba(236, 72, 153, 0.3);
+        }
+
+        .adhkar-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .adhkar-icon {
+            font-size: 1.5rem;
+        }
+
+        .adhkar-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .adhkar-title.morning {
+            color: #fbbf24;
+        }
+
+        .adhkar-title.evening {
+            color: #818cf8;
+        }
+
+        .adhkar-title.afternoon {
+            color: #f472b6;
+        }
+
+        .adhkar-arabic {
+            font-family: 'Amiri', serif;
+            font-size: 1.5rem;
+            text-align: right;
+            direction: rtl;
+            line-height: 1.8;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+
+        .adhkar-transliteration {
+            font-size: 0.95rem;
+            color: var(--text);
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        .adhkar-meaning {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
     </style>
 </head>
 
@@ -790,6 +944,67 @@
             </div>
 
             <button class="save-prayers-btn" onclick="savePrayerTimes()">💾 Save Prayer Times</button>
+        </div>
+
+        <!-- Daily Quran Ayahs -->
+        <div class="quran-card">
+            <div class="quran-header">
+                <span class="quran-title">📖 Daily Quran Ayahs</span>
+            </div>
+            <div class="ayah-container" id="ayahContainer">
+                <div class="ayah-arabic" id="ayahArabic"></div>
+                <div class="ayah-translation" id="ayahTranslation"></div>
+                <div class="ayah-reference" id="ayahReference"></div>
+            </div>
+            <div class="ayah-nav">
+                <button class="ayah-nav-btn" onclick="prevAyah()">← Previous</button>
+                <button class="ayah-nav-btn" onclick="nextAyah()">Next →</button>
+            </div>
+        </div>
+
+        <!-- Morning/Evening/Afternoon Adhkar -->
+        <div class="adhkar-section">
+            <!-- Morning Dua -->
+            <div class="adhkar-card morning">
+                <div class="adhkar-header">
+                    <span class="adhkar-icon">🌅</span>
+                    <span class="adhkar-title morning">Morning Dua (Adhkar As-Sabah)</span>
+                </div>
+                <div class="adhkar-arabic">أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلَّهِ، وَالْحَمْدُ لِلَّهِ، لَا إِلَٰهَ
+                    إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ</div>
+                <div class="adhkar-transliteration">Asbahna wa asbahal mulku lillah, walhamdu lillah, la ilaha illallahu
+                    wahdahu la sharika lah</div>
+                <div class="adhkar-meaning">We have entered the morning and the kingdom belongs to Allah. Praise is to
+                    Allah. None has the right to be worshipped except Allah alone, with no partner.</div>
+            </div>
+
+            <!-- Afternoon Dua -->
+            <div class="adhkar-card afternoon">
+                <div class="adhkar-header">
+                    <span class="adhkar-icon">☀️</span>
+                    <span class="adhkar-title afternoon">Afternoon Dua</span>
+                </div>
+                <div class="adhkar-arabic">اللَّهُمَّ إِنِّي أَسْأَلُكَ عِلْمًا نَافِعًا، وَرِزْقًا طَيِّبًا، وَعَمَلًا
+                    مُتَقَبَّلًا</div>
+                <div class="adhkar-transliteration">Allahumma inni as'aluka 'ilman nafi'an, wa rizqan tayyiban, wa
+                    'amalan mutaqabbalan</div>
+                <div class="adhkar-meaning">O Allah, I ask You for beneficial knowledge, good provision, and accepted
+                    deeds.</div>
+            </div>
+
+            <!-- Evening Dua -->
+            <div class="adhkar-card evening">
+                <div class="adhkar-header">
+                    <span class="adhkar-icon">🌙</span>
+                    <span class="adhkar-title evening">Evening Dua (Adhkar Al-Masa)</span>
+                </div>
+                <div class="adhkar-arabic">أَمْسَيْنَا وَأَمْسَى الْمُلْكُ لِلَّهِ، وَالْحَمْدُ لِلَّهِ، لَا إِلَٰهَ
+                    إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ</div>
+                <div class="adhkar-transliteration">Amsayna wa amsal mulku lillah, walhamdu lillah, la ilaha illallahu
+                    wahdahu la sharika lah</div>
+                <div class="adhkar-meaning">We have entered the evening and the kingdom belongs to Allah. Praise is to
+                    Allah. None has the right to be worshipped except Allah alone, with no partner.</div>
+            </div>
         </div>
 
         <footer>
@@ -1357,6 +1572,80 @@
             }
         }
 
+        // ==================== QURAN AYAHS ====================
+
+        const DAILY_AYAHS = [
+            {
+                arabic: "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+                translation: "In the name of Allah, the Most Gracious, the Most Merciful.",
+                reference: "Surah Al-Fatiha 1:1"
+            },
+            {
+                arabic: "إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ",
+                translation: "You alone we worship, and You alone we ask for help.",
+                reference: "Surah Al-Fatiha 1:5"
+            },
+            {
+                arabic: "اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ",
+                translation: "Allah - there is no deity except Him, the Ever-Living, the Sustainer of existence.",
+                reference: "Surah Al-Baqarah 2:255 (Ayatul Kursi)"
+            },
+            {
+                arabic: "رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ",
+                translation: "Our Lord, give us good in this world and good in the Hereafter, and protect us from the punishment of the Fire.",
+                reference: "Surah Al-Baqarah 2:201"
+            },
+            {
+                arabic: "وَمَن يَتَّقِ اللَّهَ يَجْعَل لَّهُ مَخْرَجًا وَيَرْزُقْهُ مِنْ حَيْثُ لَا يَحْتَسِبُ",
+                translation: "Whoever fears Allah - He will make a way out for him and provide for him from where he does not expect.",
+                reference: "Surah At-Talaq 65:2-3"
+            },
+            {
+                arabic: "إِنَّ مَعَ الْعُسْرِ يُسْرًا",
+                translation: "Indeed, with hardship comes ease.",
+                reference: "Surah Ash-Sharh 94:6"
+            },
+            {
+                arabic: "وَقُل رَّبِّ زِدْنِي عِلْمًا",
+                translation: "And say: My Lord, increase me in knowledge.",
+                reference: "Surah Ta-Ha 20:114"
+            },
+            {
+                arabic: "فَاذْكُرُونِي أَذْكُرْكُمْ وَاشْكُرُوا لِي وَلَا تَكْفُرُونِ",
+                translation: "So remember Me; I will remember you. And be grateful to Me and do not deny Me.",
+                reference: "Surah Al-Baqarah 2:152"
+            },
+            {
+                arabic: "وَتَوَكَّلْ عَلَى اللَّهِ وَكَفَىٰ بِاللَّهِ وَكِيلًا",
+                translation: "And put your trust in Allah, and sufficient is Allah as a Disposer of affairs.",
+                reference: "Surah Al-Ahzab 33:3"
+            },
+            {
+                arabic: "قُلْ هُوَ اللَّهُ أَحَدٌ اللَّهُ الصَّمَدُ لَمْ يَلِدْ وَلَمْ يُولَدْ وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ",
+                translation: "Say: He is Allah, the One. Allah, the Eternal Refuge. He neither begets nor is born, nor is there any equivalent to Him.",
+                reference: "Surah Al-Ikhlas 112:1-4"
+            }
+        ];
+
+        let currentAyahIndex = 0;
+
+        function displayAyah(index) {
+            const ayah = DAILY_AYAHS[index];
+            document.getElementById('ayahArabic').textContent = ayah.arabic;
+            document.getElementById('ayahTranslation').textContent = ayah.translation;
+            document.getElementById('ayahReference').textContent = `📍 ${ayah.reference}`;
+        }
+
+        function nextAyah() {
+            currentAyahIndex = (currentAyahIndex + 1) % DAILY_AYAHS.length;
+            displayAyah(currentAyahIndex);
+        }
+
+        function prevAyah() {
+            currentAyahIndex = (currentAyahIndex - 1 + DAILY_AYAHS.length) % DAILY_AYAHS.length;
+            displayAyah(currentAyahIndex);
+        }
+
         // ==================== INITIALIZATION ====================
 
         // Initialize
@@ -1365,6 +1654,7 @@
         loadNotificationSettings();
         loadPrayerTimes();
         updateNextPrayer();
+        displayAyah(0);
 
         // Update next prayer every minute
         setInterval(updateNextPrayer, 60000);
