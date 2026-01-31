@@ -391,14 +391,72 @@
             animation: rotation 1s linear infinite;
         }
 
-        @keyframes rotation {
-            0% {
-                transform: rotate(0deg);
-            }
+        .bookmark-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-muted);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
 
-            100% {
-                transform: rotate(360deg);
-            }
+        .bookmark-btn:hover {
+            background: rgba(46, 204, 113, 0.1);
+            border-color: #2ecc71;
+            color: #2ecc71;
+        }
+
+        .bookmark-btn.active {
+            background: rgba(46, 204, 113, 0.2);
+            border-color: #2ecc71;
+            color: #2ecc71;
+            box-shadow: 0 0 10px rgba(46, 204, 113, 0.3);
+        }
+
+        .bookmark-icon {
+            font-size: 1.2rem;
+        }
+
+        .main-nav {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        .nav-tab {
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            backdrop-filter: blur(5px);
+        }
+
+        .nav-tab:hover {
+            background: rgba(255, 215, 0, 0.1);
+            border-color: var(--gold);
+            transform: translateY(-2px);
+        }
+
+        .nav-tab.active {
+            background: linear-gradient(135deg, var(--gold) 0%, #ffb700 100%);
+            color: var(--primary);
+            border-color: var(--gold);
         }
 
         .reader-header {
@@ -453,16 +511,14 @@
     </div>
 
     <div class="container">
-        <div class="top-nav">
+        <nav class="main-nav">
+            <a href="index.html" class="nav-tab" id="homeTab">🏠 Home</a>
+            <a href="quran.html" class="nav-tab active" id="quranTab">📖 Full Quran</a>
+            <a href="recipes.html" class="nav-tab" id="recipesTab">🍳 Recipes</a>
+        </nav>
+
+        <div class="top-nav" style="margin-bottom: 20px;">
             <div id="navLeft">
-                <a href="index.html" class="nav-btn" id="backBtn">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <line x1="19" y1="12" x2="5" y2="12"></line>
-                        <polyline points="12 19 5 12 12 5"></polyline>
-                    </svg>
-                    <span id="backText">Back to App</span>
-                </a>
                 <button onclick="showSurahList()" class="nav-btn" id="backToListBtn" style="display: none;">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
@@ -525,6 +581,7 @@
         let currentLang = localStorage.getItem('ramadanLang') || 'en';
         let surahsData = [];
         let highlightedWords = JSON.parse(localStorage.getItem('quranHighlights') || '{}');
+        let ayahBookmarks = JSON.parse(localStorage.getItem('quranAyahBookmarks') || '{}');
 
         function toggleWordHighlight(id) {
             highlightedWords[id] = !highlightedWords[id];
@@ -533,6 +590,19 @@
 
             const el = document.getElementById(id);
             if (el) el.classList.toggle('highlighted');
+        }
+
+        function toggleAyahBookmark(surahNum, ayahNum) {
+            const id = `b_${surahNum}_${ayahNum}`;
+            ayahBookmarks[id] = !ayahBookmarks[id];
+            if (!ayahBookmarks[id]) delete ayahBookmarks[id];
+            localStorage.setItem('quranAyahBookmarks', JSON.stringify(ayahBookmarks));
+
+            const btn = document.getElementById(`btn_${id}`);
+            if (btn) {
+                btn.classList.toggle('active');
+                btn.innerHTML = ayahBookmarks[id] ? '<span class="bookmark-icon">🔖</span>' : '<span class="bookmark-icon">📑</span>';
+            }
         }
 
         function setLanguage(lang) {
@@ -662,6 +732,9 @@
                     return `<span id="${id}" class="word-span ${isHighlighted}" onclick="toggleWordHighlight('${id}')">${word}</span>`;
                 }).join(' ');
 
+                const bId = `b_${arSurah.number}_${ayah.numberInSurah}`;
+                const isBookmarked = ayahBookmarks[bId];
+
                 const ayahCard = document.createElement('div');
                 ayahCard.className = 'ayah-card';
                 ayahCard.innerHTML = `
@@ -669,6 +742,9 @@
                     <div class="ayah-translation" style="display: ${currentLang === 'ar' ? 'none' : 'block'}">${enSurah.ayahs[index].text}</div>
                     <div class="ayah-footer">
                         <div class="ayah-number-badge">${ayah.numberInSurah}</div>
+                        <button id="btn_${bId}" class="bookmark-btn ${isBookmarked ? 'active' : ''}" onclick="toggleAyahBookmark(${arSurah.number}, ${ayah.numberInSurah})" title="Bookmark Ayah">
+                            <span class="bookmark-icon">${isBookmarked ? '🔖' : '📑'}</span>
+                        </button>
                     </div>
                 `;
                 ayahList.appendChild(ayahCard);
