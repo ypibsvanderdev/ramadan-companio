@@ -1969,13 +1969,21 @@
         // Update progress bar
         function updateProgress() {
             const container = document.getElementById('progressContainer');
-            const progress = (currentViewDay / 30) * 100;
+            const actualDay = getRamadanDay();
             const t = TRANSLATIONS[currentLang];
+
+            if (!actualDay) {
+                container.style.display = 'none';
+                return;
+            }
+
+            container.style.display = 'block';
+            const progress = (actualDay / 30) * 100;
 
             container.innerHTML = `
                 <div class="progress-label">
                     <span>${t.progress}</span>
-                    <span>${currentViewDay}/30 ${t.days}</span>
+                    <span>${actualDay}/30 ${t.days}</span>
                 </div>
                 <div class="progress-bar">
                     <div class="progress-fill" style="width: ${progress}%"></div>
@@ -2280,7 +2288,7 @@
             status.textContent = `✅ ${t.reminderSet} ${formatTime(time)}!`;
             status.className = 'notification-status success';
 
-            setupDailyReminder();
+            setupAllReminders();
         }
 
         // Format time for display
@@ -2292,42 +2300,78 @@
             return `${h12}:${minutes} ${ampm}`;
         }
 
-        // Setup daily reminder
-        function setupDailyReminder() {
-            if (notificationTimer) {
-                clearTimeout(notificationTimer);
+        // Setup all reminders
+        function setupAllReminders() {
+            // Clear existing timers
+            if (window.notificationTimers) {
+                window.notificationTimers.forEach(id => clearTimeout(id));
             }
+            window.notificationTimers = [];
 
-            const savedTime = localStorage.getItem('ramadanReminderTime') || '05:00';
-            const [hours, minutes] = savedTime.split(':').map(Number);
-
+            const t = TRANSLATIONS[currentLang];
             const now = new Date();
-            const reminderTime = new Date();
-            reminderTime.setHours(hours, minutes, 0, 0);
 
-            // If the time has passed today, set for tomorrow
-            if (reminderTime <= now) {
-                reminderTime.setDate(reminderTime.getDate() + 1);
+            // 1. User's custom daily dua reminder
+            const savedTime = localStorage.getItem('ramadanReminderTime') || '05:00';
+            scheduleNotification(savedTime, "🌙 " + t.mainTitle, t.notifTitle, () => {
+                const day = getRamadanDay() || 1;
+                const dua = DAILY_DUAS[day - 1];
+                return `${t.duaForDay} ${day}: ${dua.arabic}`;
+            });
+
+            // Prayer-based reminders (if times are available)
+            const savedPrayers = localStorage.getItem('prayerTimes');
+            if (savedPrayers) {
+                const times = JSON.parse(savedPrayers);
+
+                // 2. Dates Before Iftar (10 mins before Maghrib)
+                if (times.maghrib) {
+                    const iftarTime = offsetTime(times.maghrib, -10);
+                    scheduleNotification(iftarTime, "🍽️ Iftar Reminder", "Time to prepare dates! Iftar is in 10 minutes. 🌴");
+                }
+
+                // 3. Tarawih Reminder (30 mins after Isha)
+                if (times.isha) {
+                    const tarawihTime = offsetTime(times.isha, 30);
+                    scheduleNotification(tarawihTime, "🕌 Tarawih Prayer", "Don't forget Tarawih prayer tonight! ✨");
+                }
+
+                // 4. Istighfar 100x Reminder (Morning - 10 AM)
+                scheduleNotification("10:00", "📿 Daily Dhikr", "Time for Istighfar 100x: Astaghfirullah. 🤲");
+
+                // 5. Salawat Reminder (Afternoon - 3 PM)
+                scheduleNotification("15:00", "✨ Salawat", "O Allah, send blessings upon Muhammad and the family of Muhammad. 🌙");
+            }
+        }
+
+        // Helper to offset time (e.g., "18:30" + 30 = "19:00")
+        function offsetTime(timeStr, offsetMinutes) {
+            const [h, m] = timeStr.split(':').map(Number);
+            const date = new Date();
+            date.setHours(h, m + offsetMinutes, 0);
+            return `${String(date.getHours()).padStart(2, '0')}:${String(date.getMinutes()).padStart(2, '0')}`;
+        }
+
+        // Generic scheduler
+        function scheduleNotification(time24, title, body, bodyFn) {
+            const [hours, minutes] = time24.split(':').map(Number);
+            const now = new Date();
+            const target = new Date();
+            target.setHours(hours, minutes, 0, 0);
+
+            if (target <= now) {
+                target.setDate(target.getDate() + 1);
             }
 
-            const msUntilReminder = reminderTime - now;
+            const msUntil = target - now;
+            const timerId = setTimeout(() => {
+                const actualBody = bodyFn ? bodyFn() : body;
+                showNotification(title, actualBody);
+                // Re-schedule for tomorrow
+                scheduleNotification(time24, title, body, bodyFn);
+            }, msUntil);
 
-            notificationTimer = setTimeout(() => {
-                // Get today's dua
-                const ramadanDay = getRamadanDay() || 1;
-                const dua = DAILY_DUAS[ramadanDay - 1];
-                const t = TRANSLATIONS[currentLang];
-
-                showNotification(
-                    `🌙 ${t.dayLabel} ${ramadanDay}`,
-                    `${t.duaForDay}: ${dua.arabic}`
-                );
-
-                // Set up next day's reminder
-                setupDailyReminder();
-            }, msUntilReminder);
-
-            console.log(`Reminder set for ${reminderTime.toLocaleString()}`);
+            window.notificationTimers.push(timerId);
         }
 
         // Load saved notification settings
@@ -2348,7 +2392,7 @@
                 const t = TRANSLATIONS[currentLang];
                 status.textContent = `✅ ${t.reminderSet} ${formatTime(savedTime)}`;
                 status.className = 'notification-status success';
-                setupDailyReminder();
+                setupAllReminders();
             }
         }
 
@@ -2700,6 +2744,11 @@
         displayAyah(0);
         setupPrayerNotifications();
         renderNotes();
+
+        // Initialize reminders if enabled
+        if (localStorage.getItem('ramadanNotificationsEnabled') === 'true') {
+            setupAllReminders();
+        }
 
         // Check reminders every minute
         setInterval(() => {
