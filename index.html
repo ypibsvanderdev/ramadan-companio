@@ -1779,7 +1779,8 @@
                 sadaqahKids: ["Smile at everyone you meet today", "Help set up the Iftar table", "Save 1 coin in your charity jar"],
                 sadaqahBigKids: ["Donate $1-5 from your allowance", "Help clean your local masjid", "Pack a snack for someone in need"],
                 sadaqahTeens: ["Volunteer at a local food bank", "Prepare a special dish for neighbors", "Teach someone a verse of Quran"],
-                sadaqahAdults: ["Setup a recurring charity donation", "Pay Zakat-ul-Fitr early for your family", "Host an Iftar for someone in need"]
+                sadaqahAdults: ["Setup a recurring charity donation", "Pay Zakat-ul-Fitr early for your family", "Host an Iftar for someone in need"],
+                sadaqahSeniors: ["Share stories of faith with grandchildren", "Call a relative you haven't spoken to", "Sponsor an Iftar for an orphan"]
             },
             ar: {
                 mainTitle: "🌙 رفيق رمضان",
@@ -1840,7 +1841,8 @@
                 sadaqahKids: ["ابتسم في وجه كل من تقابله اليوم", "ساعد في تجهيز مائدة الإفطار", "ضع عملة واحدة في حصالة الصدقة"],
                 sadaqahBigKids: ["تصدق بمبلغ بسيط من مصروفك", "ساعد في تنظيف المسجد القريب", "جهز وجبة خفيفة لشخص محتاج"],
                 sadaqahTeens: ["تطوع في بنك الطعام المحلي", "جهز طبقاً مميزاً للجيران", "علم شخصاً آية من القرآن"],
-                sadaqahAdults: ["قم بإعداد تبرع خيري دوري", "ادفع زكاة الفطر مبكراً عن عائلتك", "استضف مأدبة إفطار لشخص محتاج"]
+                sadaqahAdults: ["قم بإعداد تبرع خيري دوري", "ادفع زكاة الفطر مبكراً عن عائلتك", "استضف مأدبة إفطار لشخص محتاج"],
+                sadaqahSeniors: ["شارك قصص الإيمان مع أحفادك", "اتصل بقريب لم تتحدث معه منذ فترة", "كفل إفطار يتيم"]
             }
         };
 
@@ -2447,22 +2449,28 @@
             if (savedPrayers) {
                 const times = JSON.parse(savedPrayers);
 
-                // 2. Dates Before Iftar (10 mins before Maghrib)
+                // 2. Sahoor Reminder (30 mins before Fajr)
+                if (times.fajr) {
+                    const sahoorTime = offsetTime(times.fajr, -30);
+                    scheduleNotification(sahoorTime, "🌙 Sahoor Alert", "Time for Sahoor! Fajr is in 30 minutes. Eat and drink for the day's fast. 🍞🥛");
+                }
+
+                // 3. Dates Before Iftar (10 mins before Maghrib)
                 if (times.maghrib) {
                     const iftarTime = offsetTime(times.maghrib, -10);
                     scheduleNotification(iftarTime, "🍽️ Iftar Reminder", "Time to prepare dates! Iftar is in 10 minutes. 🌴");
                 }
 
-                // 3. Tarawih Reminder (30 mins after Isha)
+                // 4. Tarawih Reminder (30 mins after Isha)
                 if (times.isha) {
                     const tarawihTime = offsetTime(times.isha, 30);
                     scheduleNotification(tarawihTime, "🕌 Tarawih Prayer", "Don't forget Tarawih prayer tonight! ✨");
                 }
 
-                // 4. Istighfar 100x Reminder (Morning - 10 AM)
+                // 5. Istighfar 100x Reminder (Morning - 10 AM)
                 scheduleNotification("10:00", "📿 Daily Dhikr", "Time for Istighfar 100x: Astaghfirullah. 🤲");
 
-                // 5. Salawat Reminder (Afternoon - 3 PM)
+                // 6. Salawat Reminder (Afternoon - 3 PM)
                 scheduleNotification("15:00", "✨ Salawat", "O Allah, send blessings upon Muhammad and the family of Muhammad. 🌙");
             }
         }
@@ -2516,8 +2524,10 @@
                 suggestions = t.sadaqahBigKids;
             } else if (age <= 17) {
                 suggestions = t.sadaqahTeens;
-            } else {
+            } else if (age < 60) {
                 suggestions = t.sadaqahAdults;
+            } else {
+                suggestions = t.sadaqahSeniors;
             }
 
             planContainer.innerHTML = suggestions.map(s => `
