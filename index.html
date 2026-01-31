@@ -594,10 +594,76 @@
             margin-bottom: 15px;
         }
 
-        .notification-title {
-            font-size: 1.1rem;
+        .notif-enabled {
             color: var(--gold);
             font-weight: 600;
+        }
+
+        /* Recipes View Styles */
+        #recipesView {
+            animation: fadeIn 0.5s ease-out;
+            padding-bottom: 50px;
+        }
+
+        .recipe-category {
+            margin-bottom: 40px;
+        }
+
+        .category-title {
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(255, 215, 0, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .recipe-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .recipe-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border-left: 4px solid var(--gold);
+        }
+
+        .recipe-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold);
+            background: rgba(255, 215, 0, 0.08);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .recipe-name {
+            font-size: 1.25rem;
+            color: var(--gold-light);
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .recipe-desc {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        [dir="rtl"] .recipe-card {
+            border-left: none;
+            border-right: 4px solid var(--gold);
+            text-align: right;
+        }
+
+        [dir="rtl"] .category-title {
+            flex-direction: row-reverse;
         }
 
         /* Toggle Switch */
@@ -1420,215 +1486,190 @@
         </header>
 
         <nav class="main-nav">
-            <a href="index.html" class="nav-tab active" id="homeTab">🏠 Home</a>
+            <button onclick="showView('home')" class="nav-tab active" id="homeTab">🏠 Home</button>
+            <button onclick="showView('recipes')" class="nav-tab" id="recipesTab">🍳 Recipes</button>
             <a href="quran.html" class="nav-tab" id="quranTab">📖 Full Quran</a>
         </nav>
 
-        <div class="day-card" id="dayCard">
-            <!-- Filled by JavaScript -->
-        </div>
+        <div id="homeView">
 
-        <div class="progress-container" id="progressContainer">
-            <!-- Filled by JavaScript -->
-        </div>
-
-        <div class="dua-card" id="duaCard">
-            <!-- Filled by JavaScript -->
-        </div>
-
-        <div class="nav-buttons">
-            <button class="nav-btn" id="prevBtn" onclick="changeDay(-1)">← Previous Day</button>
-            <button class="nav-btn" id="todayBtn" onclick="goToToday()">📅 Today</button>
-            <button class="nav-btn" id="nextBtn" onclick="changeDay(1)">Next Day →</button>
-        </div>
-
-        <!-- Notification Settings -->
-        <div class="notification-card">
-            <div class="notification-header">
-                <span class="notification-title" id="notifTitle">🔔 Daily Reminders</span>
-                <label class="toggle-switch">
-                    <input type="checkbox" id="notificationToggle" onchange="toggleNotifications()">
-                    <span class="toggle-slider"></span>
-                </label>
+            <div class="day-card" id="dayCard">
+                <!-- Filled by JavaScript -->
             </div>
-            <div class="notification-settings" id="notificationSettings">
-                <div class="time-picker-group">
-                    <span class="time-picker-label" id="remindAtLabel">Remind me at:</span>
-                    <input type="time" class="time-picker" id="reminderTime" value="05:00">
-                    <button class="save-time-btn" onclick="saveReminderTime()" id="saveNotifBtn">Save</button>
+
+            <div class="progress-container" id="progressContainer">
+                <!-- Filled by JavaScript -->
+            </div>
+
+            <div class="dua-card" id="duaCard">
+                <!-- Filled by JavaScript -->
+            </div>
+
+            <div class="nav-buttons">
+                <button class="nav-btn" id="prevBtn" onclick="changeDay(-1)">← Previous Day</button>
+                <button class="nav-btn" id="todayBtn" onclick="goToToday()">📅 Today</button>
+                <button class="nav-btn" id="nextBtn" onclick="changeDay(1)">Next Day →</button>
+            </div>
+
+            <!-- Notification Settings -->
+            <div class="notification-card">
+                <div class="notification-header">
+                    <span class="notification-title" id="notifTitle">🔔 Daily Reminders</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="notificationToggle" onchange="toggleNotifications()">
+                        <span class="toggle-slider"></span>
+                    </label>
                 </div>
-                <p class="notification-status" id="notificationStatus"></p>
-            </div>
-        </div>
-
-        <div class="prayer-card">
-            <div class="prayer-header">
-                <span class="prayer-title" id="prayerTimesTitle">🕌 Prayer Times</span>
-                <button class="detect-location-btn" onclick="detectLocation()" id="detectLocBtn"
-                    title="Detect Location">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                        <circle cx="12" cy="10" r="3"></circle>
-                    </svg>
-                    <span id="detectLocText">Detect Location</span>
-                </button>
-            </div>
-
-            <div class="method-selector">
-                <label for="calcMethod" id="methodLabel">Calculation Method:</label>
-                <select id="calcMethod" onchange="detectLocation()">
-                    <option value="2">ISNA (North America)</option>
-                    <option value="3">Muslim World League</option>
-                    <option value="4">Umm Al-Qura (Makkah)</option>
-                    <option value="5">Egyptian Authority</option>
-                    <option value="1">University of Karachi</option>
-                    <option value="0">Shia Ithna-Ashari</option>
-                    <option value="7">Tehran (Geophysics)</option>
-                    <option value="8">Gulf Region</option>
-                    <option value="9">Kuwait</option>
-                    <option value="10">Qatar</option>
-                    <option value="11">Singapore (MUIS)</option>
-                    <option value="12">France (UOIF)</option>
-                    <option value="13">Turkey (Diyanet)</option>
-                    <option value="14">Russia</option>
-                    <option value="15">Moonsighting Committee</option>
-                    <option value="16">Dubai (UAE)</option>
-                    <option value="17">Malaysia (JAKIM)</option>
-                    <option value="18">Tunisia</option>
-                    <option value="19">Algeria</option>
-                    <option value="20">Indonesia (KEMENAG)</option>
-                    <option value="21">Morocco</option>
-                    <option value="22">Brazil</option>
-                </select>
-            </div>
-
-            <div class="method-selector">
-                <label for="asrMadhab" id="madhabLabel">Asr Method (Madhab):</label>
-                <select id="asrMadhab" onchange="detectLocation()">
-                    <option value="0">Standard (Shafi'i, Maliki, Hanbali)</option>
-                    <option value="1">Hanafi (Recommended for US/Canada)</option>
-                </select>
-            </div>
-
-            <div class="asr-note" id="asrNote">
-                💡 Tip: If your Asr time seems too early (like 2:44 PM), try switching to the "Hanafi" method.
-            </div>
-
-            <div id="locationStatus" class="location-status"></div>
-
-            <div class="prayer-list">
-                <div class="prayer-item" id="fajrItem">
-                    <span class="prayer-name">
-                        <span class="prayer-icon">🌅</span>
-                        <span id="fajrName">Fajr</span>
-                    </span>
-                    <input type="time" class="prayer-time-input" id="fajrTime" value="05:30"
-                        onchange="savePrayerTimes()">
-                </div>
-
-                <div class="prayer-item" id="dhuhrItem">
-                    <span class="prayer-name">
-                        <span class="prayer-icon">☀️</span>
-                        <span id="dhuhrName">Dhuhr</span>
-                    </span>
-                    <input type="time" class="prayer-time-input" id="dhuhrTime" value="12:30"
-                        onchange="savePrayerTimes()">
-                </div>
-
-                <div class="prayer-item" id="asrItem">
-                    <span class="prayer-name">
-                        <span class="prayer-icon">🌤️</span>
-                        <span id="asrName">Asr</span>
-                    </span>
-                    <input type="time" class="prayer-time-input" id="asrTime" value="15:45"
-                        onchange="savePrayerTimes()">
-                </div>
-
-                <div class="prayer-item" id="maghribItem">
-                    <span class="prayer-name">
-                        <span class="prayer-icon">🌅</span>
-                        <span id="maghribName">Maghrib</span>
-                    </span>
-                    <input type="time" class="prayer-time-input" id="maghribTime" value="18:15"
-                        onchange="savePrayerTimes()">
-                </div>
-
-                <div class="prayer-item" id="ishaItem">
-                    <span class="prayer-name">
-                        <span class="prayer-icon">🌙</span>
-                        <span id="ishaName">Isha</span>
-                    </span>
-                    <input type="time" class="prayer-time-input" id="ishaTime" value="19:45"
-                        onchange="savePrayerTimes()">
+                <div class="notification-settings" id="notificationSettings">
+                    <div class="time-picker-group">
+                        <span class="time-picker-label" id="remindAtLabel">Remind me at:</span>
+                        <input type="time" class="time-picker" id="reminderTime" value="05:00">
+                        <button class="save-time-btn" onclick="saveReminderTime()" id="saveNotifBtn">Save</button>
+                    </div>
+                    <p class="notification-status" id="notificationStatus"></p>
                 </div>
             </div>
 
-            <!-- Next Prayer Banner -->
-            <div class="next-prayer-banner" id="nextPrayerBanner">
-                <div class="next-prayer-label" id="nextPrayerLabel">Next Prayer</div>
-                <div class="next-prayer-name" id="nextPrayerName">Fajr</div>
-                <div class="next-prayer-countdown" id="nextPrayerCountdown">in 2h 30m</div>
+            <div class="prayer-card">
+                <div class="prayer-header">
+                    <span class="prayer-title" id="prayerTimesTitle">🕌 Prayer Times</span>
+                    <button class="detect-location-btn" onclick="detectLocation()" id="detectLocBtn"
+                        title="Detect Location">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                        <span id="detectLocText">Detect Location</span>
+                    </button>
+                </div>
+
+                <div class="method-selector">
+                    <label for="calcMethod" id="methodLabel">Calculation Method:</label>
+                    <select id="calcMethod" onchange="detectLocation()">
+                        <option value="2">ISNA (North America)</option>
+                        <option value="3">Muslim World League</option>
+                        <option value="4">Umm Al-Qura (Makkah)</option>
+                        <option value="5">Egyptian Authority</option>
+                        <option value="1">University of Karachi</option>
+                        <option value="0">Shia Ithna-Ashari</option>
+                        <option value="7">Tehran (Geophysics)</option>
+                        <option value="8">Gulf Region</option>
+                        <option value="9">Kuwait</option>
+                        <option value="10">Qatar</option>
+                        <option value="11">Singapore (MUIS)</option>
+                        <option value="12">France (UOIF)</option>
+                        <option value="13">Turkey (Diyanet)</option>
+                        <option value="14">Russia</option>
+                        <option value="15">Moonsighting Committee</option>
+                        <option value="16">Dubai (UAE)</option>
+                        <option value="17">Malaysia (JAKIM)</option>
+                        <option value="18">Tunisia</option>
+                        <option value="19">Algeria</option>
+                        <option value="20">Indonesia (KEMENAG)</option>
+                        <option value="21">Morocco</option>
+                        <option value="22">Brazil</option>
+                    </select>
+                </div>
+
+                <div class="method-selector">
+                    <label for="asrMadhab" id="madhabLabel">Asr Method (Madhab):</label>
+                    <select id="asrMadhab" onchange="detectLocation()">
+                        <option value="0">Standard (Shafi'i, Maliki, Hanbali)</option>
+                        <option value="1">Hanafi (Recommended for US/Canada)</option>
+                    </select>
+                </div>
+
+                <div class="asr-note" id="asrNote">
+                    💡 Tip: If your Asr time seems too early (like 2:44 PM), try switching to the "Hanafi" method.
+                </div>
+
+                <div id="locationStatus" class="location-status"></div>
+
+                <div class="prayer-list">
+                    <div class="prayer-item" id="fajrItem">
+                        <span class="prayer-name">
+                            <span class="prayer-icon">🌅</span>
+                            <span id="fajrName">Fajr</span>
+                        </span>
+                        <input type="time" class="prayer-time-input" id="fajrTime" value="05:30"
+                            onchange="savePrayerTimes()">
+                    </div>
+
+                    <div class="prayer-item" id="dhuhrItem">
+                        <span class="prayer-name">
+                            <span class="prayer-icon">☀️</span>
+                            <span id="dhuhrName">Dhuhr</span>
+                        </span>
+                        <input type="time" class="prayer-time-input" id="dhuhrTime" value="12:30"
+                            onchange="savePrayerTimes()">
+                    </div>
+
+                    <div class="prayer-item" id="asrItem">
+                        <span class="prayer-name">
+                            <span class="prayer-icon">🌤️</span>
+                            <span id="asrName">Asr</span>
+                        </span>
+                        <input type="time" class="prayer-time-input" id="asrTime" value="15:45"
+                            onchange="savePrayerTimes()">
+                    </div>
+
+                    <div class="prayer-item" id="maghribItem">
+                        <span class="prayer-name">
+                            <span class="prayer-icon">🌅</span>
+                            <span id="maghribName">Maghrib</span>
+                        </span>
+                        <input type="time" class="prayer-time-input" id="maghribTime" value="18:15"
+                            onchange="savePrayerTimes()">
+                    </div>
+
+                    <div class="prayer-item" id="ishaItem">
+                        <span class="prayer-name">
+                            <span class="prayer-icon">🌙</span>
+                            <span id="ishaName">Isha</span>
+                        </span>
+                        <input type="time" class="prayer-time-input" id="ishaTime" value="19:45"
+                            onchange="savePrayerTimes()">
+                    </div>
+                </div>
+
+                <!-- Next Prayer Banner -->
+                <div class="next-prayer-banner" id="nextPrayerBanner">
+                    <div class="next-prayer-label" id="nextPrayerLabel">Next Prayer</div>
+                    <div class="next-prayer-name" id="nextPrayerName">Fajr</div>
+                    <div class="next-prayer-countdown" id="nextPrayerCountdown">in 2h 30m</div>
+                </div>
+
+                <button class="save-prayers-btn" onclick="savePrayerTimes()" id="savePrayersBtn">💾 Save Prayer
+                    Times</button>
             </div>
 
-            <button class="save-prayers-btn" onclick="savePrayerTimes()" id="savePrayersBtn">💾 Save Prayer
-                Times</button>
-        </div>
+            <!-- Notes & Reminders -->
+            <div class="notes-card">
+                <div class="notes-header">
+                    <span class="notes-title" id="notesTitle">📝 Personal Notes & Reminders</span>
+                </div>
 
-        <!-- Notes & Reminders -->
-        <div class="notes-card">
-            <div class="notes-header">
-                <span class="notes-title" id="notesTitle">📝 Personal Notes & Reminders</span>
-            </div>
+                <div class="note-input-group">
+                    <input type="text" id="noteTextInput" class="note-input"
+                        placeholder="Enter your note (e.g., Read Surah Kahf)">
+                    <div class="note-time-group">
+                        <input type="time" id="noteTimeInput" class="note-time-input">
+                        <button class="add-note-btn" onclick="addNote()" id="addNoteBtn">Add Note</button>
+                    </div>
+                </div>
 
-            <div class="note-input-group">
-                <input type="text" id="noteTextInput" class="note-input"
-                    placeholder="Enter your note (e.g., Read Surah Kahf)">
-                <div class="note-time-group">
-                    <input type="time" id="noteTimeInput" class="note-time-input">
-                    <button class="add-note-btn" onclick="addNote()" id="addNoteBtn">Add Note</button>
+                <div class="notes-list" id="notesList">
+                    <!-- Notes will be added here via JavaScript -->
                 </div>
             </div>
 
-            <div class="notes-list" id="notesList">
-                <!-- Notes will be added here via JavaScript -->
-            </div>
-        </div>
 
-
-        <!-- Daily Quran Ayahs -->
-        <div class="quran-card">
-            <div class="quran-header">
-                <span class="quran-title" id="quranTitle">📖 Daily Quran Ayahs</span>
-                <button class="fullscreen-btn" onclick="openFullScreen('ayah')" title="Full Screen">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path
-                            d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3">
-                        </path>
-                    </svg>
-                </button>
-            </div>
-            <div class="ayah-container" id="ayahContainer">
-                <div class="ayah-arabic" id="ayahArabic"></div>
-                <div class="ayah-translation" id="ayahTranslation"></div>
-                <div class="ayah-reference" id="ayahReference"></div>
-            </div>
-            <div class="ayah-nav">
-                <button class="ayah-nav-btn" onclick="prevAyah()" id="prevAyahBtn">← Previous</button>
-                <button class="ayah-nav-btn" onclick="nextAyah()" id="nextAyahBtn">Next →</button>
-            </div>
-        </div>
-
-        <!-- Morning/Evening/Afternoon Adhkar -->
-        <div class="adhkar-section">
-            <!-- Morning Dua -->
-            <div class="adhkar-card morning" id="morningCard">
-                <div class="adhkar-header">
-                    <span class="adhkar-icon">🌅</span>
-                    <span class="adhkar-title morning">Morning Dua (Adhkar As-Sabah)</span>
-                    <button class="fullscreen-btn" onclick="openFullScreen('adhkar', 'morningCard')" title="Full Screen"
-                        style="margin-left: auto;">
+            <!-- Daily Quran Ayahs -->
+            <div class="quran-card">
+                <div class="quran-header">
+                    <span class="quran-title" id="quranTitle">📖 Daily Quran Ayahs</span>
+                    <button class="fullscreen-btn" onclick="openFullScreen('ayah')" title="Full Screen">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                             stroke-linecap="round" stroke-linejoin="round">
                             <path
@@ -1637,75 +1678,122 @@
                         </svg>
                     </button>
                 </div>
-                <div class="adhkar-arabic">أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلَّهِ، وَالْحَمْدُ لِلَّهِ، لَا إِلَٰهَ
-                    إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ</div>
-                <div class="adhkar-transliteration">Asbahna wa asbahal mulku lillah, walhamdu lillah, la ilaha illallahu
-                    wahdahu la sharika lah</div>
-                <div class="adhkar-meaning">We have entered the morning and the kingdom belongs to Allah. Praise is to
-                    Allah. None has the right to be worshipped except Allah alone, with no partner.</div>
+                <div class="ayah-container" id="ayahContainer">
+                    <div class="ayah-arabic" id="ayahArabic"></div>
+                    <div class="ayah-translation" id="ayahTranslation"></div>
+                    <div class="ayah-reference" id="ayahReference"></div>
+                </div>
+                <div class="ayah-nav">
+                    <button class="ayah-nav-btn" onclick="prevAyah()" id="prevAyahBtn">← Previous</button>
+                    <button class="ayah-nav-btn" onclick="nextAyah()" id="nextAyahBtn">Next →</button>
+                </div>
             </div>
 
-            <!-- Afternoon Dua -->
-            <div class="adhkar-card afternoon" id="afternoonCard">
-                <div class="adhkar-header">
-                    <span class="adhkar-icon">☀️</span>
-                    <span class="adhkar-title afternoon">Afternoon Dua</span>
-                    <button class="fullscreen-btn" onclick="openFullScreen('adhkar', 'afternoonCard')"
-                        title="Full Screen" style="margin-left: auto;">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <path
-                                d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3">
-                            </path>
-                        </svg>
-                    </button>
+            <!-- Morning/Evening/Afternoon Adhkar -->
+            <div class="adhkar-section">
+                <!-- Morning Dua -->
+                <div class="adhkar-card morning" id="morningCard">
+                    <div class="adhkar-header">
+                        <span class="adhkar-icon">🌅</span>
+                        <span class="adhkar-title morning">Morning Dua (Adhkar As-Sabah)</span>
+                        <button class="fullscreen-btn" onclick="openFullScreen('adhkar', 'morningCard')"
+                            title="Full Screen" style="margin-left: auto;">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3">
+                                </path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="adhkar-arabic">أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلَّهِ، وَالْحَمْدُ لِلَّهِ، لَا
+                        إِلَٰهَ
+                        إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ</div>
+                    <div class="adhkar-transliteration">Asbahna wa asbahal mulku lillah, walhamdu lillah, la ilaha
+                        illallahu
+                        wahdahu la sharika lah</div>
+                    <div class="adhkar-meaning">We have entered the morning and the kingdom belongs to Allah. Praise is
+                        to
+                        Allah. None has the right to be worshipped except Allah alone, with no partner.</div>
                 </div>
-                <div class="adhkar-arabic">اللَّهُمَّ إِنِّي أَسْأَلُكَ عِلْمًا نَافِعًا، وَرِزْقًا طَيِّبًا، وَعَمَلًا
-                    مُتَقَبَّلًا</div>
-                <div class="adhkar-transliteration">Allahumma inni as'aluka 'ilman nafi'an, wa rizqan tayyiban, wa
-                    'amalan mutaqabbalan</div>
-                <div class="adhkar-meaning">O Allah, I ask You for beneficial knowledge, good provision, and accepted
-                    deeds.</div>
-            </div>
 
-            <!-- Evening Dua -->
-            <div class="adhkar-card evening" id="eveningCard">
-                <div class="adhkar-header">
-                    <span class="adhkar-icon">🌙</span>
-                    <span class="adhkar-title evening">Evening Dua (Adhkar Al-Masa)</span>
-                    <button class="fullscreen-btn" onclick="openFullScreen('adhkar', 'eveningCard')" title="Full Screen"
-                        style="margin-left: auto;">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <path
-                                d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3">
-                            </path>
-                        </svg>
-                    </button>
+                <!-- Afternoon Dua -->
+                <div class="adhkar-card afternoon" id="afternoonCard">
+                    <div class="adhkar-header">
+                        <span class="adhkar-icon">☀️</span>
+                        <span class="adhkar-title afternoon">Afternoon Dua</span>
+                        <button class="fullscreen-btn" onclick="openFullScreen('adhkar', 'afternoonCard')"
+                            title="Full Screen" style="margin-left: auto;">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3">
+                                </path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="adhkar-arabic">اللَّهُمَّ إِنِّي أَسْأَلُكَ عِلْمًا نَافِعًا، وَرِزْقًا طَيِّبًا،
+                        وَعَمَلًا
+                        مُتَقَبَّلًا</div>
+                    <div class="adhkar-transliteration">Allahumma inni as'aluka 'ilman nafi'an, wa rizqan tayyiban, wa
+                        'amalan mutaqabbalan</div>
+                    <div class="adhkar-meaning">O Allah, I ask You for beneficial knowledge, good provision, and
+                        accepted
+                        deeds.</div>
                 </div>
-                <div class="adhkar-arabic">أَمْسَيْنَا وَأَمْسَى الْمُلْكُ لِلَّهِ، وَالْحَمْدُ لِلَّهِ، لَا إِلَٰهَ
-                    إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ</div>
-                <div class="adhkar-transliteration">Amsayna wa amsal mulku lillah, walhamdu lillah, la ilaha illallahu
-                    wahdahu la sharika lah</div>
-                <div class="adhkar-meaning">We have entered the evening and the kingdom belongs to Allah. Praise is to
-                    Allah. None has the right to be worshipped except Allah alone, with no partner.</div>
+
+                <!-- Evening Dua -->
+                <div class="adhkar-card evening" id="eveningCard">
+                    <div class="adhkar-header">
+                        <span class="adhkar-icon">🌙</span>
+                        <span class="adhkar-title evening">Evening Dua (Adhkar Al-Masa)</span>
+                        <button class="fullscreen-btn" onclick="openFullScreen('adhkar', 'eveningCard')"
+                            title="Full Screen" style="margin-left: auto;">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3">
+                                </path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="adhkar-arabic">أَمْسَيْنَا وَأَمْسَى الْمُلْكُ لِلَّهِ، وَالْحَمْدُ لِلَّهِ، لَا إِلَٰهَ
+                        إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ</div>
+                    <div class="adhkar-transliteration">Amsayna wa amsal mulku lillah, walhamdu lillah, la ilaha
+                        illallahu
+                        wahdahu la sharika lah</div>
+                    <div class="adhkar-meaning">We have entered the evening and the kingdom belongs to Allah. Praise is
+                        to
+                        Allah. None has the right to be worshipped except Allah alone, with no partner.</div>
+                </div>
             </div>
+        </div>
+
+        <div class="sadaqah-card">
+            <div class="sadaqah-header">
+                <span class="sadaqah-icon" style="font-size: 1.5rem;">💝</span>
+                <span class="sadaqah-title" id="sadaqahTitle">Sadaqah Planner</span>
+            </div>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px;" id="sadaqahSubtitle">Enter your
+                age
+                to get personalized charity ideas for today.</p>
+            <div class="sadaqah-input-group">
+                <input type="number" id="userAge" class="sadaqah-input" placeholder="Your Age" min="1" max="120">
+                <button class="sadaqah-suggest-btn" id="sadaqahBtn" onclick="generateSadaqahPlan()">Get
+                    Recommendations</button>
+            </div>
+            <div id="sadaqahPlan" class="sadaqah-plan"></div>
         </div>
     </div>
 
-    <div class="sadaqah-card">
-        <div class="sadaqah-header">
-            <span class="sadaqah-icon" style="font-size: 1.5rem;">💝</span>
-            <span class="sadaqah-title" id="sadaqahTitle">Sadaqah Planner</span>
+    <div id="recipesView" style="display: none;">
+        <div class="recipes-container">
+            <header>
+                <h1 id="recipesTitle">🍳 Ramadan Kitchen</h1>
+                <p class="subtitle" id="recipesSubtitle">Authentic Middle Eastern flavors for your Ramadan.</p>
+            </header>
+            <div id="recipesContent"></div>
         </div>
-        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px;" id="sadaqahSubtitle">Enter your age
-            to get personalized charity ideas for today.</p>
-        <div class="sadaqah-input-group">
-            <input type="number" id="userAge" class="sadaqah-input" placeholder="Your Age" min="1" max="120">
-            <button class="sadaqah-suggest-btn" id="sadaqahBtn" onclick="generateSadaqahPlan()">Get
-                Recommendations</button>
-        </div>
-        <div id="sadaqahPlan" class="sadaqah-plan"></div>
     </div>
 
     <footer>
@@ -1759,6 +1847,13 @@
                 asr: "Asr",
                 maghrib: "Maghrib",
                 isha: "Isha",
+                recipes: "🍳 Recipes",
+                recipesTitle: "🍳 Ramadan Kitchen",
+                recipesSubtitle: "Authentic Middle Eastern flavors for your Ramadan.",
+                breakfast: "Breakfast (Suhoor)",
+                lunch: "Iftar (Main Dish)",
+                dinner: "Dinner",
+                dessert: "Dessert",
                 notifEnabled: "✅ Notifications enabled! Set your reminder time.",
                 notifUnsupported: "❌ Your browser doesn't support notifications.",
                 notifDenied: "❌ Please allow notifications in your browser settings.",
@@ -1820,6 +1915,13 @@
                 asr: "العصر",
                 maghrib: "المغرب",
                 isha: "العشاء",
+                recipes: "🍳 وصفات",
+                recipesTitle: "🍳 مطبخ رمضان",
+                recipesSubtitle: "نكهات شرق أوسطية أصيلة لمائدتكم الرمضانية.",
+                breakfast: "السحور",
+                lunch: "فتحة الصيام (رئيسي)",
+                dinner: "العشاء",
+                dessert: "الحلويات",
                 notifEnabled: "✅ تم تفعيل التنبيهات! حدد وقت التذكير.",
                 notifUnsupported: "❌ متصفحك لا يدعم التنبيهات.",
                 notifDenied: "❌ يرجى السماح بالتنبيهات في إعدادات متصفحك.",
@@ -1848,14 +1950,20 @@
 
         function setLanguage(lang) {
             currentLang = lang;
-            localStorage.setItem('ramadanLang', lang);
+            localStorage.setItem('ramadanLang', lang); // Persist language
+            const t = TRANSLATIONS[currentLang];
+
+            // Update static text content
+            document.getElementById('mainTitle').textContent = t.mainTitle;
+            document.getElementById('mainSubtitle').textContent = t.mainSubtitle;
+            document.getElementById('recipesTitle').textContent = t.recipesTitle;
+            document.getElementById('recipesSubtitle').textContent = t.recipesSubtitle;
+            document.getElementById('homeTab').textContent = t.home;
+            document.getElementById('recipesTab').textContent = t.recipes;
             document.documentElement.lang = lang;
             document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
 
             // Update static UI text
-            const t = TRANSLATIONS[lang];
-            document.getElementById('mainTitle').textContent = t.mainTitle;
-            document.getElementById('mainSubtitle').textContent = t.mainSubtitle;
             document.getElementById('prevBtn').textContent = t.prevDay;
             document.getElementById('todayBtn').textContent = t.today;
             document.getElementById('nextBtn').textContent = t.nextDay;
@@ -2518,6 +2626,66 @@
             }, msUntil);
 
             window.notificationTimers.push(timerId);
+        }
+
+        // View Toggling
+        function showView(view) {
+            document.getElementById('homeView').style.display = view === 'home' ? 'block' : 'none';
+            document.getElementById('recipesView').style.display = view === 'recipes' ? 'block' : 'none';
+
+            document.getElementById('homeTab').classList.toggle('active', view === 'home');
+            document.getElementById('recipesTab').classList.toggle('active', view === 'recipes');
+
+            if (view === 'recipes') {
+                renderRecipes();
+            }
+            window.scrollTo(0, 0);
+        }
+
+        function renderRecipes() {
+            const container = document.getElementById('recipesContent');
+            const t = TRANSLATIONS[currentLang];
+
+            const recipesData = [
+                {
+                    id: 'breakfast', name: t.breakfast, items: [
+                        { name: currentLang === 'en' ? "Classic Ful Medames" : "فول مدمس كلاسيكي", desc: currentLang === 'en' ? "Slow-cooked fava beans with olive oil, cumin, and lemon." : "فول مدمس مطهو ببطء بزيت الزيتون والكمون والليمون." },
+                        { name: currentLang === 'en' ? "Authentic Shakshuka" : "شكشوكة أصيلة", desc: currentLang === 'en' ? "Poached eggs in a vibrant tomato, pepper, and onion sauce." : "بيض مسلوق في صلصة طماطم وفلفل وبصل غنية." }
+                    ]
+                },
+                {
+                    id: 'lunch', name: t.lunch, items: [
+                        { name: currentLang === 'en' ? "Lamb Mansaf" : "منسف لحم", desc: currentLang === 'en' ? "Traditional lamb in jameed yogurt sauce over saffron rice." : "لحم بلدي بصلصة الجميد والأرز بالزعفران والمكسرات." },
+                        { name: currentLang === 'en' ? "Chicken Maqluba" : "مقلوبة دجاج", desc: currentLang === 'en' ? "Layered upside-down rice with chicken, eggplant, and spices." : "أرز بالدجاج والباذنجان مقلوب برائحة البهارات العربية." }
+                    ]
+                },
+                {
+                    id: 'dinner', name: t.dinner, items: [
+                        { name: currentLang === 'en' ? "Lebanese Lentil Soup" : "شوربة عدس لبنانية", desc: currentLang === 'en' ? "Hearty yellow lentil soup with turmeric and toasted bits." : "شوربة عدس أصفر غنية بالكركم مع قطع الخبز المحمص." },
+                        { name: currentLang === 'en' ? "Fattoush Salad" : "سلطة فتوش", desc: currentLang === 'en' ? "Zesty garden salad with sumac and crispy pita chips." : "سلطة خضراء منعشة بالسماق وقطع الخبز المقرمشة." }
+                    ]
+                },
+                {
+                    id: 'dessert', name: t.dessert, items: [
+                        { name: currentLang === 'en' ? "Cheese Kunafa" : "كنافة بالجبن", desc: currentLang === 'en' ? "Warm cheese pastry soaked in aromatic rose syrup." : "عجينة كنافة ساخنة بالجبن النابلسي والقطر برائحة الورد." },
+                        { name: currentLang === 'en' ? "Pistachio Baklava" : "بقلاوة بالفستق", desc: currentLang === 'en' ? "Flaky phyllo layers stuffed with premium pistachios." : "طبقات فيلو مقرمشة محشوة بأجود أنواع الفستق الحلبي." }
+                    ]
+                }
+            ];
+
+            container.innerHTML = recipesData.map(cat => `
+                <div class="recipe-category">
+                    <h2 class="category-title">🌙 ${cat.name}</h2>
+                    <div class="recipe-grid">
+                        ${cat.items.map(item => `
+                            <div class="recipe-card">
+                                <div class="recipe-name">${item.name}</div>
+                                <div class="recipe-desc">${item.desc}</div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `).join('');
         }
 
         // Generate Sadaqah Plan
