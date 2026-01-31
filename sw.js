@@ -1,8 +1,10 @@
-const CACHE_NAME = 'ramadan-companion-v2';
+const CACHE_NAME = 'ramadan-companion-v3';
 const ASSETS = [
     './',
     './index.html',
     './quran.html',
+    './recipes.html',
+    './recipes-data.js',
     './icon.png',
     './manifest.json'
 ];
