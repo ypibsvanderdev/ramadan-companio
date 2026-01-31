@@ -1486,9 +1486,9 @@
         </header>
 
         <nav class="main-nav">
-            <button onclick="showView('home')" class="nav-tab active" id="homeTab">🏠 Home</button>
+            <a href="index.html" class="nav-tab active" id="homeTab">🏠 Home</a>
             <a href="quran.html" class="nav-tab" id="quranTab">📖 Full Quran</a>
-            <button onclick="showView('recipes')" class="nav-tab" id="recipesTab">🍳 Recipes</button>
+            <a href="recipes.html" class="nav-tab" id="recipesTab">🍳 Recipes</a>
         </nav>
 
         <div id="homeView">
@@ -1786,16 +1786,6 @@
         </div>
     </div>
 
-    <div id="recipesView" style="display: none;">
-        <div class="recipes-container">
-            <header>
-                <h1 id="recipesTitle">🍳 Ramadan Kitchen</h1>
-                <p class="subtitle" id="recipesSubtitle">Authentic Middle Eastern flavors for your Ramadan.</p>
-            </header>
-            <div id="recipesContent"></div>
-        </div>
-    </div>
-
     <footer>
         <p id="footerMubarak">Ramadan Mubarak! 🤲</p>
         <p style="margin-top: 8px; font-size: 0.8rem;" id="footerMadeWith">Made with ❤️ for you</p>
@@ -1950,20 +1940,16 @@
 
         function setLanguage(lang) {
             currentLang = lang;
-            localStorage.setItem('ramadanLang', lang); // Persist language
-            const t = TRANSLATIONS[currentLang];
-
-            // Update static text content
-            document.getElementById('mainTitle').textContent = t.mainTitle;
-            document.getElementById('mainSubtitle').textContent = t.mainSubtitle;
-            document.getElementById('recipesTitle').textContent = t.recipesTitle;
-            document.getElementById('recipesSubtitle').textContent = t.recipesSubtitle;
-            document.getElementById('homeTab').textContent = t.home;
-            document.getElementById('recipesTab').textContent = t.recipes;
+            localStorage.setItem('ramadanLang', lang);
             document.documentElement.lang = lang;
             document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
 
-            // Update static UI text
+            const t = TRANSLATIONS[lang];
+            document.getElementById('mainTitle').textContent = t.mainTitle;
+            document.getElementById('mainSubtitle').textContent = t.mainSubtitle;
+            document.getElementById('homeTab').textContent = t.home;
+            document.getElementById('quranTab').textContent = t.fullQuran;
+            document.getElementById('recipesTab').textContent = t.recipes;
             document.getElementById('prevBtn').textContent = t.prevDay;
             document.getElementById('todayBtn').textContent = t.today;
             document.getElementById('nextBtn').textContent = t.nextDay;
@@ -2626,66 +2612,6 @@
             }, msUntil);
 
             window.notificationTimers.push(timerId);
-        }
-
-        // View Toggling
-        function showView(view) {
-            document.getElementById('homeView').style.display = view === 'home' ? 'block' : 'none';
-            document.getElementById('recipesView').style.display = view === 'recipes' ? 'block' : 'none';
-
-            document.getElementById('homeTab').classList.toggle('active', view === 'home');
-            document.getElementById('recipesTab').classList.toggle('active', view === 'recipes');
-
-            if (view === 'recipes') {
-                renderRecipes();
-            }
-            window.scrollTo(0, 0);
-        }
-
-        function renderRecipes() {
-            const container = document.getElementById('recipesContent');
-            const t = TRANSLATIONS[currentLang];
-
-            const recipesData = [
-                {
-                    id: 'breakfast', name: t.breakfast, items: [
-                        { name: currentLang === 'en' ? "Classic Ful Medames" : "فول مدمس كلاسيكي", desc: currentLang === 'en' ? "Slow-cooked fava beans with olive oil, cumin, and lemon." : "فول مدمس مطهو ببطء بزيت الزيتون والكمون والليمون." },
-                        { name: currentLang === 'en' ? "Authentic Shakshuka" : "شكشوكة أصيلة", desc: currentLang === 'en' ? "Poached eggs in a vibrant tomato, pepper, and onion sauce." : "بيض مسلوق في صلصة طماطم وفلفل وبصل غنية." }
-                    ]
-                },
-                {
-                    id: 'lunch', name: t.lunch, items: [
-                        { name: currentLang === 'en' ? "Lamb Mansaf" : "منسف لحم", desc: currentLang === 'en' ? "Traditional lamb in jameed yogurt sauce over saffron rice." : "لحم بلدي بصلصة الجميد والأرز بالزعفران والمكسرات." },
-                        { name: currentLang === 'en' ? "Chicken Maqluba" : "مقلوبة دجاج", desc: currentLang === 'en' ? "Layered upside-down rice with chicken, eggplant, and spices." : "أرز بالدجاج والباذنجان مقلوب برائحة البهارات العربية." }
-                    ]
-                },
-                {
-                    id: 'dinner', name: t.dinner, items: [
-                        { name: currentLang === 'en' ? "Lebanese Lentil Soup" : "شوربة عدس لبنانية", desc: currentLang === 'en' ? "Hearty yellow lentil soup with turmeric and toasted bits." : "شوربة عدس أصفر غنية بالكركم مع قطع الخبز المحمص." },
-                        { name: currentLang === 'en' ? "Fattoush Salad" : "سلطة فتوش", desc: currentLang === 'en' ? "Zesty garden salad with sumac and crispy pita chips." : "سلطة خضراء منعشة بالسماق وقطع الخبز المقرمشة." }
-                    ]
-                },
-                {
-                    id: 'dessert', name: t.dessert, items: [
-                        { name: currentLang === 'en' ? "Cheese Kunafa" : "كنافة بالجبن", desc: currentLang === 'en' ? "Warm cheese pastry soaked in aromatic rose syrup." : "عجينة كنافة ساخنة بالجبن النابلسي والقطر برائحة الورد." },
-                        { name: currentLang === 'en' ? "Pistachio Baklava" : "بقلاوة بالفستق", desc: currentLang === 'en' ? "Flaky phyllo layers stuffed with premium pistachios." : "طبقات فيلو مقرمشة محشوة بأجود أنواع الفستق الحلبي." }
-                    ]
-                }
-            ];
-
-            container.innerHTML = recipesData.map(cat => `
-                <div class="recipe-category">
-                    <h2 class="category-title">🌙 ${cat.name}</h2>
-                    <div class="recipe-grid">
-                        ${cat.items.map(item => `
-                            <div class="recipe-card">
-                                <div class="recipe-name">${item.name}</div>
-                                <div class="recipe-desc">${item.desc}</div>
-                            </div>
-                        `).join('')}
-                    </div>
-                </div>
-            `).join('');
         }
 
         // Generate Sadaqah Plan
