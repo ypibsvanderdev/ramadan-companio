@@ -701,6 +701,35 @@
             margin-bottom: 20px;
         }
 
+        .method-selector {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 0 10px;
+        }
+
+        .method-selector label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .method-selector select {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text);
+            padding: 5px 10px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            flex: 1;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .method-selector select:focus {
+            border-color: var(--gold);
+        }
+
         .prayer-title {
             font-size: 1.2rem;
             color: #4ade80;
@@ -1322,6 +1351,22 @@
                     <span id="detectLocText">Detect Location</span>
                 </button>
             </div>
+
+            <div class="method-selector">
+                <label for="calcMethod" id="methodLabel">Calculation Method:</label>
+                <select id="calcMethod" onchange="detectLocation()">
+                    <option value="2">ISNA (North America)</option>
+                    <option value="3">Muslim World League</option>
+                    <option value="4">Umm Al-Qura (Makkah)</option>
+                    <option value="5">Egyptian Authority</option>
+                    <option value="1">Karachi (Hanafi)</option>
+                    <option value="8">Gulf Region</option>
+                    <option value="12">France (UOIF)</option>
+                    <option value="13">Turkey (Diyanet)</option>
+                    <option value="14">Russia</option>
+                </select>
+            </div>
+
             <div id="locationStatus" class="location-status"></div>
 
             <div class="prayer-list">
@@ -1559,7 +1604,8 @@
                 locSuccess: "Location detected: ",
                 locError: "Error detecting location. Try again.",
                 geoDenied: "Please allow location access.",
-                timesUpdated: "Prayer times updated!"
+                timesUpdated: "Prayer times updated!",
+                method: "Calculation Method:"
             },
             ar: {
                 mainTitle: "🌙 رفيق رمضان",
@@ -1609,7 +1655,8 @@
                 locSuccess: "تم تحديد الموقع: ",
                 locError: "خطأ في تحديد الموقع. حاول ثانية.",
                 geoDenied: "يرجى السماح بالوصول للموقع.",
-                timesUpdated: "تم تحديث مواقيت الصلاة!"
+                timesUpdated: "تم تحديث مواقيت الصلاة!",
+                method: "طريقة الحساب:"
             }
         };
 
@@ -1639,6 +1686,8 @@
             document.getElementById('addNoteBtn').textContent = t.addNote;
             const detectBtn = document.getElementById('detectLocText');
             if (detectBtn) detectBtn.textContent = t.detectLoc;
+            const methodLabel = document.getElementById('methodLabel');
+            if (methodLabel) methodLabel.textContent = t.method;
             document.getElementById('quranTitle').textContent = t.quran;
             document.getElementById('homeTab').textContent = t.home;
             document.getElementById('quranTab').textContent = t.fullQuran;
@@ -1726,8 +1775,11 @@
             const t = TRANSLATIONS[currentLang];
 
             try {
-                // Use Aladhan API with automatic method detection
-                const response = await fetch(`https://api.aladhan.com/v1/timings?latitude=${lat}&longitude=${lon}&method=2`);
+                const method = document.getElementById('calcMethod').value;
+                localStorage.setItem('prayerMethod', method);
+
+                // Use Aladhan API with selected method
+                const response = await fetch(`https://api.aladhan.com/v1/timings?latitude=${lat}&longitude=${lon}&method=${method}`);
                 const data = await response.json();
 
                 if (data.code === 200) {
@@ -2557,6 +2609,14 @@
         createStars();
         setLanguage(currentLang); // Use setLanguage for initial setup
         loadNotificationSettings();
+
+        // Load saved method
+        const savedMethod = localStorage.getItem('prayerMethod');
+        if (savedMethod) {
+            const methodEl = document.getElementById('calcMethod');
+            if (methodEl) methodEl.value = savedMethod;
+        }
+
         loadPrayerTimes();
         updateNextPrayer();
         displayAyah(0);
