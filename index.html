@@ -147,10 +147,142 @@
             text-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
         }
 
+        .lang-switch {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 10;
+            display: flex;
+            gap: 10px;
+        }
+
+        .lang-btn {
+            color: var(--gold);
+            text-decoration: none;
+            font-size: 0.8rem;
+            padding: 6px 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .lang-btn:hover {
+            background: rgba(255, 215, 0, 0.1);
+        }
+
+        .lang-btn.active {
+            background: var(--gold);
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        /* RTL Styles */
+        [dir="rtl"] {
+            font-family: 'Amiri', 'Outfit', sans-serif;
+        }
+
+        [dir="rtl"] .lang-switch {
+            left: auto;
+            right: 20px;
+        }
+
+        [dir="rtl"] .moon {
+            right: auto;
+            left: 20px;
+        }
+
+        [dir="rtl"] .dua-header,
+        [dir="rtl"] .notification-header,
+        [dir="rtl"] .prayer-header,
+        [dir="rtl"] .quran-header,
+        [dir="rtl"] .notes-header {
+            flex-direction: row-reverse;
+        }
+
+        [dir="rtl"] .prayer-name,
+        [dir="rtl"] .note-content {
+            flex-direction: row-reverse;
+            text-align: right;
+        }
+
+        [dir="rtl"] .speak-btn,
+        [dir="rtl"] .fullscreen-btn {
+            margin-left: 0;
+            margin-right: 10px;
+        }
+
+        [dir="rtl"] .arabic-text,
+        [dir="rtl"] .ayah-arabic,
+        [dir="rtl"] .adhkar-arabic {
+            text-align: center;
+        }
+
+        [dir="rtl"] .transliteration,
+        [dir="rtl"] .adhkar-transliteration {
+            border-left: none;
+            border-right: 3px solid var(--accent);
+            text-align: right;
+        }
+
+        [dir="rtl"] .english-text,
+        [dir="rtl"] .ayah-translation,
+        [dir="rtl"] .adhkar-meaning,
+        [dir="rtl"] .subtitle {
+            text-align: right;
+        }
+
+        [dir="rtl"] .nav-buttons {
+            flex-direction: row-reverse;
+        }
+
         .subtitle {
             color: var(--text-muted);
             font-size: 1rem;
             font-weight: 300;
+        }
+
+        /* Main Navigation Tab */
+        .main-nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .nav-tab {
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            backdrop-filter: blur(5px);
+        }
+
+        .nav-tab:hover {
+            background: rgba(255, 215, 0, 0.1);
+            border-color: var(--gold);
+            transform: translateY(-2px);
+        }
+
+        .nav-tab.active {
+            background: linear-gradient(135deg, var(--gold) 0%, #ffb700 100%);
+            color: var(--primary);
+            border-color: var(--gold);
+        }
+
+        [dir="rtl"] .nav-tab {
+            flex-direction: row-reverse;
         }
 
         /* Day Counter Card */
@@ -974,6 +1106,143 @@
                 transform: translateX(0);
             }
         }
+
+        /* Full Screen Overlay */
+        .fullscreen-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 10, 25, 0.98);
+            z-index: 2000;
+            padding: 40px 20px;
+            overflow-y: auto;
+            backdrop-filter: blur(20px);
+            justify-content: center;
+            align-items: center;
+            animation: fadeInOverlay 0.3s ease-out;
+        }
+
+        @keyframes fadeInOverlay {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .fullscreen-overlay.active {
+            display: flex;
+        }
+
+        .fullscreen-content {
+            width: 100%;
+            max-width: 900px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 40px;
+            padding: 60px 40px;
+            position: relative;
+            box-shadow: 0 0 100px rgba(255, 215, 0, 0.1);
+            text-align: center;
+        }
+
+        .close-fullscreen {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 30px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .close-fullscreen:hover {
+            background: var(--accent);
+            transform: rotate(90deg);
+        }
+
+        .fullscreen-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 12px;
+            padding: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            transition: all 0.3s ease;
+            margin-left: 10px;
+        }
+
+        .fullscreen-btn:hover {
+            background: rgba(255, 215, 0, 0.2);
+            transform: scale(1.1);
+        }
+
+        .fullscreen-btn svg {
+            width: 20px;
+            height: 20px;
+            stroke: currentColor;
+        }
+
+        /* Large text for fullscreen */
+        .fullscreen-content .arabic-text,
+        .fullscreen-content .ayah-arabic,
+        .fullscreen-content .adhkar-arabic {
+            font-size: clamp(2rem, 5vw, 4rem);
+            line-height: 1.8;
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--gold-light);
+            font-family: 'Amiri', serif;
+        }
+
+        .fullscreen-content .transliteration,
+        .fullscreen-content .adhkar-transliteration,
+        .fullscreen-content .ayah-translation {
+            font-size: clamp(1.1rem, 3vw, 1.8rem);
+            text-align: center;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+
+        .fullscreen-content .english-text,
+        .fullscreen-content .adhkar-meaning {
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
+            text-align: center;
+            color: var(--text-muted);
+        }
+
+        .fullscreen-content .dua-title,
+        .fullscreen-content .quran-title,
+        .fullscreen-content .adhkar-title {
+            font-size: 2rem;
+            color: var(--gold);
+            margin-bottom: 40px;
+            display: block;
+        }
+
+        @media (max-width: 600px) {
+            .fullscreen-content {
+                padding: 40px 20px;
+                border-radius: 24px;
+            }
+        }
     </style>
 
 </head>
@@ -982,11 +1251,26 @@
     <div class="stars" id="stars"></div>
     <div class="moon"></div>
 
+    <div class="lang-switch">
+        <button onclick="setLanguage('en')" id="enBtn" class="lang-btn active">English</button>
+        <button onclick="setLanguage('ar')" id="arBtn" class="lang-btn">العربية</button>
+    </div>
+
+    <div id="fullscreenOverlay" class="fullscreen-overlay" onclick="handleOverlayClick(event)">
+        <button class="close-fullscreen" onclick="closeFullScreen()">&times;</button>
+        <div id="fullscreenContent" class="fullscreen-content"></div>
+    </div>
+
     <div class="container">
         <header>
-            <h1>🌙 Ramadan Companion</h1>
-            <p class="subtitle">Your daily spiritual guide</p>
+            <h1 id="mainTitle">🌙 Ramadan Companion</h1>
+            <p class="subtitle" id="mainSubtitle">Your daily spiritual guide</p>
         </header>
+
+        <nav class="main-nav">
+            <a href="index.html" class="nav-tab active" id="homeTab">🏠 Home</a>
+            <a href="quran.html" class="nav-tab" id="quranTab">📖 Full Quran</a>
+        </nav>
 
         <div class="day-card" id="dayCard">
             <!-- Filled by JavaScript -->
@@ -1009,7 +1293,7 @@
         <!-- Notification Settings -->
         <div class="notification-card">
             <div class="notification-header">
-                <span class="notification-title">🔔 Daily Reminders</span>
+                <span class="notification-title" id="notifTitle">🔔 Daily Reminders</span>
                 <label class="toggle-switch">
                     <input type="checkbox" id="notificationToggle" onchange="toggleNotifications()">
                     <span class="toggle-slider"></span>
@@ -1017,19 +1301,28 @@
             </div>
             <div class="notification-settings" id="notificationSettings">
                 <div class="time-picker-group">
-                    <span class="time-picker-label">Remind me at:</span>
+                    <span class="time-picker-label" id="remindAtLabel">Remind me at:</span>
                     <input type="time" class="time-picker" id="reminderTime" value="05:00">
-                    <button class="save-time-btn" onclick="saveReminderTime()">Save</button>
+                    <button class="save-time-btn" onclick="saveReminderTime()" id="saveNotifBtn">Save</button>
                 </div>
                 <p class="notification-status" id="notificationStatus"></p>
             </div>
         </div>
 
-        <!-- Prayer Times -->
         <div class="prayer-card">
             <div class="prayer-header">
-                <span class="prayer-title">🕌 Prayer Times</span>
+                <span class="prayer-title" id="prayerTimesTitle">🕌 Prayer Times</span>
+                <button class="detect-location-btn" onclick="detectLocation()" id="detectLocBtn"
+                    title="Detect Location">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <span id="detectLocText">Detect Location</span>
+                </button>
             </div>
+            <div id="locationStatus" class="location-status"></div>
 
             <div class="prayer-list">
                 <div class="prayer-item" id="fajrItem">
@@ -1080,18 +1373,19 @@
 
             <!-- Next Prayer Banner -->
             <div class="next-prayer-banner" id="nextPrayerBanner">
-                <div class="next-prayer-label">Next Prayer</div>
+                <div class="next-prayer-label" id="nextPrayerLabel">Next Prayer</div>
                 <div class="next-prayer-name" id="nextPrayerName">Fajr</div>
                 <div class="next-prayer-countdown" id="nextPrayerCountdown">in 2h 30m</div>
             </div>
 
-            <button class="save-prayers-btn" onclick="savePrayerTimes()">💾 Save Prayer Times</button>
+            <button class="save-prayers-btn" onclick="savePrayerTimes()" id="savePrayersBtn">💾 Save Prayer
+                Times</button>
         </div>
 
         <!-- Notes & Reminders -->
         <div class="notes-card">
             <div class="notes-header">
-                <span class="notes-title">📝 Personal Notes & Reminders</span>
+                <span class="notes-title" id="notesTitle">📝 Personal Notes & Reminders</span>
             </div>
 
             <div class="note-input-group">
@@ -1099,7 +1393,7 @@
                     placeholder="Enter your note (e.g., Read Surah Kahf)">
                 <div class="note-time-group">
                     <input type="time" id="noteTimeInput" class="note-time-input">
-                    <button class="add-note-btn" onclick="addNote()">Add Note</button>
+                    <button class="add-note-btn" onclick="addNote()" id="addNoteBtn">Add Note</button>
                 </div>
             </div>
 
@@ -1112,7 +1406,15 @@
         <!-- Daily Quran Ayahs -->
         <div class="quran-card">
             <div class="quran-header">
-                <span class="quran-title">📖 Daily Quran Ayahs</span>
+                <span class="quran-title" id="quranTitle">📖 Daily Quran Ayahs</span>
+                <button class="fullscreen-btn" onclick="openFullScreen('ayah')" title="Full Screen">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path
+                            d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3">
+                        </path>
+                    </svg>
+                </button>
             </div>
             <div class="ayah-container" id="ayahContainer">
                 <div class="ayah-arabic" id="ayahArabic"></div>
@@ -1120,18 +1422,27 @@
                 <div class="ayah-reference" id="ayahReference"></div>
             </div>
             <div class="ayah-nav">
-                <button class="ayah-nav-btn" onclick="prevAyah()">← Previous</button>
-                <button class="ayah-nav-btn" onclick="nextAyah()">Next →</button>
+                <button class="ayah-nav-btn" onclick="prevAyah()" id="prevAyahBtn">← Previous</button>
+                <button class="ayah-nav-btn" onclick="nextAyah()" id="nextAyahBtn">Next →</button>
             </div>
         </div>
 
         <!-- Morning/Evening/Afternoon Adhkar -->
         <div class="adhkar-section">
             <!-- Morning Dua -->
-            <div class="adhkar-card morning">
+            <div class="adhkar-card morning" id="morningCard">
                 <div class="adhkar-header">
                     <span class="adhkar-icon">🌅</span>
                     <span class="adhkar-title morning">Morning Dua (Adhkar As-Sabah)</span>
+                    <button class="fullscreen-btn" onclick="openFullScreen('adhkar', 'morningCard')" title="Full Screen"
+                        style="margin-left: auto;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3">
+                            </path>
+                        </svg>
+                    </button>
                 </div>
                 <div class="adhkar-arabic">أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلَّهِ، وَالْحَمْدُ لِلَّهِ، لَا إِلَٰهَ
                     إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ</div>
@@ -1142,10 +1453,19 @@
             </div>
 
             <!-- Afternoon Dua -->
-            <div class="adhkar-card afternoon">
+            <div class="adhkar-card afternoon" id="afternoonCard">
                 <div class="adhkar-header">
                     <span class="adhkar-icon">☀️</span>
                     <span class="adhkar-title afternoon">Afternoon Dua</span>
+                    <button class="fullscreen-btn" onclick="openFullScreen('adhkar', 'afternoonCard')"
+                        title="Full Screen" style="margin-left: auto;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3">
+                            </path>
+                        </svg>
+                    </button>
                 </div>
                 <div class="adhkar-arabic">اللَّهُمَّ إِنِّي أَسْأَلُكَ عِلْمًا نَافِعًا، وَرِزْقًا طَيِّبًا، وَعَمَلًا
                     مُتَقَبَّلًا</div>
@@ -1156,10 +1476,19 @@
             </div>
 
             <!-- Evening Dua -->
-            <div class="adhkar-card evening">
+            <div class="adhkar-card evening" id="eveningCard">
                 <div class="adhkar-header">
                     <span class="adhkar-icon">🌙</span>
                     <span class="adhkar-title evening">Evening Dua (Adhkar Al-Masa)</span>
+                    <button class="fullscreen-btn" onclick="openFullScreen('adhkar', 'eveningCard')" title="Full Screen"
+                        style="margin-left: auto;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3">
+                            </path>
+                        </svg>
+                    </button>
                 </div>
                 <div class="adhkar-arabic">أَمْسَيْنَا وَأَمْسَى الْمُلْكُ لِلَّهِ، وَالْحَمْدُ لِلَّهِ، لَا إِلَٰهَ
                     إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ</div>
@@ -1171,8 +1500,8 @@
         </div>
 
         <footer>
-            <p>Ramadan Mubarak! 🤲</p>
-            <p style="margin-top: 8px; font-size: 0.8rem;">Made with ❤️ for you</p>
+            <p id="footerMubarak">Ramadan Mubarak! 🤲</p>
+            <p style="margin-top: 8px; font-size: 0.8rem;" id="footerMadeWith">Made with ❤️ for you</p>
         </footer>
     </div>
 
@@ -1180,6 +1509,154 @@
         // Ramadan 2026 starts approximately February 17, 2026
         const RAMADAN_START_2026 = new Date('2026-02-17');
         const RAMADAN_START_2027 = new Date('2027-02-06');
+
+        const TRANSLATIONS = {
+            en: {
+                mainTitle: "🌙 Ramadan Companion",
+                mainSubtitle: "Your daily spiritual guide",
+                dayLabel: "Day of Ramadan",
+                dayOf30: "of 30 days",
+                notRamadan: "Ramadan begins in",
+                browseDuas: "Browse the duas below ⬇️",
+                days: "days",
+                progress: "Ramadan Progress",
+                duaForDay: "Dua for Day",
+                prevDay: "← Previous Day",
+                today: "📅 Today",
+                nextDay: "Next Day →",
+                notifTitle: "🔔 Daily Reminders",
+                remindAt: "Remind me at:",
+                save: "Save",
+                prayerTimes: "🕌 Prayer Times",
+                nextPrayer: "Next Prayer",
+                savePrayers: "💾 Save Prayer Times",
+                notes: "📝 Personal Notes & Reminders",
+                notePlaceholder: "Enter your note (e.g., Read Surah Kahf)",
+                addNote: "Add Note",
+                quran: "📖 Daily Quran Ayahs",
+                fullQuran: "📖 Full Quran",
+                home: "🏠 Home",
+                prev: "← Previous",
+                next: "Next →",
+                footerMubarak: "Ramadan Mubarak! 🤲",
+                footerMadeWith: "Made with ❤️ for you",
+                noNotes: "No notes yet. Add one above! ✨",
+                in: "in",
+                hours: "h",
+                minutes: "m",
+                minutesFull: "minutes",
+                fajr: "Fajr",
+                dhuhr: "Dhuhr",
+                asr: "Asr",
+                maghrib: "Maghrib",
+                isha: "Isha",
+                notifEnabled: "✅ Notifications enabled! Set your reminder time.",
+                notifUnsupported: "❌ Your browser doesn't support notifications.",
+                notifDenied: "❌ Please allow notifications in your browser settings.",
+                reminderSet: "✅ Reminder set for",
+                detectLoc: "Detect Location",
+                detecting: "Detecting...",
+                locSuccess: "Location detected: ",
+                locError: "Error detecting location. Try again.",
+                geoDenied: "Please allow location access.",
+                timesUpdated: "Prayer times updated!"
+            },
+            ar: {
+                mainTitle: "🌙 رفيق رمضان",
+                mainSubtitle: "دليلك الروحي اليومي",
+                dayLabel: "يوم رمضان",
+                dayOf30: "من ٣٠ يوماً",
+                notRamadan: "يبدأ رمضان خلال",
+                browseDuas: "تصفح الأدعية أدناه ⬇️",
+                days: "أيام",
+                progress: "تقدم رمضان",
+                duaForDay: "دعاء اليوم",
+                prevDay: "اليوم السابق →",
+                today: "📅 اليوم",
+                nextDay: "← اليوم التالي",
+                notifTitle: "🔔 تذكيرات يومية",
+                remindAt: "ذكرني في الساعة:",
+                save: "حفظ",
+                prayerTimes: "🕌 مواقيت الصلاة",
+                nextPrayer: "الصلاة القادمة",
+                savePrayers: "💾 حفظ مواقيت الصلاة",
+                notes: "📝 ملاحظات وتذكيرات شخصية",
+                notePlaceholder: "أدخل ملاحظتك (مثلاً: قراءة سورة الكهف)",
+                addNote: "إضافة ملاحظة",
+                quran: "📖 آيات قرآنية يومية",
+                fullQuran: "📖 المصحف الكامل",
+                home: "🏠 الرئيسية",
+                prev: "← السابق",
+                next: "التالي →",
+                footerMubarak: "رمضان مبارك! 🤲",
+                footerMadeWith: "صنع بقلب ❤️ من أجلك",
+                noNotes: "لا توجد ملاحظات بعد. أضف واحدة أعلاه! ✨",
+                in: "خلال",
+                hours: "س",
+                minutes: "د",
+                minutesFull: "دقيقة",
+                fajr: "الفجر",
+                dhuhr: "الظهر",
+                asr: "العصر",
+                maghrib: "المغرب",
+                isha: "العشاء",
+                notifEnabled: "✅ تم تفعيل التنبيهات! حدد وقت التذكير.",
+                notifUnsupported: "❌ متصفحك لا يدعم التنبيهات.",
+                notifDenied: "❌ يرجى السماح بالتنبيهات في إعدادات متصفحك.",
+                reminderSet: "✅ تم ضبط التذكير في الساعة",
+                detectLoc: "تحديد الموقع",
+                detecting: "جاري التحديد...",
+                locSuccess: "تم تحديد الموقع: ",
+                locError: "خطأ في تحديد الموقع. حاول ثانية.",
+                geoDenied: "يرجى السماح بالوصول للموقع.",
+                timesUpdated: "تم تحديث مواقيت الصلاة!"
+            }
+        };
+
+        let currentLang = localStorage.getItem('ramadanLang') || 'en';
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('ramadanLang', lang);
+            document.documentElement.lang = lang;
+            document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+
+            // Update static UI text
+            const t = TRANSLATIONS[lang];
+            document.getElementById('mainTitle').textContent = t.mainTitle;
+            document.getElementById('mainSubtitle').textContent = t.mainSubtitle;
+            document.getElementById('prevBtn').textContent = t.prevDay;
+            document.getElementById('todayBtn').textContent = t.today;
+            document.getElementById('nextBtn').textContent = t.nextDay;
+            document.getElementById('notifTitle').textContent = t.notifTitle;
+            document.getElementById('remindAtLabel').textContent = t.remindAt;
+            document.getElementById('saveNotifBtn').textContent = t.save;
+            document.getElementById('prayerTimesTitle').textContent = t.prayerTimes;
+            document.getElementById('nextPrayerLabel').textContent = t.nextPrayer;
+            document.getElementById('savePrayersBtn').textContent = t.savePrayers;
+            document.getElementById('notesTitle').textContent = t.notes;
+            document.getElementById('noteTextInput').placeholder = t.notePlaceholder;
+            document.getElementById('addNoteBtn').textContent = t.addNote;
+            const detectBtn = document.getElementById('detectLocText');
+            if (detectBtn) detectBtn.textContent = t.detectLoc;
+            document.getElementById('quranTitle').textContent = t.quran;
+            document.getElementById('homeTab').textContent = t.home;
+            document.getElementById('quranTab').textContent = t.fullQuran;
+            document.getElementById('prevAyahBtn').textContent = t.prev;
+            document.getElementById('nextAyahBtn').textContent = t.next;
+            document.getElementById('footerMubarak').textContent = t.footerMubarak;
+            document.getElementById('footerMadeWith').textContent = t.footerMadeWith;
+
+            // Update active state on buttons
+            document.getElementById('enBtn').classList.toggle('active', lang === 'en');
+            document.getElementById('arBtn').classList.toggle('active', lang === 'ar');
+
+            // Re-render dynamic elements
+            updateAll();
+            displayAyah(currentAyahIndex);
+            updateNextPrayer();
+            renderNotes();
+        }
 
         // 30 Daily Duas
         const DAILY_DUAS = [
@@ -1217,6 +1694,73 @@
 
         let currentViewDay = null;
         let actualRamadanDay = null;
+
+        // Location & Prayer API functions
+        async function detectLocation() {
+            const status = document.getElementById('locationStatus');
+            const t = TRANSLATIONS[currentLang];
+
+            if (!navigator.geolocation) {
+                status.textContent = t.locError;
+                status.className = 'location-status error';
+                return;
+            }
+
+            status.textContent = t.detecting;
+            status.className = 'location-status';
+
+            navigator.geolocation.getCurrentPosition(
+                async (position) => {
+                    const { latitude, longitude } = position.coords;
+                    await fetchPrayerTimes(latitude, longitude);
+                },
+                (error) => {
+                    status.textContent = t.geoDenied;
+                    status.className = 'location-status error';
+                }
+            );
+        }
+
+        async function fetchPrayerTimes(lat, lon) {
+            const status = document.getElementById('locationStatus');
+            const t = TRANSLATIONS[currentLang];
+
+            try {
+                // Use Aladhan API with automatic method detection
+                const response = await fetch(`https://api.aladhan.com/v1/timings?latitude=${lat}&longitude=${lon}&method=2`);
+                const data = await response.json();
+
+                if (data.code === 200) {
+                    const timings = data.data.timings;
+                    const meta = data.data.meta;
+
+                    // Update individual inputs
+                    document.getElementById('fajrTime').value = timings.Fajr;
+                    document.getElementById('dhuhrTime').value = timings.Dhuhr;
+                    document.getElementById('asrTime').value = timings.Asr;
+                    document.getElementById('maghribTime').value = timings.Maghrib;
+                    document.getElementById('ishaTime').value = timings.Isha;
+
+                    // Save and update
+                    savePrayerTimes();
+
+                    const location = meta.timezone.split('/').pop().replace('_', ' ');
+                    status.textContent = `✅ ${t.locSuccess}${location}. ${t.timesUpdated}`;
+                    status.className = 'location-status success';
+
+                    // Auto-hide status after 5 seconds
+                    setTimeout(() => {
+                        status.textContent = '';
+                    }, 5000);
+                } else {
+                    status.textContent = t.locError;
+                    status.className = 'location-status error';
+                }
+            } catch (error) {
+                status.textContent = t.locError;
+                status.className = 'location-status error';
+            }
+        }
 
         // Create animated stars
         function createStars() {
@@ -1278,21 +1822,22 @@
         function updateDayCard() {
             const dayCard = document.getElementById('dayCard');
             actualRamadanDay = getRamadanDay();
+            const t = TRANSLATIONS[currentLang];
 
             if (actualRamadanDay) {
                 if (currentViewDay === null) currentViewDay = actualRamadanDay;
                 dayCard.innerHTML = `
-                    <div class="day-label">Day of Ramadan</div>
+                    <div class="day-label">${t.dayLabel}</div>
                     <div class="day-number">${currentViewDay}</div>
-                    <div class="day-of-30">of 30 days</div>
+                    <div class="day-of-30">${t.dayOf30}</div>
                 `;
             } else {
                 currentViewDay = 1; // Default to day 1 for browsing
                 const daysUntil = getDaysUntilRamadan();
                 dayCard.innerHTML = `
-                    <div class="not-ramadan">Ramadan begins in</div>
-                    <div class="countdown">${daysUntil} days</div>
-                    <div class="day-of-30">Browse the duas below ⬇️</div>
+                    <div class="not-ramadan">${t.notRamadan}</div>
+                    <div class="countdown">${daysUntil} ${t.days}</div>
+                    <div class="day-of-30">${t.browseDuas}</div>
                 `;
             }
         }
@@ -1301,11 +1846,12 @@
         function updateProgress() {
             const container = document.getElementById('progressContainer');
             const progress = (currentViewDay / 30) * 100;
+            const t = TRANSLATIONS[currentLang];
 
             container.innerHTML = `
                 <div class="progress-label">
-                    <span>Ramadan Progress</span>
-                    <span>${currentViewDay}/30 days</span>
+                    <span>${t.progress}</span>
+                    <span>${currentViewDay}/30 ${t.days}</span>
                 </div>
                 <div class="progress-bar">
                     <div class="progress-fill" style="width: ${progress}%"></div>
@@ -1317,18 +1863,78 @@
         function updateDuaCard() {
             const duaCard = document.getElementById('duaCard');
             const dua = DAILY_DUAS[currentViewDay - 1];
+            const t = TRANSLATIONS[currentLang];
 
             duaCard.innerHTML = `
                 <div class="dua-header">
-                    <span class="dua-title">✨ Dua for Day ${currentViewDay}</span>
-                    <button class="speak-btn" onclick="speakDua()" id="speakBtn" title="Read Aloud">
-                        <svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
-                    </button>
+                    <span class="dua-title">✨ ${t.duaForDay} ${currentViewDay}</span>
+                    <div style="display: flex; gap: 10px;">
+                        <button class="speak-btn" onclick="speakDua()" id="speakBtn" title="Read Aloud">
+                            <svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+                        </button>
+                        <button class="fullscreen-btn" onclick="openFullScreen('dua')" title="Full Screen">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
+                        </button>
+                    </div>
                 </div>
                 <div class="arabic-text">${dua.arabic}</div>
-                <div class="transliteration">${dua.transliteration}</div>
-                <div class="english-text">${dua.english}</div>
+                <div class="transliteration" style="${currentLang === 'ar' ? 'display:none' : ''}">${dua.transliteration}</div>
+                <div class="english-text" style="${currentLang === 'ar' ? 'display:none' : ''}">${dua.english}</div>
             `;
+        }
+
+        // Full Screen Functions
+        function openFullScreen(type, elementId) {
+            const overlay = document.getElementById('fullscreenOverlay');
+            const content = document.getElementById('fullscreenContent');
+            let innerHTML = '';
+
+            if (type === 'dua') {
+                const dua = DAILY_DUAS[currentViewDay - 1];
+                const t = TRANSLATIONS[currentLang];
+                innerHTML = `
+                    <span class="dua-title">✨ ${t.duaForDay} ${currentViewDay}</span>
+                    <div class="arabic-text">${dua.arabic}</div>
+                    <div class="transliteration" style="${currentLang === 'ar' ? 'display:none' : ''}">${dua.transliteration}</div>
+                    <div class="english-text" style="${currentLang === 'ar' ? 'display:none' : ''}">${dua.english}</div>
+                `;
+            } else if (type === 'ayah') {
+                const surah = getTodaysSurah();
+                const ayah = surah.ayahs[currentAyahIndex];
+                const t = TRANSLATIONS[currentLang];
+                innerHTML = `
+                    <span class="quran-title">📖 ${t.quran}</span>
+                    <div class="ayah-arabic">${ayah.arabic}</div>
+                    <div class="ayah-translation" style="${currentLang === 'ar' ? 'display:none' : ''}">${ayah.translation}</div>
+                    <div class="ayah-reference">📍 ${surah.name} ${ayah.verse}</div>
+                `;
+            } else if (type === 'adhkar') {
+                const el = document.getElementById(elementId);
+                innerHTML = el.innerHTML;
+                // Remove the fullscreen button from the cloned content
+                innerHTML = innerHTML.replace(/<button.*fullscreen-btn.*<\/button>/g, '');
+
+                if (currentLang === 'ar') {
+                    // Hide English parts in Arabic mode
+                    innerHTML = innerHTML.replace(/class="adhkar-transliteration"/g, 'class="adhkar-transliteration" style="display:none"');
+                    innerHTML = innerHTML.replace(/class="adhkar-meaning"/g, 'class="adhkar-meaning" style="display:none"');
+                }
+            }
+
+            content.innerHTML = innerHTML;
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeFullScreen() {
+            document.getElementById('fullscreenOverlay').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function handleOverlayClick(e) {
+            if (e.target.id === 'fullscreenOverlay') {
+                closeFullScreen();
+            }
         }
 
         // Get the best Arabic voice available
@@ -1487,6 +2093,7 @@
             const settings = document.getElementById('notificationSettings');
             const status = document.getElementById('notificationStatus');
 
+            const t = TRANSLATIONS[currentLang];
             if (toggle.checked) {
                 // Request permission
                 const permission = await requestNotificationPermission();
@@ -1494,21 +2101,21 @@
                 if (permission === 'granted') {
                     settings.classList.add('active');
                     localStorage.setItem('ramadanNotifications', 'enabled');
-                    status.textContent = '✅ Notifications enabled! Set your reminder time.';
+                    status.textContent = t.notifEnabled;
                     status.className = 'notification-status success';
 
                     // Show a test notification
-                    showNotification('Ramadan Companion 🌙', 'Notifications are now enabled! You\'ll receive daily dua reminders.');
+                    showNotification(t.mainTitle, t.notifEnabled);
 
                     // Set up the reminder
                     setupDailyReminder();
                 } else if (permission === 'unsupported') {
                     toggle.checked = false;
-                    status.textContent = '❌ Your browser doesn\'t support notifications.';
+                    status.textContent = t.notifUnsupported;
                     status.className = 'notification-status';
                 } else {
                     toggle.checked = false;
-                    status.textContent = '❌ Please allow notifications in your browser settings.';
+                    status.textContent = t.notifDenied;
                     status.className = 'notification-status';
                 }
             } else {
@@ -1545,7 +2152,8 @@
             localStorage.setItem('ramadanReminderTime', time);
 
             const status = document.getElementById('notificationStatus');
-            status.textContent = `✅ Reminder set for ${formatTime(time)} daily!`;
+            const t = TRANSLATIONS[currentLang];
+            status.textContent = `✅ ${t.reminderSet} ${formatTime(time)}!`;
             status.className = 'notification-status success';
 
             setupDailyReminder();
@@ -1584,10 +2192,11 @@
                 // Get today's dua
                 const ramadanDay = getRamadanDay() || 1;
                 const dua = DAILY_DUAS[ramadanDay - 1];
+                const t = TRANSLATIONS[currentLang];
 
                 showNotification(
-                    `🌙 Day ${ramadanDay} of Ramadan`,
-                    `Today's Dua: ${dua.english}`
+                    `🌙 ${t.dayLabel} ${ramadanDay}`,
+                    `${t.duaForDay}: ${dua.arabic}`
                 );
 
                 // Set up next day's reminder
@@ -1612,7 +2221,8 @@
             if (enabled && Notification.permission === 'granted') {
                 toggle.checked = true;
                 settings.classList.add('active');
-                status.textContent = `✅ Reminder set for ${formatTime(savedTime)} daily`;
+                const t = TRANSLATIONS[currentLang];
+                status.textContent = `✅ ${t.reminderSet} ${formatTime(savedTime)}`;
                 status.className = 'notification-status success';
                 setupDailyReminder();
             }
@@ -1644,7 +2254,7 @@
             // Show brief confirmation
             const btn = document.querySelector('.save-prayers-btn');
             const originalText = btn.textContent;
-            btn.textContent = '✅ Saved!';
+            btn.textContent = currentLang === 'ar' ? '✅ تم الحفظ!' : '✅ Saved!';
             setTimeout(() => {
                 btn.textContent = originalText;
             }, 1500);
@@ -1711,15 +2321,16 @@
                 const nameEl = document.getElementById('nextPrayerName');
                 const countdownEl = document.getElementById('nextPrayerCountdown');
 
-                nameEl.textContent = PRAYER_NAMES[prayer];
+                const t = TRANSLATIONS[currentLang];
+                nameEl.textContent = t[prayer];
 
                 const hours = Math.floor(minutesUntil / 60);
                 const mins = minutesUntil % 60;
 
                 if (hours > 0) {
-                    countdownEl.textContent = `in ${hours}h ${mins}m`;
+                    countdownEl.textContent = `${t.in} ${hours}${t.hours} ${mins}${t.minutes}`;
                 } else {
-                    countdownEl.textContent = `in ${mins} minutes`;
+                    countdownEl.textContent = `${t.in} ${mins} ${t.minutesFull}`;
                 }
 
                 // Highlight the next prayer item
@@ -1796,6 +2407,7 @@
             const ayah = surah.ayahs[index];
             document.getElementById('ayahArabic').textContent = ayah.arabic;
             document.getElementById('ayahTranslation').textContent = ayah.translation;
+            document.getElementById('ayahTranslation').style.display = currentLang === 'ar' ? 'none' : 'block';
             document.getElementById('ayahReference').textContent = `📍 ${surah.name} ${ayah.verse}`;
         }
 
@@ -1828,7 +2440,8 @@
                 PRAYERS.forEach(prayer => {
                     const input = document.getElementById(`${prayer}Time`);
                     if (input && input.value === currentTime) {
-                        showNotification(`🕌 ${PRAYER_NAMES[prayer]} Time!`, `It's time for ${PRAYER_NAMES[prayer]} prayer. May Allah accept your prayer.`);
+                        const t = TRANSLATIONS[currentLang];
+                        showNotification(`🕌 ${t[prayer]} Time!`, `${t.in} ${t[prayer]}...`);
                     }
                 });
             }, 60000);
@@ -1878,7 +2491,8 @@
             list.innerHTML = '';
 
             if (personalNotes.length === 0) {
-                list.innerHTML = '<p style="text-align: center; color: var(--text-muted); font-size: 0.9rem;">No notes yet. Add one above! ✨</p>';
+                const t = TRANSLATIONS[currentLang];
+                list.innerHTML = `<p style="text-align: center; color: var(--text-muted); font-size: 0.9rem;">${t.noNotes}</p>`;
                 return;
             }
 
@@ -1941,7 +2555,7 @@
 
         // Initialize
         createStars();
-        updateAll();
+        setLanguage(currentLang); // Use setLanguage for initial setup
         loadNotificationSettings();
         loadPrayerTimes();
         updateNextPrayer();
