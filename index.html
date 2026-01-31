@@ -759,6 +759,14 @@
             border-color: var(--gold);
         }
 
+        .asr-note {
+            font-size: 0.75rem;
+            color: var(--accent);
+            padding: 0 10px;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
         .prayer-title {
             font-size: 1.2rem;
             color: #4ade80;
@@ -1389,6 +1397,8 @@
                     <option value="4">Umm Al-Qura (Makkah)</option>
                     <option value="5">Egyptian Authority</option>
                     <option value="1">University of Karachi</option>
+                    <option value="0">Shia Ithna-Ashari</option>
+                    <option value="7">Tehran (Geophysics)</option>
                     <option value="8">Gulf Region</option>
                     <option value="9">Kuwait</option>
                     <option value="10">Qatar</option>
@@ -1411,8 +1421,12 @@
                 <label for="asrMadhab" id="madhabLabel">Asr Method (Madhab):</label>
                 <select id="asrMadhab" onchange="detectLocation()">
                     <option value="0">Standard (Shafi'i, Maliki, Hanbali)</option>
-                    <option value="1">Hanafi (Later Asr)</option>
+                    <option value="1">Hanafi (Recommended for US/Canada)</option>
                 </select>
+            </div>
+
+            <div class="asr-note" id="asrNote">
+                💡 Tip: If your Asr time seems too early (like 2:44 PM), try switching to the "Hanafi" method.
             </div>
 
             <div id="locationStatus" class="location-status"></div>
@@ -1654,7 +1668,8 @@
                 geoDenied: "Please allow location access.",
                 timesUpdated: "Prayer times updated!",
                 method: "Calculation Method:",
-                madhab: "Asr Method (Madhab):"
+                madhab: "Asr Method (Madhab):",
+                asrTip: "💡 Tip: If your Asr time seems too early (e.g. 2:44 PM), switch to 'Hanafi'."
             },
             ar: {
                 mainTitle: "🌙 رفيق رمضان",
@@ -1706,7 +1721,8 @@
                 geoDenied: "يرجى السماح بالوصول للموقع.",
                 timesUpdated: "تم تحديث مواقيت الصلاة!",
                 method: "طريقة الحساب:",
-                madhab: "مذهب صلاة العصر:"
+                madhab: "مذهب صلاة العصر:",
+                asrTip: "💡 نصيحة: إذا كان وقت العصر مبكراً جداً، جرب اختيار المذهب 'الحنفي'."
             }
         };
 
@@ -1740,6 +1756,8 @@
             if (methodLabel) methodLabel.textContent = t.method;
             const madhabLabel = document.getElementById('madhabLabel');
             if (madhabLabel) madhabLabel.textContent = t.madhab;
+            const asrNote = document.getElementById('asrNote');
+            if (asrNote) asrNote.textContent = t.asrTip;
             document.getElementById('quranTitle').textContent = t.quran;
             document.getElementById('homeTab').textContent = t.home;
             document.getElementById('quranTab').textContent = t.fullQuran;
