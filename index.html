@@ -833,7 +833,149 @@
             color: var(--text-muted);
             line-height: 1.5;
         }
+
+        /* Notes & Reminders Card */
+        .notes-card {
+            background: linear-gradient(135deg, rgba(233, 69, 96, 0.15) 0%, rgba(26, 26, 46, 0.1) 100%);
+            border: 1px solid rgba(233, 69, 96, 0.3);
+            border-radius: 24px;
+            padding: 25px;
+            margin-bottom: 25px;
+            backdrop-filter: blur(10px);
+            animation: slideUp 1.1s ease-out;
+        }
+
+        .notes-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .notes-title {
+            font-size: 1.2rem;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .note-input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+        }
+
+        .note-input {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 12px 15px;
+            color: white;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+        }
+
+        .note-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .note-time-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .note-time-input {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 10px;
+            color: white;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .add-note-btn {
+            background: linear-gradient(135deg, var(--accent) 0%, #ff6b6b 100%);
+            border: none;
+            border-radius: 12px;
+            padding: 10px 20px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .add-note-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(233, 69, 96, 0.4);
+        }
+
+        .notes-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .note-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            border-left: 4px solid var(--accent);
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        .note-content {
+            flex: 1;
+        }
+
+        .note-text {
+            font-size: 1rem;
+            margin-bottom: 4px;
+        }
+
+        .note-time-tag {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .delete-note-btn {
+            background: none;
+            border: none;
+            color: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            padding: 8px;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+        }
+
+        .delete-note-btn:hover {
+            color: var(--accent);
+            transform: scale(1.1);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateX(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
     </style>
+
 </head>
 
 <body>
@@ -945,6 +1087,27 @@
 
             <button class="save-prayers-btn" onclick="savePrayerTimes()">💾 Save Prayer Times</button>
         </div>
+
+        <!-- Notes & Reminders -->
+        <div class="notes-card">
+            <div class="notes-header">
+                <span class="notes-title">📝 Personal Notes & Reminders</span>
+            </div>
+
+            <div class="note-input-group">
+                <input type="text" id="noteTextInput" class="note-input"
+                    placeholder="Enter your note (e.g., Read Surah Kahf)">
+                <div class="note-time-group">
+                    <input type="time" id="noteTimeInput" class="note-time-input">
+                    <button class="add-note-btn" onclick="addNote()">Add Note</button>
+                </div>
+            </div>
+
+            <div class="notes-list" id="notesList">
+                <!-- Notes will be added here via JavaScript -->
+            </div>
+        </div>
+
 
         <!-- Daily Quran Ayahs -->
         <div class="quran-card">
@@ -1671,6 +1834,109 @@
             }, 60000);
         }
 
+        // ==================== PERSONAL NOTES & REMINDERS ====================
+
+        let personalNotes = JSON.parse(localStorage.getItem('ramadanNotes') || '[]');
+
+        function addNote() {
+            const textInput = document.getElementById('noteTextInput');
+            const timeInput = document.getElementById('noteTimeInput');
+
+            if (!textInput.value) {
+                alert('Please enter a note!');
+                return;
+            }
+
+            const newNote = {
+                id: Date.now(),
+                text: textInput.value,
+                time: timeInput.value || null,
+                notified: false
+            };
+
+            personalNotes.push(newNote);
+            saveNotes();
+            renderNotes();
+
+            textInput.value = '';
+            timeInput.value = '';
+        }
+
+        function saveNotes() {
+            localStorage.setItem('ramadanNotes', JSON.stringify(personalNotes));
+        }
+
+        function deleteNote(id) {
+            personalNotes = personalNotes.filter(note => note.id !== id);
+            saveNotes();
+            renderNotes();
+        }
+
+        function renderNotes() {
+            const list = document.getElementById('notesList');
+            if (!list) return;
+            list.innerHTML = '';
+
+            if (personalNotes.length === 0) {
+                list.innerHTML = '<p style="text-align: center; color: var(--text-muted); font-size: 0.9rem;">No notes yet. Add one above! ✨</p>';
+                return;
+            }
+
+            // Sort notes: those with time first (sorted by time), then those without time
+            const sortedNotes = [...personalNotes].sort((a, b) => {
+                if (a.time && !b.time) return -1;
+                if (!a.time && b.time) return 1;
+                if (a.time && b.time) return a.time.localeCompare(b.time);
+                return b.id - a.id; // Recent first if no time
+            });
+
+            sortedNotes.forEach(note => {
+                const noteEl = document.createElement('div');
+                noteEl.className = 'note-item';
+
+                const timeTag = note.time ? `
+                    <div class="note-time-tag">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        ${formatTime(note.time)}
+                    </div>
+                ` : '';
+
+                noteEl.innerHTML = `
+                    <div class="note-content">
+                        <div class="note-text">${note.text}</div>
+                        ${timeTag}
+                    </div>
+                    <button class="delete-note-btn" onclick="deleteNote(${note.id})" title="Delete Note">×</button>
+                `;
+                list.appendChild(noteEl);
+            });
+        }
+
+        function checkNoteReminders() {
+            if (localStorage.getItem('ramadanNotifications') !== 'enabled') return;
+
+            const now = new Date();
+            const currentTime = now.getHours().toString().padStart(2, '0') + ':' + now.getMinutes().toString().padStart(2, '0');
+
+            let changed = false;
+            personalNotes.forEach(note => {
+                if (note.time === currentTime && !note.notified) {
+                    showNotification('📝 Reminder', note.text);
+                    note.notified = true;
+                    changed = true;
+                } else if (note.time !== currentTime && note.notified) {
+                    // Reset notified flag once time has passed so it can fire tomorrow
+                    note.notified = false;
+                    changed = true;
+                }
+            });
+
+            if (changed) {
+                saveNotes();
+            }
+        }
+
+
         // ==================== INITIALIZATION ====================
 
         // Initialize
@@ -1681,9 +1947,13 @@
         updateNextPrayer();
         displayAyah(0);
         setupPrayerNotifications();
+        renderNotes();
 
-        // Update next prayer every minute
-        setInterval(updateNextPrayer, 60000);
+        // Check reminders every minute
+        setInterval(() => {
+            updateNextPrayer();
+            checkNoteReminders();
+        }, 60000);
     </script>
 </body>
 
