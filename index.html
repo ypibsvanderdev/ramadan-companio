@@ -1521,7 +1521,7 @@
                 <div class="prayer-item" id="fajrItem">
                     <span class="prayer-name">
                         <span class="prayer-icon">🌅</span>
-                        Fajr
+                        <span id="fajrName">Fajr</span>
                     </span>
                     <input type="time" class="prayer-time-input" id="fajrTime" value="05:30"
                         onchange="savePrayerTimes()">
@@ -1530,7 +1530,7 @@
                 <div class="prayer-item" id="dhuhrItem">
                     <span class="prayer-name">
                         <span class="prayer-icon">☀️</span>
-                        Dhuhr
+                        <span id="dhuhrName">Dhuhr</span>
                     </span>
                     <input type="time" class="prayer-time-input" id="dhuhrTime" value="12:30"
                         onchange="savePrayerTimes()">
@@ -1539,7 +1539,7 @@
                 <div class="prayer-item" id="asrItem">
                     <span class="prayer-name">
                         <span class="prayer-icon">🌤️</span>
-                        Asr
+                        <span id="asrName">Asr</span>
                     </span>
                     <input type="time" class="prayer-time-input" id="asrTime" value="15:45"
                         onchange="savePrayerTimes()">
@@ -1548,7 +1548,7 @@
                 <div class="prayer-item" id="maghribItem">
                     <span class="prayer-name">
                         <span class="prayer-icon">🌅</span>
-                        Maghrib
+                        <span id="maghribName">Maghrib</span>
                     </span>
                     <input type="time" class="prayer-time-input" id="maghribTime" value="18:15"
                         onchange="savePrayerTimes()">
@@ -1557,7 +1557,7 @@
                 <div class="prayer-item" id="ishaItem">
                     <span class="prayer-name">
                         <span class="prayer-icon">🌙</span>
-                        Isha
+                        <span id="ishaName">Isha</span>
                     </span>
                     <input type="time" class="prayer-time-input" id="ishaTime" value="19:45"
                         onchange="savePrayerTimes()">
@@ -1888,8 +1888,21 @@
             document.getElementById('sadaqahBtn').textContent = t.sadaqahBtn;
             document.getElementById('prevAyahBtn').textContent = t.prev;
             document.getElementById('nextAyahBtn').textContent = t.next;
+
+            // Update prayer names in list
+            PRAYERS.forEach(p => {
+                const el = document.getElementById(`${p}Name`);
+                if (el) el.textContent = t[p];
+            });
+
             document.getElementById('footerMubarak').textContent = t.footerMubarak;
             document.getElementById('footerMadeWith').textContent = t.footerMadeWith;
+
+            // Hide/Show English elements based on logic
+            const englishElements = document.querySelectorAll('.transliteration, .english-text, .adhkar-transliteration, .adhkar-meaning, .ayah-translation');
+            englishElements.forEach(el => {
+                el.style.display = lang === 'ar' ? 'none' : 'block';
+            });
 
             // Update active state on buttons
             document.getElementById('enBtn').classList.toggle('active', lang === 'en');
@@ -2435,36 +2448,40 @@
 
             const t = TRANSLATIONS[currentLang];
             const now = new Date();
+            const ramadanDay = getRamadanDay();
 
             // 1. User's custom daily dua reminder
             const savedTime = localStorage.getItem('ramadanReminderTime') || '05:00';
             scheduleNotification(savedTime, "🌙 " + t.mainTitle, t.notifTitle, () => {
-                const day = getRamadanDay() || 1;
+                const day = ramadanDay || 1;
                 const dua = DAILY_DUAS[day - 1];
                 return `${t.duaForDay} ${day}: ${dua.arabic}`;
             });
 
-            // Prayer-based reminders (if times are available)
+            // Prayer-based and Fasting-based reminders (if times are available)
             const savedPrayers = localStorage.getItem('prayerTimes');
             if (savedPrayers) {
                 const times = JSON.parse(savedPrayers);
 
-                // 2. Sahoor Reminder (30 mins before Fajr)
-                if (times.fajr) {
-                    const sahoorTime = offsetTime(times.fajr, -30);
-                    scheduleNotification(sahoorTime, "🌙 Sahoor Alert", "Time for Sahoor! Fajr is in 30 minutes. Eat and drink for the day's fast. 🍞🥛");
-                }
+                // Fasting Reminders ONLY IF IT'S RAMADAN
+                if (ramadanDay) {
+                    // 2. Sahoor Reminder (30 mins before Fajr)
+                    if (times.fajr) {
+                        const sahoorTime = offsetTime(times.fajr, -30);
+                        scheduleNotification(sahoorTime, "🌙 Sahoor Alert", "Time for Sahoor! Fajr is in 30 minutes. Eat and drink for the day's fast. 🍞🥛");
+                    }
 
-                // 3. Dates Before Iftar (10 mins before Maghrib)
-                if (times.maghrib) {
-                    const iftarTime = offsetTime(times.maghrib, -10);
-                    scheduleNotification(iftarTime, "🍽️ Iftar Reminder", "Time to prepare dates! Iftar is in 10 minutes. 🌴");
-                }
+                    // 3. Dates Before Iftar (10 mins before Maghrib)
+                    if (times.maghrib) {
+                        const iftarTime = offsetTime(times.maghrib, -10);
+                        scheduleNotification(iftarTime, "🍽️ Iftar Reminder", "Time to prepare dates! Iftar is in 10 minutes. 🌴");
+                    }
 
-                // 4. Tarawih Reminder (30 mins after Isha)
-                if (times.isha) {
-                    const tarawihTime = offsetTime(times.isha, 30);
-                    scheduleNotification(tarawihTime, "🕌 Tarawih Prayer", "Don't forget Tarawih prayer tonight! ✨");
+                    // 4. Tarawih Reminder (30 mins after Isha)
+                    if (times.isha) {
+                        const tarawihTime = offsetTime(times.isha, 30);
+                        scheduleNotification(tarawihTime, "🕌 Tarawih Prayer", "Don't forget Tarawih prayer tonight! ✨");
+                    }
                 }
 
                 // 5. Istighfar 100x Reminder (Morning - 10 AM)
