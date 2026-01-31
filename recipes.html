@@ -364,6 +364,34 @@
             margin-top: 2px;
         }
 
+        .modal-ingr-list {
+            margin-top: 15px;
+            margin-bottom: 25px;
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 10px;
+        }
+
+        .modal-ingr-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 10px 15px;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .modal-ingr-item::before {
+            content: '•';
+            color: var(--gold);
+            font-weight: bold;
+        }
+
         .view-btn {
             margin-top: 15px;
             background: rgba(255, 215, 0, 0.1);
@@ -526,6 +554,7 @@
                 noResults: "No recipes found matching your search. ✨",
                 view: "View Instructions",
                 instructions: "Cooking Steps",
+                ingredients: "Ingredients",
                 footer: "Ramadan Mubarak! 🤲"
             },
             ar: {
@@ -543,6 +572,7 @@
                 noResults: "لم يتم العثور على وصفات تطابق بحثك. ✨",
                 view: "شرح الطريقة",
                 instructions: "خطوات التحضير",
+                ingredients: "المكونات",
                 footer: "رمضان مبارك! 🤲"
             }
         };
@@ -604,9 +634,20 @@
                 </div>
             `).join('');
 
+            const ingredients = currentLang === 'en' ? (recipe.ingr_en || []) : (recipe.ingr_ar || []);
+            const ingrHtml = ingredients.map(ing => `
+                <li class="modal-ingr-item">${ing}</li>
+            `).join('');
+
             body.innerHTML = `
                 <div class="modal-title">${recipe['name_' + currentLang]}</div>
                 <div class="recipe-desc" style="margin-bottom: 25px;">${recipe['desc_' + currentLang]}</div>
+                
+                <span class="modal-instr-title">${t.ingredients}</span>
+                <ul class="modal-ingr-list">
+                    ${ingrHtml || '<li>Coming soon...</li>'}
+                </ul>
+
                 <span class="modal-instr-title">${t.instructions}</span>
                 <div class="modal-instr-list">
                     ${stepHtml}
