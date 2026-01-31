@@ -1580,9 +1580,7 @@
                     </select>
                 </div>
 
-                <div class="asr-note" id="asrNote">
-                    💡 Tip: If your Asr time seems too early (like 2:44 PM), try switching to the "Hanafi" method.
-                </div>
+
 
                 <div id="locationStatus" class="location-status"></div>
 
@@ -1856,7 +1854,7 @@
                 timesUpdated: "Prayer times updated!",
                 method: "Calculation Method:",
                 madhab: "Asr Method (Madhab):",
-                asrTip: "💡 Tip: If your Asr time seems too early (e.g. 2:44 PM), switch to 'Hanafi'.",
+
                 sadaqahTitle: "💝 Sadaqah Planner",
                 sadaqahSubtitle: "Enter your age for personalized charity ideas.",
                 sadaqahBtn: "Get Recommendations",
@@ -1924,7 +1922,7 @@
                 timesUpdated: "تم تحديث مواقيت الصلاة!",
                 method: "طريقة الحساب:",
                 madhab: "مذهب صلاة العصر:",
-                asrTip: "💡 نصيحة: إذا كان وقت العصر مبكراً جداً، جرب اختيار المذهب 'الحنفي'.",
+
                 sadaqahTitle: "💝 مخطط الصدقة",
                 sadaqahSubtitle: "أدخل عمرك للحصول على أفكار صدقة مخصصة.",
                 sadaqahBtn: "احصل على النصائح",
@@ -1968,8 +1966,7 @@
             if (methodLabel) methodLabel.textContent = t.method;
             const madhabLabel = document.getElementById('madhabLabel');
             if (madhabLabel) madhabLabel.textContent = t.madhab;
-            const asrNote = document.getElementById('asrNote');
-            if (asrNote) asrNote.textContent = t.asrTip;
+
             document.getElementById('quranTitle').textContent = t.quran;
             document.getElementById('homeTab').textContent = t.home;
             document.getElementById('quranTab').textContent = t.fullQuran;
