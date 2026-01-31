@@ -291,6 +291,137 @@
             grid-column: 1 / -1;
         }
 
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background: var(--secondary);
+            border: 1px solid var(--gold);
+            border-radius: 24px;
+            width: 100%;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            padding: 40px 30px;
+            box-shadow: 0 0 40px rgba(255, 215, 0, 0.1);
+            transform: scale(0.9);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-title {
+            color: var(--gold);
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            padding-right: 40px;
+        }
+
+        .modal-instr-title {
+            color: var(--gold-light);
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            display: block;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+            padding-bottom: 8px;
+        }
+
+        .modal-instr-list {
+            list-style: none;
+        }
+
+        .modal-instr-item {
+            margin-bottom: 12px;
+            line-height: 1.6;
+            display: flex;
+            gap: 12px;
+        }
+
+        .modal-instr-num {
+            background: var(--gold);
+            color: var(--primary);
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.8rem;
+            font-weight: 700;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .view-btn {
+            margin-top: 15px;
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 8px 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .view-btn:hover {
+            background: var(--gold);
+            color: var(--primary);
+        }
+
+        [dir="rtl"] .modal-close {
+            right: auto;
+            left: 20px;
+        }
+
+        [dir="rtl"] .modal-title {
+            padding-right: 0;
+            padding-left: 40px;
+        }
+
         footer {
             text-align: center;
             padding: 40px 0;
@@ -344,6 +475,16 @@
         </footer>
     </div>
 
+    <!-- Modal for Recipe Details -->
+    <div id="recipeModal" class="modal-overlay" onclick="closeRecipeModal(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closeRecipeModal()">✕</button>
+            <div id="modalBody">
+                <!-- Filled by JS -->
+            </div>
+        </div>
+    </div>
+
     <!-- Data script will be loaded first -->
     <script src="recipes-data.js"></script>
     <script>
@@ -353,18 +494,10 @@
 
         const UI_STRINGS = {
             en: {
-                title: "🍳 Ramadan Kitchen",
-                subtitle: "Authentic Middle Eastern flavors for your Ramadan.",
-                search: "Search for recipes...",
-                all: "All",
-                breakfast: "Suhoor",
-                lunch: "Iftar",
-                dinner: "Dinner",
-                dessert: "Dessert",
-                home: "🏠 Home",
-                quran: "📖 Full Quran",
                 recipes: "🍳 Recipes",
                 noResults: "No recipes found matching your search. ✨",
+                view: "View Instructions",
+                instructions: "Cooking Steps",
                 footer: "Ramadan Mubarak! 🤲"
             },
             ar: {
@@ -380,6 +513,8 @@
                 quran: "📖 المصحف الكامل",
                 recipes: "🍳 وصفات",
                 noResults: "لم يتم العثور على وصفات تطابق بحثك. ✨",
+                view: "شرح الطريقة",
+                instructions: "خطوات التحضير",
                 footer: "رمضان مبارك! 🤲"
             }
         };
@@ -428,6 +563,37 @@
             renderRecipes();
         }
 
+        function openRecipeModal(index) {
+            const recipe = RECIPES_DATA[index];
+            const t = UI_STRINGS[currentLang];
+            const body = document.getElementById('modalBody');
+
+            const steps = currentLang === 'en' ? recipe.instr_en : recipe.instr_ar;
+            const stepHtml = steps.map((s, i) => `
+                <div class="modal-instr-item">
+                    <span class="modal-instr-num">${i + 1}</span>
+                    <span>${s}</span>
+                </div>
+            `).join('');
+
+            body.innerHTML = `
+                <div class="modal-title">${recipe['name_' + currentLang]}</div>
+                <div class="recipe-desc" style="margin-bottom: 25px;">${recipe['desc_' + currentLang]}</div>
+                <span class="modal-instr-title">${t.instructions}</span>
+                <div class="modal-instr-list">
+                    ${stepHtml}
+                </div>
+            `;
+
+            document.getElementById('recipeModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeRecipeModal(e) {
+            document.getElementById('recipeModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
         function renderRecipes() {
             const grid = document.getElementById('recipesGrid');
             const t = UI_STRINGS[currentLang];
@@ -450,13 +616,17 @@
                 return;
             }
 
-            grid.innerHTML = filtered.map(recipe => `
-                <div class="recipe-card">
-                    <span class="card-tag">${t[recipe.category]}</span>
-                    <div class="recipe-name">${recipe[`name_${currentLang}`]}</div>
-                    <div class="recipe-desc">${recipe[`desc_${currentLang}`]}</div>
-                </div>
-            `).join('');
+            grid.innerHTML = filtered.map(recipe => {
+                const originalIndex = RECIPES_DATA.indexOf(recipe);
+                return `
+                    <div class="recipe-card">
+                        <span class="card-tag">${t[recipe.category]}</span>
+                        <div class="recipe-name">${recipe[`name_${currentLang}`]}</div>
+                        <div class="recipe-desc">${recipe[`desc_${currentLang}`]}</div>
+                        <button class="view-btn" onclick="openRecipeModal(${originalIndex})">${t.view}</button>
+                    </div>
+                `;
+            }).join('');
         }
 
         // Initialize stars
