@@ -322,6 +322,8 @@
             margin: 2px 3px;
             -webkit-tap-highlight-color: transparent;
             user-select: none;
+            position: relative;
+            z-index: 5;
         }
 
         .word-span:active {
@@ -329,15 +331,17 @@
         }
 
         .word-span:hover {
-            background: rgba(0, 255, 0, 0.1);
+            background: rgba(0, 255, 0, 0.15);
+            box-shadow: 0 0 8px rgba(0, 255, 0, 0.2);
         }
 
         .word-span.highlighted {
-            background: rgba(0, 255, 0, 0.6) !important;
-            color: #ffffff !important;
-            text-shadow: 0 0 10px #000;
-            box-shadow: 0 0 15px rgba(0, 255, 0, 0.8);
-            font-weight: 800;
+            background: #00ff00 !important;
+            color: #000000 !important;
+            text-shadow: none !important;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.9), 0 0 40px rgba(0, 255, 0, 0.4);
+            font-weight: 900;
+            transform: scale(1.05);
         }
 
         .ayah-footer {
