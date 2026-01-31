@@ -1407,6 +1407,14 @@
                 </select>
             </div>
 
+            <div class="method-selector">
+                <label for="asrMadhab" id="madhabLabel">Asr Method (Madhab):</label>
+                <select id="asrMadhab" onchange="detectLocation()">
+                    <option value="0">Standard (Shafi'i, Maliki, Hanbali)</option>
+                    <option value="1">Hanafi (Later Asr)</option>
+                </select>
+            </div>
+
             <div id="locationStatus" class="location-status"></div>
 
             <div class="prayer-list">
@@ -1645,7 +1653,8 @@
                 locError: "Error detecting location. Try again.",
                 geoDenied: "Please allow location access.",
                 timesUpdated: "Prayer times updated!",
-                method: "Calculation Method:"
+                method: "Calculation Method:",
+                madhab: "Asr Method (Madhab):"
             },
             ar: {
                 mainTitle: "🌙 رفيق رمضان",
@@ -1696,7 +1705,8 @@
                 locError: "خطأ في تحديد الموقع. حاول ثانية.",
                 geoDenied: "يرجى السماح بالوصول للموقع.",
                 timesUpdated: "تم تحديث مواقيت الصلاة!",
-                method: "طريقة الحساب:"
+                method: "طريقة الحساب:",
+                madhab: "مذهب صلاة العصر:"
             }
         };
 
@@ -1728,6 +1738,8 @@
             if (detectBtn) detectBtn.textContent = t.detectLoc;
             const methodLabel = document.getElementById('methodLabel');
             if (methodLabel) methodLabel.textContent = t.method;
+            const madhabLabel = document.getElementById('madhabLabel');
+            if (madhabLabel) madhabLabel.textContent = t.madhab;
             document.getElementById('quranTitle').textContent = t.quran;
             document.getElementById('homeTab').textContent = t.home;
             document.getElementById('quranTab').textContent = t.fullQuran;
@@ -1816,10 +1828,12 @@
 
             try {
                 const method = document.getElementById('calcMethod').value;
+                const school = document.getElementById('asrMadhab').value;
                 localStorage.setItem('prayerMethod', method);
+                localStorage.setItem('asrMadhab', school);
 
-                // Use Aladhan API with selected method
-                const response = await fetch(`https://api.aladhan.com/v1/timings?latitude=${lat}&longitude=${lon}&method=${method}`);
+                // Use Aladhan API with selected method and school (Madhab)
+                const response = await fetch(`https://api.aladhan.com/v1/timings?latitude=${lat}&longitude=${lon}&method=${method}&school=${school}`);
                 const data = await response.json();
 
                 if (data.code === 200) {
@@ -2655,6 +2669,12 @@
         if (savedMethod) {
             const methodEl = document.getElementById('calcMethod');
             if (methodEl) methodEl.value = savedMethod;
+        }
+
+        const savedMadhab = localStorage.getItem('asrMadhab');
+        if (savedMadhab) {
+            const madhabEl = document.getElementById('asrMadhab');
+            if (madhabEl) madhabEl.value = savedMadhab;
         }
 
         loadPrayerTimes();
