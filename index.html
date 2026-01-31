@@ -1572,78 +1572,103 @@
             }
         }
 
-        // ==================== QURAN AYAHS ====================
+        // ==================== QURAN AYAHS (Same Surah, Changes Daily) ====================
 
-        const DAILY_AYAHS = [
-            {
-                arabic: "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
-                translation: "In the name of Allah, the Most Gracious, the Most Merciful.",
-                reference: "Surah Al-Fatiha 1:1"
+        const DAILY_SURAHS = {
+            0: {
+                name: "Surah Yasin", ayahs: [
+                    { arabic: "يس", translation: "Ya-Sin.", verse: "36:1" },
+                    { arabic: "وَالْقُرْآنِ الْحَكِيمِ", translation: "By the wise Quran.", verse: "36:2" },
+                    { arabic: "إِنَّكَ لَمِنَ الْمُرْسَلِينَ", translation: "Indeed you are from among the messengers.", verse: "36:3" },
+                    { arabic: "عَلَىٰ صِرَاطٍ مُّسْتَقِيمٍ", translation: "On a straight path.", verse: "36:4" },
+                    { arabic: "تَنزِيلَ الْعَزِيزِ الرَّحِيمِ", translation: "A revelation of the Exalted in Might, the Merciful.", verse: "36:5" },
+                    { arabic: "لِتُنذِرَ قَوْمًا مَّا أُنذِرَ آبَاؤُهُمْ فَهُمْ غَافِلُونَ", translation: "That you may warn a people whose forefathers were not warned, so they are unaware.", verse: "36:6" },
+                    { arabic: "إِنَّا نَحْنُ نُحْيِي الْمَوْتَىٰ", translation: "Indeed, it is We who bring the dead to life.", verse: "36:12" },
+                    { arabic: "وَنَكْتُبُ مَا قَدَّمُوا وَآثَارَهُمْ", translation: "And We record what they have put forth and their footprints.", verse: "36:12" },
+                    { arabic: "وَكُلَّ شَيْءٍ أَحْصَيْنَاهُ فِي إِمَامٍ مُّبِينٍ", translation: "And all things We have enumerated in a clear register.", verse: "36:12" },
+                    { arabic: "سُبْحَانَ الَّذِي خَلَقَ الْأَزْوَاجَ كُلَّهَا", translation: "Exalted is He who created all pairs.", verse: "36:36" }
+                ]
             },
-            {
-                arabic: "إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ",
-                translation: "You alone we worship, and You alone we ask for help.",
-                reference: "Surah Al-Fatiha 1:5"
+            1: {
+                name: "Surah Ar-Rahman", ayahs: [
+                    { arabic: "الرَّحْمَٰنُ", translation: "The Most Merciful.", verse: "55:1" },
+                    { arabic: "عَلَّمَ الْقُرْآنَ", translation: "Taught the Quran.", verse: "55:2" },
+                    { arabic: "خَلَقَ الْإِنسَانَ", translation: "Created man.", verse: "55:3" },
+                    { arabic: "عَلَّمَهُ الْبَيَانَ", translation: "Taught him eloquence.", verse: "55:4" },
+                    { arabic: "الشَّمْسُ وَالْقَمَرُ بِحُسْبَانٍ", translation: "The sun and the moon move by precise calculation.", verse: "55:5" },
+                    { arabic: "وَالنَّجْمُ وَالشَّجَرُ يَسْجُدَانِ", translation: "And the stars and trees prostrate.", verse: "55:6" },
+                    { arabic: "وَالسَّمَاءَ رَفَعَهَا وَوَضَعَ الْمِيزَانَ", translation: "And the heaven He raised and imposed the balance.", verse: "55:7" },
+                    { arabic: "فَبِأَيِّ آلَاءِ رَبِّكُمَا تُكَذِّبَانِ", translation: "So which of the favors of your Lord would you deny?", verse: "55:13" },
+                    { arabic: "خَلَقَ الْإِنسَانَ مِن صَلْصَالٍ كَالْفَخَّارِ", translation: "He created man from clay like pottery.", verse: "55:14" },
+                    { arabic: "وَخَلَقَ الْجَانَّ مِن مَّارِجٍ مِّن نَّارٍ", translation: "And He created the jinn from a smokeless flame of fire.", verse: "55:15" }
+                ]
             },
-            {
-                arabic: "اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ",
-                translation: "Allah - there is no deity except Him, the Ever-Living, the Sustainer of existence.",
-                reference: "Surah Al-Baqarah 2:255 (Ayatul Kursi)"
-            },
-            {
-                arabic: "رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ",
-                translation: "Our Lord, give us good in this world and good in the Hereafter, and protect us from the punishment of the Fire.",
-                reference: "Surah Al-Baqarah 2:201"
-            },
-            {
-                arabic: "وَمَن يَتَّقِ اللَّهَ يَجْعَل لَّهُ مَخْرَجًا وَيَرْزُقْهُ مِنْ حَيْثُ لَا يَحْتَسِبُ",
-                translation: "Whoever fears Allah - He will make a way out for him and provide for him from where he does not expect.",
-                reference: "Surah At-Talaq 65:2-3"
-            },
-            {
-                arabic: "إِنَّ مَعَ الْعُسْرِ يُسْرًا",
-                translation: "Indeed, with hardship comes ease.",
-                reference: "Surah Ash-Sharh 94:6"
-            },
-            {
-                arabic: "وَقُل رَّبِّ زِدْنِي عِلْمًا",
-                translation: "And say: My Lord, increase me in knowledge.",
-                reference: "Surah Ta-Ha 20:114"
-            },
-            {
-                arabic: "فَاذْكُرُونِي أَذْكُرْكُمْ وَاشْكُرُوا لِي وَلَا تَكْفُرُونِ",
-                translation: "So remember Me; I will remember you. And be grateful to Me and do not deny Me.",
-                reference: "Surah Al-Baqarah 2:152"
-            },
-            {
-                arabic: "وَتَوَكَّلْ عَلَى اللَّهِ وَكَفَىٰ بِاللَّهِ وَكِيلًا",
-                translation: "And put your trust in Allah, and sufficient is Allah as a Disposer of affairs.",
-                reference: "Surah Al-Ahzab 33:3"
-            },
-            {
-                arabic: "قُلْ هُوَ اللَّهُ أَحَدٌ اللَّهُ الصَّمَدُ لَمْ يَلِدْ وَلَمْ يُولَدْ وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ",
-                translation: "Say: He is Allah, the One. Allah, the Eternal Refuge. He neither begets nor is born, nor is there any equivalent to Him.",
-                reference: "Surah Al-Ikhlas 112:1-4"
+            2: {
+                name: "Surah Al-Mulk", ayahs: [
+                    { arabic: "تَبَارَكَ الَّذِي بِيَدِهِ الْمُلْكُ", translation: "Blessed is He in whose hand is dominion.", verse: "67:1" },
+                    { arabic: "وَهُوَ عَلَىٰ كُلِّ شَيْءٍ قَدِيرٌ", translation: "And He is over all things competent.", verse: "67:1" },
+                    { arabic: "الَّذِي خَلَقَ الْمَوْتَ وَالْحَيَاةَ", translation: "He who created death and life.", verse: "67:2" },
+                    { arabic: "لِيَبْلُوَكُمْ أَيُّكُمْ أَحْسَنُ عَمَلًا", translation: "To test you as to which of you is best in deed.", verse: "67:2" },
+                    { arabic: "وَهُوَ الْعَزِيزُ الْغَفُورُ", translation: "And He is the Exalted in Might, the Forgiving.", verse: "67:2" },
+                    { arabic: "الَّذِي خَلَقَ سَبْعَ سَمَاوَاتٍ طِبَاقًا", translation: "He who created seven heavens in layers.", verse: "67:3" },
+                    { arabic: "مَّا تَرَىٰ فِي خَلْقِ الرَّحْمَٰنِ مِن تَفَاوُتٍ", translation: "You do not see in the creation of the Most Merciful any inconsistency.", verse: "67:3" },
+                    { arabic: "فَارْجِعِ الْبَصَرَ هَلْ تَرَىٰ مِن فُطُورٍ", translation: "So return your vision, do you see any breaks?", verse: "67:3" },
+                    { arabic: "وَلَقَدْ زَيَّنَّا السَّمَاءَ الدُّنْيَا بِمَصَابِيحَ", translation: "And We have certainly beautified the nearest heaven with stars.", verse: "67:5" },
+                    { arabic: "وَجَعَلْنَاهَا رُجُومًا لِّلشَّيَاطِينِ", translation: "And have made them as missiles to drive away the devils.", verse: "67:5" }
+                ]
             }
-        ];
+        };
 
         let currentAyahIndex = 0;
 
+        function getTodaysSurah() {
+            const today = new Date();
+            const dayOfYear = Math.floor((today - new Date(today.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
+            const surahIndex = dayOfYear % Object.keys(DAILY_SURAHS).length;
+            return DAILY_SURAHS[surahIndex];
+        }
+
         function displayAyah(index) {
-            const ayah = DAILY_AYAHS[index];
+            const surah = getTodaysSurah();
+            const ayah = surah.ayahs[index];
             document.getElementById('ayahArabic').textContent = ayah.arabic;
             document.getElementById('ayahTranslation').textContent = ayah.translation;
-            document.getElementById('ayahReference').textContent = `📍 ${ayah.reference}`;
+            document.getElementById('ayahReference').textContent = `📍 ${surah.name} ${ayah.verse}`;
         }
 
         function nextAyah() {
-            currentAyahIndex = (currentAyahIndex + 1) % DAILY_AYAHS.length;
+            const surah = getTodaysSurah();
+            currentAyahIndex = (currentAyahIndex + 1) % surah.ayahs.length;
             displayAyah(currentAyahIndex);
         }
 
         function prevAyah() {
-            currentAyahIndex = (currentAyahIndex - 1 + DAILY_AYAHS.length) % DAILY_AYAHS.length;
+            const surah = getTodaysSurah();
+            currentAyahIndex = (currentAyahIndex - 1 + surah.ayahs.length) % surah.ayahs.length;
             displayAyah(currentAyahIndex);
+        }
+
+        // ==================== PRAYER NOTIFICATIONS ====================
+
+        let prayerCheckInterval = null;
+
+        function setupPrayerNotifications() {
+            if (prayerCheckInterval) clearInterval(prayerCheckInterval);
+
+            prayerCheckInterval = setInterval(() => {
+                if (localStorage.getItem('ramadanNotifications') !== 'enabled') return;
+                if (Notification.permission !== 'granted') return;
+
+                const now = new Date();
+                const currentTime = now.getHours().toString().padStart(2, '0') + ':' + now.getMinutes().toString().padStart(2, '0');
+
+                PRAYERS.forEach(prayer => {
+                    const input = document.getElementById(`${prayer}Time`);
+                    if (input && input.value === currentTime) {
+                        showNotification(`🕌 ${PRAYER_NAMES[prayer]} Time!`, `It's time for ${PRAYER_NAMES[prayer]} prayer. May Allah accept your prayer.`);
+                    }
+                });
+            }, 60000);
         }
 
         // ==================== INITIALIZATION ====================
@@ -1655,6 +1680,7 @@
         loadPrayerTimes();
         updateNextPrayer();
         displayAyah(0);
+        setupPrayerNotifications();
 
         // Update next prayer every minute
         setInterval(updateNextPrayer, 60000);
