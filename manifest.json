@@ -1,0 +1,17 @@
+{
+  "name": "Ramadan Companion",
+  "short_name": "Ramadan",
+  "description": "Your daily spiritual guide for Ramadan",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#0a0a1a",
+  "theme_color": "#0a0a1a",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
