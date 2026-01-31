@@ -84,18 +84,19 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 0;
+            padding: 20px 0;
             width: 100%;
-            margin-bottom: 20px;
-            gap: 15px;
+            margin-bottom: 25px;
+            gap: 20px;
             flex-wrap: wrap;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        .back-btn {
+        .nav-btn {
             color: var(--gold);
             text-decoration: none;
             font-size: 0.9rem;
-            padding: 8px 16px;
+            padding: 10px 18px;
             background: rgba(255, 255, 255, 0.05);
             border-radius: 20px;
             border: 1px solid rgba(255, 215, 0, 0.2);
@@ -104,15 +105,20 @@
             align-items: center;
             gap: 8px;
             white-space: nowrap;
+            cursor: pointer;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 500;
         }
 
-        .back-btn:hover {
+        .nav-btn:hover {
             background: rgba(255, 215, 0, 0.1);
-            transform: translateX(-5px);
+            transform: translateY(-2px);
+            border-color: var(--gold);
         }
 
-        [dir="rtl"] .back-btn:hover {
-            transform: translateX(5px);
+        .nav-btn svg {
+            width: 18px;
+            height: 18px;
         }
 
         .lang-switch {
@@ -364,30 +370,13 @@
             }
         }
 
-        .control-btn {
-            background: rgba(255, 215, 0, 0.1);
-            border: 1px solid var(--gold);
-            color: var(--gold);
-            padding: 10px 20px;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: 0.3s;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 20px;
-            align-self: flex-start;
-        }
-
-        [dir="rtl"] .control-btn {
-            align-self: flex-end;
-            flex-direction: row-reverse;
-        }
-
-        .control-btn:hover {
-            background: var(--gold);
-            color: var(--primary);
+        .reader-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px 30px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         @media (max-width: 600px) {
@@ -421,12 +410,6 @@
             .reader-title-ar {
                 font-size: 2.2rem;
             }
-
-            .control-btn {
-                width: 100%;
-                justify-content: center;
-                margin-top: 10px;
-            }
         }
     </style>
 </head>
@@ -440,14 +423,24 @@
 
     <div class="container">
         <div class="top-nav">
-            <a href="index.html" class="back-btn" id="backBtn">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="19" y1="12" x2="5" y2="12"></line>
-                    <polyline points="12 19 5 12 12 5"></polyline>
-                </svg>
-                <span id="backText">Back to App</span>
-            </a>
+            <div id="navLeft">
+                <a href="index.html" class="nav-btn" id="backBtn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <line x1="19" y1="12" x2="5" y2="12"></line>
+                        <polyline points="12 19 5 12 12 5"></polyline>
+                    </svg>
+                    <span id="backText">Back to App</span>
+                </a>
+                <button onclick="showSurahList()" class="nav-btn" id="backToListBtn" style="display: none;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <line x1="19" y1="12" x2="5" y2="12"></line>
+                        <polyline points="12 19 5 12 12 5"></polyline>
+                    </svg>
+                    <span id="backToListText">Back to Surah List</span>
+                </button>
+            </div>
             <div class="lang-switch">
                 <button onclick="setLanguage('en')" id="enBtn" class="lang-btn">English</button>
                 <button onclick="setLanguage('ar')" id="arBtn" class="lang-btn">العربية</button>
@@ -462,10 +455,7 @@
             <div class="surah-grid" id="surahGrid"></div>
         </div>
 
-        <div id="readerView">
-            <button class="control-btn" onclick="showSurahList()" id="backToListBtn">
-                <span id="backToListText">← Back to Surah List</span>
-            </button>
+        <div id="readerView" style="display: none; flex-direction: column;">
             <div class="reader-header">
                 <div class="reader-title-ar" id="surahNameAr"></div>
                 <div class="reader-title-en" id="surahNameEn"></div>
@@ -601,6 +591,11 @@
         function renderReaderView(arSurah, enSurah) {
             document.getElementById('surahListView').style.display = 'none';
             document.getElementById('readerView').style.display = 'flex';
+
+            // Toggle Nav Buttons
+            document.getElementById('backBtn').style.display = 'none';
+            document.getElementById('backToListBtn').style.display = 'flex';
+
             window.scrollTo(0, 0);
 
             document.getElementById('surahNameAr').textContent = arSurah.name;
@@ -634,6 +629,11 @@
         function showSurahList() {
             document.getElementById('readerView').style.display = 'none';
             document.getElementById('surahListView').style.display = 'block';
+
+            // Toggle Nav Buttons
+            document.getElementById('backBtn').style.display = 'flex';
+            document.getElementById('backToListBtn').style.display = 'none';
+
             window.scrollTo(0, 0);
         }
 
