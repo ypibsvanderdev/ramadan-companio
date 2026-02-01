@@ -1,6314 +1,2768 @@
 const RECIPES_DATA = [
     {
         "category": "suhoor",
-        "name_en": "Ful Medames",
+        "name_en": "Foul Medames",
         "name_ar": "فول مدمس",
-        "desc_en": "Slow-cooked fava beans with olive oil and cumin.",
-        "desc_ar": "فول مدمس مطهو ببطء بالزيت والكمون.",
+        "desc_en": "Traditional fava beans dish",
+        "desc_ar": "طبق الفول التقليدي",
         "ingr_en": [
-            "2 cups fava beans",
-            "1/4 cup olive oil",
-            "1 tsp cumin",
-            "2 cloves garlic",
-            "Lemon juice",
-            "Parsley"
-        ],
-        "ingr_ar": [
-            "كوبين فول مدمس",
-            "ربع كوب زيت زيتون",
-            "ملعقة صغيرة كمون",
-            "فصين ثوم",
-            "عصير ليمون",
-            "بقدونس"
-        ],
-        "instr_en": [
-            "Carefully select and clean the fresh ingredients for Ful Medames.",
-            "Sauté aromatics in high-quality olive oil or ghee according to suhoor tradition.",
-            "Add the main components and simmer until perfectly cooked and tender.",
-            "Adjust spices, salt, and acidity to achieve the authentic flavor profile.",
-            "Plate beautifully, garnish with herbs or nuts, and serve to your waiting guests."
-        ],
-        "instr_ar": [
-            "اختر ونظف المكونات الطازجة بعناية لعمل فول مدمس.",
-            "شوح البصل والثوم في زيت زيتون بكر أو سمن بلدي حسب أصول الـ suhoor.",
-            "أضف المكونات الرئيسية واتركها تنضج على نار هادئة حتى تمام الاستواء.",
-            "عدل البهارات والملح والحموضة لتصل إلى النكهة الأصلية المطلوبة.",
-            "اسكب الطبق في وعاء التقديم وزينه بالمكسرات أو الأعشاب وقدمه لضيوفك."
-        ]
-    },
-    {
-        "category": "suhoor",
-        "name_en": "Shakshuka",
-        "name_ar": "شكشوكة",
-        "desc_en": "Eggs poached in a spicy tomato and pepper sauce.",
-        "desc_ar": "بيض مسلوق في صلصة الطماطم والفلفل.",
-        "ingr_en": [
-            "4 eggs",
-            "2 tomatoes",
-            "1 onion",
-            "1 bell pepper",
-            "Garlic",
-            "Spices"
-        ],
-        "ingr_ar": [
-            "٤ بيضات",
-            "حبتين طماطم",
-            "بصلة",
-            "حبة فلفل حلو",
-            "ثوم",
-            "بهارات"
-        ],
-        "instr_en": [
-            "Carefully select and clean the fresh ingredients for Shakshuka.",
-            "Sauté aromatics in high-quality olive oil or ghee according to suhoor tradition.",
-            "Add the main components and simmer until perfectly cooked and tender.",
-            "Adjust spices, salt, and acidity to achieve the authentic flavor profile.",
-            "Plate beautifully, garnish with herbs or nuts, and serve to your waiting guests."
-        ],
-        "instr_ar": [
-            "اختر ونظف المكونات الطازجة بعناية لعمل شكشوكة.",
-            "شوح البصل والثوم في زيت زيتون بكر أو سمن بلدي حسب أصول الـ suhoor.",
-            "أضف المكونات الرئيسية واتركها تنضج على نار هادئة حتى تمام الاستواء.",
-            "عدل البهارات والملح والحموضة لتصل إلى النكهة الأصلية المطلوبة.",
-            "اسكب الطبق في وعاء التقديم وزينه بالمكسرات أو الأعشاب وقدمه لضيوفك."
-        ]
-    },
-    {
-        "category": "suhoor",
-        "name_en": "Labneh with Za'atar",
-        "name_ar": "لبنة بالزعتر",
-        "desc_en": "Creamy yogurt cheese with herbs and olive oil.",
-        "desc_ar": "لبنة كريمية بالزعتر وزيت الزيتون.",
-        "ingr_en": [
-            "250g Labneh",
-            "2 tbsp Za'atar",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "٢٥٠ جرام لبنة",
-            "ملعقتين زعتر",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Carefully select and clean the fresh ingredients for Labneh with Za'atar.",
-            "Sauté aromatics in high-quality olive oil or ghee according to suhoor tradition.",
-            "Add the main components and simmer until perfectly cooked and tender.",
-            "Adjust spices, salt, and acidity to achieve the authentic flavor profile.",
-            "Plate beautifully, garnish with herbs or nuts, and serve to your waiting guests."
-        ],
-        "instr_ar": [
-            "اختر ونظف المكونات الطازجة بعناية لعمل لبنة بالزعتر.",
-            "شوح البصل والثوم في زيت زيتون بكر أو سمن بلدي حسب أصول الـ suhoor.",
-            "أضف المكونات الرئيسية واتركها تنضج على نار هادئة حتى تمام الاستواء.",
-            "عدل البهارات والملح والحموضة لتصل إلى النكهة الأصلية المطلوبة.",
-            "اسكب الطبق في وعاء التقديم وزينه بالمكسرات أو الأعشاب وقدمه لضيوفك."
-        ]
-    },
-    {
-        "category": "suhoor",
-        "name_en": "Cheese Manakish",
-        "name_ar": "مناقيش جبنة",
-        "desc_en": "Warm Lebanese flatbread with melted Akkawi cheese.",
-        "desc_ar": "مناقيش دافئة بجبنة العكاوي النابلسية.",
-        "ingr_en": [
-            "Dough",
-            "Akkawi cheese",
-            "Nigella seeds"
-        ],
-        "ingr_ar": [
-            "عجينة",
-            "جبنة عكاوي",
-            "حبة البركة"
-        ],
-        "instr_en": [
-            "Carefully select and clean the fresh ingredients for Cheese Manakish.",
-            "Sauté aromatics in high-quality olive oil or ghee according to suhoor tradition.",
-            "Add the main components and simmer until perfectly cooked and tender.",
-            "Adjust spices, salt, and acidity to achieve the authentic flavor profile.",
-            "Plate beautifully, garnish with herbs or nuts, and serve to your waiting guests."
-        ],
-        "instr_ar": [
-            "اختر ونظف المكونات الطازجة بعناية لعمل مناقيش جبنة.",
-            "شوح البصل والثوم في زيت زيتون بكر أو سمن بلدي حسب أصول الـ suhoor.",
-            "أضف المكونات الرئيسية واتركها تنضج على نار هادئة حتى تمام الاستواء.",
-            "عدل البهارات والملح والحموضة لتصل إلى النكهة الأصلية المطلوبة.",
-            "اسكب الطبق في وعاء التقديم وزينه بالمكسرات أو الأعشاب وقدمه لضيوفك."
-        ]
-    },
-    {
-        "category": "suhoor",
-        "name_en": "Date & Walnut Oats",
-        "name_ar": "شوفان بالتمر والجوز",
-        "desc_en": "Overnight oats with natural sweetness from dates.",
-        "desc_ar": "شوفان صحي محلى بالتمر والجوز.",
-        "ingr_en": [
-            "1/2 cup oats",
-            "1 cup milk",
-            "3 dates",
-            "Walnuts"
-        ],
-        "ingr_ar": [
-            "نصف كوب شوفان",
-            "كوب حليب",
-            "٣ حبات تمر",
-            "جوز"
-        ],
-        "instr_en": [
-            "Carefully select and clean the fresh ingredients for Date & Walnut Oats.",
-            "Sauté aromatics in high-quality olive oil or ghee according to suhoor tradition.",
-            "Add the main components and simmer until perfectly cooked and tender.",
-            "Adjust spices, salt, and acidity to achieve the authentic flavor profile.",
-            "Plate beautifully, garnish with herbs or nuts, and serve to your waiting guests."
-        ],
-        "instr_ar": [
-            "اختر ونظف المكونات الطازجة بعناية لعمل شوفان بالتمر والجوز.",
-            "شوح البصل والثوم في زيت زيتون بكر أو سمن بلدي حسب أصول الـ suhoor.",
-            "أضف المكونات الرئيسية واتركها تنضج على نار هادئة حتى تمام الاستواء.",
-            "عدل البهارات والملح والحموضة لتصل إلى النكهة الأصلية المطلوبة.",
-            "اسكب الطبق في وعاء التقديم وزينه بالمكسرات أو الأعشاب وقدمه لضيوفك."
-        ]
-    },
-    {
-        "category": "suhoor",
-        "name_en": "Honey Greek Yogurt",
-        "name_ar": "زبادي يوناني بالعسل",
-        "desc_en": "Thick yogurt topped with raw honey and nuts.",
-        "desc_ar": "زبادي يوناني غني بالعسل والمكسرات.",
-        "ingr_en": [
-            "Greek yogurt",
-            "Honey",
-            "Mixed nuts"
-        ],
-        "ingr_ar": [
-            "زبادي يوناني",
-            "عسل",
-            "مكسرات مشكلة"
-        ],
-        "instr_en": [
-            "Carefully select and clean the fresh ingredients for Honey Greek Yogurt.",
-            "Sauté aromatics in high-quality olive oil or ghee according to suhoor tradition.",
-            "Add the main components and simmer until perfectly cooked and tender.",
-            "Adjust spices, salt, and acidity to achieve the authentic flavor profile.",
-            "Plate beautifully, garnish with herbs or nuts, and serve to your waiting guests."
-        ],
-        "instr_ar": [
-            "اختر ونظف المكونات الطازجة بعناية لعمل زبادي يوناني بالعسل.",
-            "شوح البصل والثوم في زيت زيتون بكر أو سمن بلدي حسب أصول الـ suhoor.",
-            "أضف المكونات الرئيسية واتركها تنضج على نار هادئة حتى تمام الاستواء.",
-            "عدل البهارات والملح والحموضة لتصل إلى النكهة الأصلية المطلوبة.",
-            "اسكب الطبق في وعاء التقديم وزينه بالمكسرات أو الأعشاب وقدمه لضيوفك."
-        ]
-    },
-    {
-        "category": "suhoor",
-        "name_en": "Egg White Omelet",
-        "name_ar": "أومليت بياض البيض",
-        "desc_en": "Light and protein-packed with spinach.",
-        "desc_ar": "أومليت بياض البيض خفيف مع السبانخ.",
-        "ingr_en": [
-            "3 egg whites",
-            "Spinach",
-            "Salt",
-            "Pepper"
-        ],
-        "ingr_ar": [
-            "٣ بياض بيض",
-            "سبانخ",
-            "ملح",
-            "فلفل"
-        ],
-        "instr_en": [
-            "Carefully select and clean the fresh ingredients for Egg White Omelet.",
-            "Sauté aromatics in high-quality olive oil or ghee according to suhoor tradition.",
-            "Add the main components and simmer until perfectly cooked and tender.",
-            "Adjust spices, salt, and acidity to achieve the authentic flavor profile.",
-            "Plate beautifully, garnish with herbs or nuts, and serve to your waiting guests."
-        ],
-        "instr_ar": [
-            "اختر ونظف المكونات الطازجة بعناية لعمل أومليت بياض البيض.",
-            "شوح البصل والثوم في زيت زيتون بكر أو سمن بلدي حسب أصول الـ suhoor.",
-            "أضف المكونات الرئيسية واتركها تنضج على نار هادئة حتى تمام الاستواء.",
-            "عدل البهارات والملح والحموضة لتصل إلى النكهة الأصلية المطلوبة.",
-            "اسكب الطبق في وعاء التقديم وزينه بالمكسرات أو الأعشاب وقدمه لضيوفك."
-        ]
-    },
-    {
-        "category": "suhoor",
-        "name_en": "Grilled Halloumi",
-        "name_ar": "حلوم مشوي",
-        "desc_en": "Salty Cypriot cheese grilled until golden.",
-        "desc_ar": "جبنة حلوم مشوية حتى اللون الذهبي.",
-        "ingr_en": [
-            "Halloumi cheese",
+            "Fava beans",
             "Olive oil",
-            "Dried mint"
-        ],
-        "ingr_ar": [
-            "جبنة حلوم",
-            "زيت زيتون",
-            "نعناع مجفف"
-        ],
-        "instr_en": [
-            "Carefully select and clean the fresh ingredients for Grilled Halloumi.",
-            "Sauté aromatics in high-quality olive oil or ghee according to suhoor tradition.",
-            "Add the main components and simmer until perfectly cooked and tender.",
-            "Adjust spices, salt, and acidity to achieve the authentic flavor profile.",
-            "Plate beautifully, garnish with herbs or nuts, and serve to your waiting guests."
-        ],
-        "instr_ar": [
-            "اختر ونظف المكونات الطازجة بعناية لعمل حلوم مشوي.",
-            "شوح البصل والثوم في زيت زيتون بكر أو سمن بلدي حسب أصول الـ suhoor.",
-            "أضف المكونات الرئيسية واتركها تنضج على نار هادئة حتى تمام الاستواء.",
-            "عدل البهارات والملح والحموضة لتصل إلى النكهة الأصلية المطلوبة.",
-            "اسكب الطبق في وعاء التقديم وزينه بالمكسرات أو الأعشاب وقدمه لضيوفك."
-        ]
-    },
-    {
-        "category": "suhoor",
-        "name_en": "Arabic Ejjeh",
-        "name_ar": "عجة بيض عربية",
-        "desc_en": "Herb-filled egg pancake with onions.",
-        "desc_ar": "عجة بيض تقليدية بالأعشاب والبصل.",
-        "ingr_en": [
-            "4 eggs",
-            "Parsley",
-            "Green onions",
-            "Flour"
-        ],
-        "ingr_ar": [
-            "٤ بيضات",
-            "بقدونس",
-            "بصل أخضر",
-            "طحين"
-        ],
-        "instr_en": [
-            "Carefully select and clean the fresh ingredients for Arabic Ejjeh.",
-            "Sauté aromatics in high-quality olive oil or ghee according to suhoor tradition.",
-            "Add the main components and simmer until perfectly cooked and tender.",
-            "Adjust spices, salt, and acidity to achieve the authentic flavor profile.",
-            "Plate beautifully, garnish with herbs or nuts, and serve to your waiting guests."
-        ],
-        "instr_ar": [
-            "اختر ونظف المكونات الطازجة بعناية لعمل عجة بيض عربية.",
-            "شوح البصل والثوم في زيت زيتون بكر أو سمن بلدي حسب أصول الـ suhoor.",
-            "أضف المكونات الرئيسية واتركها تنضج على نار هادئة حتى تمام الاستواء.",
-            "عدل البهارات والملح والحموضة لتصل إلى النكهة الأصلية المطلوبة.",
-            "اسكب الطبق في وعاء التقديم وزينه بالمكسرات أو الأعشاب وقدمه لضيوفك."
-        ]
-    },
-    {
-        "category": "suhoor",
-        "name_en": "Chia Mango Pudding",
-        "name_ar": "بودينج الشيا والمانجو",
-        "desc_en": "Refreshing tropical seeds soaked in coconut milk.",
-        "desc_ar": "بودينج بذور الشيا المنعش بالمانجو.",
-        "ingr_en": [
-            "Chia seeds",
-            "Coconut milk",
-            "Fresh mango"
-        ],
-        "ingr_ar": [
-            "بذور الشيا",
-            "حليب جوز الهند",
-            "مانجو طازج"
-        ],
-        "instr_en": [
-            "Carefully select and clean the fresh ingredients for Chia Mango Pudding.",
-            "Sauté aromatics in high-quality olive oil or ghee according to suhoor tradition.",
-            "Add the main components and simmer until perfectly cooked and tender.",
-            "Adjust spices, salt, and acidity to achieve the authentic flavor profile.",
-            "Plate beautifully, garnish with herbs or nuts, and serve to your waiting guests."
-        ],
-        "instr_ar": [
-            "اختر ونظف المكونات الطازجة بعناية لعمل بودينج الشيا والمانجو.",
-            "شوح البصل والثوم في زيت زيتون بكر أو سمن بلدي حسب أصول الـ suhoor.",
-            "أضف المكونات الرئيسية واتركها تنضج على نار هادئة حتى تمام الاستواء.",
-            "عدل البهارات والملح والحموضة لتصل إلى النكهة الأصلية المطلوبة.",
-            "اسكب الطبق في وعاء التقديم وزينه بالمكسرات أو الأعشاب وقدمه لضيوفك."
-        ]
-    },
-    {
-        "category": "suhoor",
-        "name_en": "Feta & Watermelon",
-        "name_ar": "جبنة فيتا وبطيخ",
-        "desc_en": "Classic hydrating summer suhoor combo.",
-        "desc_ar": "جبنة فيتا مع البطيخ المنعش.",
-        "ingr_en": [
-            "Feta cheese",
-            "Watermelon slices",
-            "Fresh mint"
-        ],
-        "ingr_ar": [
-            "جبنة فيتا",
-            "شرائح بطيخ",
-            "نعناع طازج"
-        ],
-        "instr_en": [
-            "Carefully select and clean the fresh ingredients for Feta & Watermelon.",
-            "Sauté aromatics in high-quality olive oil or ghee according to suhoor tradition.",
-            "Add the main components and simmer until perfectly cooked and tender.",
-            "Adjust spices, salt, and acidity to achieve the authentic flavor profile.",
-            "Plate beautifully, garnish with herbs or nuts, and serve to your waiting guests."
-        ],
-        "instr_ar": [
-            "اختر ونظف المكونات الطازجة بعناية لعمل جبنة فيتا وبطيخ.",
-            "شوح البصل والثوم في زيت زيتون بكر أو سمن بلدي حسب أصول الـ suhoor.",
-            "أضف المكونات الرئيسية واتركها تنضج على نار هادئة حتى تمام الاستواء.",
-            "عدل البهارات والملح والحموضة لتصل إلى النكهة الأصلية المطلوبة.",
-            "اسكب الطبق في وعاء التقديم وزينه بالمكسرات أو الأعشاب وقدمه لضيوفك."
-        ]
-    },
-    {
-        "category": "suhoor",
-        "name_en": "Falafel Wrap",
-        "name_ar": "ساندوتش فلافل",
-        "desc_en": "Crispy chickpea fritters with tahini and pickles.",
-        "desc_ar": "ساندوتش فلافل مقرمشة مع الطحينة.",
-        "ingr_en": [
-            "Falafel balls",
-            "Pita bread",
-            "Tahini sauce",
-            "Pickles"
-        ],
-        "ingr_ar": [
-            "حبات فلافل",
-            "خبز بيتا",
-            "طحينة",
-            "مخللات"
-        ],
-        "instr_en": [
-            "Carefully select and clean the fresh ingredients for Falafel Wrap.",
-            "Sauté aromatics in high-quality olive oil or ghee according to suhoor tradition.",
-            "Add the main components and simmer until perfectly cooked and tender.",
-            "Adjust spices, salt, and acidity to achieve the authentic flavor profile.",
-            "Plate beautifully, garnish with herbs or nuts, and serve to your waiting guests."
-        ],
-        "instr_ar": [
-            "اختر ونظف المكونات الطازجة بعناية لعمل ساندوتش فلافل.",
-            "شوح البصل والثوم في زيت زيتون بكر أو سمن بلدي حسب أصول الـ suhoor.",
-            "أضف المكونات الرئيسية واتركها تنضج على نار هادئة حتى تمام الاستواء.",
-            "عدل البهارات والملح والحموضة لتصل إلى النكهة الأصلية المطلوبة.",
-            "اسكب الطبق في وعاء التقديم وزينه بالمكسرات أو الأعشاب وقدمه لضيوفك."
-        ]
-    },
-    {
-        "category": "suhoor",
-        "name_en": "Tahini & Molasses",
-        "name_ar": "طحينة ودبس",
-        "desc_en": "Energy-dense dip served with warm bread.",
-        "desc_ar": "دبس التمر مع الطحينة طاقة صافية.",
-        "ingr_en": [
-            "Tahini",
-            "Date molasses",
-            "Bread"
-        ],
-        "ingr_ar": [
-            "طحينة",
-            "دبس تمر",
-            "خبز"
-        ],
-        "instr_en": [
-            "Carefully select and clean the fresh ingredients for Tahini & Molasses.",
-            "Sauté aromatics in high-quality olive oil or ghee according to suhoor tradition.",
-            "Add the main components and simmer until perfectly cooked and tender.",
-            "Adjust spices, salt, and acidity to achieve the authentic flavor profile.",
-            "Plate beautifully, garnish with herbs or nuts, and serve to your waiting guests."
-        ],
-        "instr_ar": [
-            "اختر ونظف المكونات الطازجة بعناية لعمل طحينة ودبس.",
-            "شوح البصل والثوم في زيت زيتون بكر أو سمن بلدي حسب أصول الـ suhoor.",
-            "أضف المكونات الرئيسية واتركها تنضج على نار هادئة حتى تمام الاستواء.",
-            "عدل البهارات والملح والحموضة لتصل إلى النكهة الأصلية المطلوبة.",
-            "اسكب الطبق في وعاء التقديم وزينه بالمكسرات أو الأعشاب وقدمه لضيوفك."
-        ]
-    },
-    {
-        "category": "suhoor",
-        "name_en": "Cucumber & Mint Laban",
-        "name_ar": "لبن بالخيار والنعناع",
-        "desc_en": "Hydrating yogurt drink for long fasting hours.",
-        "desc_ar": "لبن عيران بالخيار والنعناع للهيدرات.",
-        "ingr_en": [
-            "Yogurt",
-            "Water",
-            "Cucumber",
-            "Dried mint"
-        ],
-        "ingr_ar": [
-            "لبن زبادي",
-            "ماء",
-            "خيار",
-            "نعناع مجفف"
-        ],
-        "instr_en": [
-            "Carefully select and clean the fresh ingredients for Cucumber & Mint Laban.",
-            "Sauté aromatics in high-quality olive oil or ghee according to suhoor tradition.",
-            "Add the main components and simmer until perfectly cooked and tender.",
-            "Adjust spices, salt, and acidity to achieve the authentic flavor profile.",
-            "Plate beautifully, garnish with herbs or nuts, and serve to your waiting guests."
-        ],
-        "instr_ar": [
-            "اختر ونظف المكونات الطازجة بعناية لعمل لبن بالخيار والنعناع.",
-            "شوح البصل والثوم في زيت زيتون بكر أو سمن بلدي حسب أصول الـ suhoor.",
-            "أضف المكونات الرئيسية واتركها تنضج على نار هادئة حتى تمام الاستواء.",
-            "عدل البهارات والملح والحموضة لتصل إلى النكهة الأصلية المطلوبة.",
-            "اسكب الطبق في وعاء التقديم وزينه بالمكسرات أو الأعشاب وقدمه لضيوفك."
-        ]
-    },
-    {
-        "category": "suhoor",
-        "name_en": "Avocado Egg Toast",
-        "name_ar": "توست آفوكادو مع بيض",
-        "desc_en": "Modern healthy fat source for satiety.",
-        "desc_ar": "توست الأفوكادو والبيض وجبة متكاملة.",
-        "ingr_en": [
-            "Whole wheat toast",
-            "1 avocado",
-            "1 boiled egg"
-        ],
-        "ingr_ar": [
-            "توست قمح كامل",
-            "حبة أفوكادو",
-            "بيضة مسلوقة"
-        ],
-        "instr_en": [
-            "Carefully select and clean the fresh ingredients for Avocado Egg Toast.",
-            "Sauté aromatics in high-quality olive oil or ghee according to suhoor tradition.",
-            "Add the main components and simmer until perfectly cooked and tender.",
-            "Adjust spices, salt, and acidity to achieve the authentic flavor profile.",
-            "Plate beautifully, garnish with herbs or nuts, and serve to your waiting guests."
-        ],
-        "instr_ar": [
-            "اختر ونظف المكونات الطازجة بعناية لعمل توست آفوكادو مع بيض.",
-            "شوح البصل والثوم في زيت زيتون بكر أو سمن بلدي حسب أصول الـ suhoor.",
-            "أضف المكونات الرئيسية واتركها تنضج على نار هادئة حتى تمام الاستواء.",
-            "عدل البهارات والملح والحموضة لتصل إلى النكهة الأصلية المطلوبة.",
-            "اسكب الطبق في وعاء التقديم وزينه بالمكسرات أو الأعشاب وقدمه لضيوفك."
-        ]
-    },
-    {
-        "category": "suhoor",
-        "name_en": "Za'atar Omelet",
-        "name_ar": "أومليت بالزعتر",
-        "desc_en": "Eggs seasoned with aromatic thyme and sumac.",
-        "desc_ar": "أومليت بيض بنكهة الزعتر والسماق.",
-        "ingr_en": [
-            "2 eggs",
-            "1 tbsp Za'atar",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "بيضة عدد ٢",
-            "ملعقة زعتر",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Carefully select and clean the fresh ingredients for Za'atar Omelet.",
-            "Sauté aromatics in high-quality olive oil or ghee according to suhoor tradition.",
-            "Add the main components and simmer until perfectly cooked and tender.",
-            "Adjust spices, salt, and acidity to achieve the authentic flavor profile.",
-            "Plate beautifully, garnish with herbs or nuts, and serve to your waiting guests."
-        ],
-        "instr_ar": [
-            "اختر ونظف المكونات الطازجة بعناية لعمل أومليت بالزعتر.",
-            "شوح البصل والثوم في زيت زيتون بكر أو سمن بلدي حسب أصول الـ suhoor.",
-            "أضف المكونات الرئيسية واتركها تنضج على نار هادئة حتى تمام الاستواء.",
-            "عدل البهارات والملح والحموضة لتصل إلى النكهة الأصلية المطلوبة.",
-            "اسكب الطبق في وعاء التقديم وزينه بالمكسرات أو الأعشاب وقدمه لضيوفك."
-        ]
-    },
-    {
-        "category": "suhoor",
-        "name_en": "Mutabal Eggplant",
-        "name_ar": "متبل باذنجان",
-        "desc_en": "Smoky roasted eggplant dip with tahini.",
-        "desc_ar": "متبل باذنجان مشوي بالطحينة.",
-        "ingr_en": [
-            "Roasted eggplant",
-            "Tahini",
-            "Yogurt",
-            "Garlic"
-        ],
-        "ingr_ar": [
-            "باذنجان مشوي",
-            "طحينة",
-            "لبن زبادي",
-            "ثوم"
-        ],
-        "instr_en": [
-            "Carefully select and clean the fresh ingredients for Mutabal Eggplant.",
-            "Sauté aromatics in high-quality olive oil or ghee according to suhoor tradition.",
-            "Add the main components and simmer until perfectly cooked and tender.",
-            "Adjust spices, salt, and acidity to achieve the authentic flavor profile.",
-            "Plate beautifully, garnish with herbs or nuts, and serve to your waiting guests."
-        ],
-        "instr_ar": [
-            "اختر ونظف المكونات الطازجة بعناية لعمل متبل باذنجان.",
-            "شوح البصل والثوم في زيت زيتون بكر أو سمن بلدي حسب أصول الـ suhoor.",
-            "أضف المكونات الرئيسية واتركها تنضج على نار هادئة حتى تمام الاستواء.",
-            "عدل البهارات والملح والحموضة لتصل إلى النكهة الأصلية المطلوبة.",
-            "اسكب الطبق في وعاء التقديم وزينه بالمكسرات أو الأعشاب وقدمه لضيوفك."
-        ]
-    },
-    {
-        "category": "suhoor",
-        "name_en": "Broad Beans (Foul)",
-        "name_ar": "فول عريض",
-        "desc_en": "Whole fava beans with garlic and chili.",
-        "desc_ar": "فول حب بالثوم والفلفل الحار.",
-        "ingr_en": [
-            "Broad fava beans",
-            "Chili flakes",
-            "Garlic",
+            "Cumin",
             "Lemon"
         ],
         "ingr_ar": [
-            "فول حب عريض",
-            "فلفل حار",
-            "ثوم",
+            "فول",
+            "زيت زيتون",
+            "كمون",
             "ليمون"
         ],
         "instr_en": [
-            "Carefully select and clean the fresh ingredients for Broad Beans (Foul).",
-            "Sauté aromatics in high-quality olive oil or ghee according to suhoor tradition.",
-            "Add the main components and simmer until perfectly cooked and tender.",
-            "Adjust spices, salt, and acidity to achieve the authentic flavor profile.",
-            "Plate beautifully, garnish with herbs or nuts, and serve to your waiting guests."
+            "Warm and season."
         ],
         "instr_ar": [
-            "اختر ونظف المكونات الطازجة بعناية لعمل فول عريض.",
-            "شوح البصل والثوم في زيت زيتون بكر أو سمن بلدي حسب أصول الـ suhoor.",
-            "أضف المكونات الرئيسية واتركها تنضج على نار هادئة حتى تمام الاستواء.",
-            "عدل البهارات والملح والحموضة لتصل إلى النكهة الأصلية المطلوبة.",
-            "اسكب الطبق في وعاء التقديم وزينه بالمكسرات أو الأعشاب وقدمه لضيوفك."
+            "سخن وتبل."
         ]
     },
     {
         "category": "suhoor",
-        "name_en": "Dates & Milk",
-        "name_ar": "تمر وحليب",
-        "desc_en": "The most traditional and simple energy source.",
-        "desc_ar": "تمر وحليب، الوجبة التقليدية الأبسط.",
+        "name_en": "Labneh Plate",
+        "name_ar": "طبق لبنة",
+        "desc_en": "Creamy strained yogurt",
+        "desc_ar": "لبنة كريمية",
         "ingr_en": [
-            "5 soft dates",
-            "1 glass of cold milk"
+            "Labneh",
+            "Olive oil",
+            "Za'atar"
         ],
         "ingr_ar": [
-            "٥ حبات تمر سكري",
-            "كوب حليب بارد"
+            "لبنة",
+            "زيت زيتون",
+            "زعتر"
         ],
         "instr_en": [
-            "Carefully select and clean the fresh ingredients for Dates & Milk.",
-            "Sauté aromatics in high-quality olive oil or ghee according to suhoor tradition.",
-            "Add the main components and simmer until perfectly cooked and tender.",
-            "Adjust spices, salt, and acidity to achieve the authentic flavor profile.",
-            "Plate beautifully, garnish with herbs or nuts, and serve to your waiting guests."
+            "Drizzle oil and serve."
         ],
         "instr_ar": [
-            "اختر ونظف المكونات الطازجة بعناية لعمل تمر وحليب.",
-            "شوح البصل والثوم في زيت زيتون بكر أو سمن بلدي حسب أصول الـ suhoor.",
-            "أضف المكونات الرئيسية واتركها تنضج على نار هادئة حتى تمام الاستواء.",
-            "عدل البهارات والملح والحموضة لتصل إلى النكهة الأصلية المطلوبة.",
-            "اسكب الطبق في وعاء التقديم وزينه بالمكسرات أو الأعشاب وقدمه لضيوفك."
+            "رش الزيت وقدم."
         ]
     },
     {
         "category": "suhoor",
-        "name_en": "Peanut Butter Banana",
-        "name_ar": "موز بزبدة الفول السوداني",
-        "desc_en": "Instant potassium and protein boost.",
-        "desc_ar": "موز بزبدة الفول السوداني طاقة فورية.",
+        "name_en": "Eggs with Tomatoes",
+        "name_ar": "بيض بالطماطم",
+        "desc_en": "Scrambled eggs with tomato",
+        "desc_ar": "بيض مع طماطم",
         "ingr_en": [
-            "1 banana",
-            "2 tbsp Peanut butter"
+            "Eggs",
+            "Tomato",
+            "Onion"
         ],
         "ingr_ar": [
-            "موزة واحدة",
-            "ملعقتين زبدة فول سوداني"
+            "بيض",
+            "طماطم",
+            "بصل"
         ],
         "instr_en": [
-            "Carefully select and clean the fresh ingredients for Peanut Butter Banana.",
-            "Sauté aromatics in high-quality olive oil or ghee according to suhoor tradition.",
-            "Add the main components and simmer until perfectly cooked and tender.",
-            "Adjust spices, salt, and acidity to achieve the authentic flavor profile.",
-            "Plate beautifully, garnish with herbs or nuts, and serve to your waiting guests."
+            "Scramble eggs with tomatoes."
         ],
         "instr_ar": [
-            "اختر ونظف المكونات الطازجة بعناية لعمل موز بزبدة الفول السوداني.",
-            "شوح البصل والثوم في زيت زيتون بكر أو سمن بلدي حسب أصول الـ suhoor.",
-            "أضف المكونات الرئيسية واتركها تنضج على نار هادئة حتى تمام الاستواء.",
-            "عدل البهارات والملح والحموضة لتصل إلى النكهة الأصلية المطلوبة.",
-            "اسكب الطبق في وعاء التقديم وزينه بالمكسرات أو الأعشاب وقدمه لضيوفك."
+            "اقلي البيض مع الطماطم."
         ]
     },
     {
         "category": "suhoor",
-        "name_en": "Suhoor Special #21",
-        "name_ar": "طبق suhoor مميز #21",
-        "desc_en": "A nutritious, home-cooked suhoor meal for a healthy fast.",
-        "desc_ar": "وجبة suhoor منزلية مغذية لصيام صحي ومبارك.",
+        "name_en": "Cheese Sandwich",
+        "name_ar": "ساندويش جبنة",
+        "desc_en": "Simple cheese sandwich",
+        "desc_ar": "ساندويش جبنة بسيط",
         "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
+            "Bread",
+            "Cheese",
+            "Cucumber"
+        ],
+        "ingr_ar": [
+            "خبز",
+            "جبنة",
+            "خيار"
+        ],
+        "instr_en": [
+            "Assemble ingredients."
+        ],
+        "instr_ar": [
+            "جمع المكونات."
+        ]
+    },
+    {
+        "category": "suhoor",
+        "name_en": "Yogurt with Honey",
+        "name_ar": "زبادي بالعسل",
+        "desc_en": "Sweet yogurt bowl",
+        "desc_ar": "زبادي حلو",
+        "ingr_en": [
+            "Yogurt",
+            "Honey",
+            "Nuts"
+        ],
+        "ingr_ar": [
+            "زبادي",
+            "عسل",
+            "مكسرات"
+        ],
+        "instr_en": [
+            "Mix yogurt with honey."
+        ],
+        "instr_ar": [
+            "اخلط الزبادي بالعسل."
+        ]
+    },
+    {
+        "category": "suhoor",
+        "name_en": "Oatmeal with Dates",
+        "name_ar": "شوفان بالتمر",
+        "desc_en": "Healthy oatmeal",
+        "desc_ar": "شوفان صحي",
+        "ingr_en": [
+            "Oats",
+            "Milk",
+            "Dates"
+        ],
+        "ingr_ar": [
+            "شوفان",
+            "حليب",
+            "تمر"
+        ],
+        "instr_en": [
+            "Cook oats, add dates."
+        ],
+        "instr_ar": [
+            "اطبخ الشوفان وأضف التمر."
+        ]
+    },
+    {
+        "category": "suhoor",
+        "name_en": "Boiled Eggs",
+        "name_ar": "بيض مسلوق",
+        "desc_en": "Simple boiled eggs",
+        "desc_ar": "بيض مسلوق بسيط",
+        "ingr_en": [
+            "Eggs",
+            "Salt"
+        ],
+        "ingr_ar": [
+            "بيض",
+            "ملح"
+        ],
+        "instr_en": [
+            "Boil eggs 10 minutes."
+        ],
+        "instr_ar": [
+            "اسلق البيض ١٠ دقائق."
+        ]
+    },
+    {
+        "category": "suhoor",
+        "name_en": "Peanut Butter Toast",
+        "name_ar": "توست بزبدة الفول السوداني",
+        "desc_en": "Energy toast",
+        "desc_ar": "توست طاقة",
+        "ingr_en": [
+            "Bread",
+            "Peanut butter"
+        ],
+        "ingr_ar": [
+            "خبز",
+            "زبدة فول سوداني"
+        ],
+        "instr_en": [
+            "Toast and spread."
+        ],
+        "instr_ar": [
+            "حمص وادهن."
+        ]
+    },
+    {
+        "category": "suhoor",
+        "name_en": "Tuna Salad",
+        "name_ar": "سلطة تونة",
+        "desc_en": "Protein-rich salad",
+        "desc_ar": "سلطة غنية بالبروتين",
+        "ingr_en": [
+            "Tuna",
+            "Vegetables",
+            "Lemon"
+        ],
+        "ingr_ar": [
+            "تونة",
+            "خضار",
+            "ليمون"
+        ],
+        "instr_en": [
+            "Mix all ingredients."
+        ],
+        "instr_ar": [
+            "اخلط المكونات."
+        ]
+    },
+    {
+        "category": "suhoor",
+        "name_en": "Manakish Zaatar",
+        "name_ar": "مناقيش زعتر",
+        "desc_en": "Zaatar flatbread",
+        "desc_ar": "خبز بالزعتر",
+        "ingr_en": [
+            "Dough",
+            "Za'atar",
             "Olive oil"
         ],
         "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
+            "عجينة",
+            "زعتر",
             "زيت زيتون"
         ],
         "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
+            "Bake with za'atar topping."
         ],
         "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
+            "اخبز مع الزعتر."
         ]
     },
     {
         "category": "suhoor",
-        "name_en": "Suhoor Special #22",
-        "name_ar": "طبق suhoor مميز #22",
-        "desc_en": "A nutritious, home-cooked suhoor meal for a healthy fast.",
-        "desc_ar": "وجبة suhoor منزلية مغذية لصيام صحي ومبارك.",
+        "name_en": "Banana Smoothie",
+        "name_ar": "سموذي موز",
+        "desc_en": "Creamy banana drink",
+        "desc_ar": "مشروب موز كريمي",
         "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
+            "Banana",
+            "Milk",
+            "Honey"
         ],
         "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
+            "موز",
+            "حليب",
+            "عسل"
         ],
         "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
+            "Blend all together."
         ],
         "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
+            "اخلط الكل."
         ]
     },
     {
         "category": "suhoor",
-        "name_en": "Suhoor Special #23",
-        "name_ar": "طبق suhoor مميز #23",
-        "desc_en": "A nutritious, home-cooked suhoor meal for a healthy fast.",
-        "desc_ar": "وجبة suhoor منزلية مغذية لصيام صحي ومبارك.",
+        "name_en": "Milk and Dates",
+        "name_ar": "حليب وتمر",
+        "desc_en": "Traditional suhoor",
+        "desc_ar": "سحور تقليدي",
         "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
+            "Milk",
+            "Dates"
         ],
         "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
+            "حليب",
+            "تمر"
         ],
         "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
+            "Serve cold."
         ],
         "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
+            "قدم بارداً."
         ]
     },
     {
         "category": "suhoor",
-        "name_en": "Suhoor Special #24",
-        "name_ar": "طبق suhoor مميز #24",
-        "desc_en": "A nutritious, home-cooked suhoor meal for a healthy fast.",
-        "desc_ar": "وجبة suhoor منزلية مغذية لصيام صحي ومبارك.",
+        "name_en": "Cottage Cheese Bowl",
+        "name_ar": "طبق جبنة قريش",
+        "desc_en": "Light cheese bowl",
+        "desc_ar": "طبق جبنة خفيف",
         "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
+            "Cottage cheese",
+            "Cucumber",
+            "Tomato"
         ],
         "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
+            "جبنة قريش",
+            "خيار",
+            "طماطم"
         ],
         "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
+            "Mix together."
         ],
         "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
+            "اخلط معاً."
         ]
     },
     {
         "category": "suhoor",
-        "name_en": "Suhoor Special #25",
-        "name_ar": "طبق suhoor مميز #25",
-        "desc_en": "A nutritious, home-cooked suhoor meal for a healthy fast.",
-        "desc_ar": "وجبة suhoor منزلية مغذية لصيام صحي ومبارك.",
+        "name_en": "Omelet",
+        "name_ar": "أومليت",
+        "desc_en": "Classic egg omelet",
+        "desc_ar": "أومليت بيض كلاسيكي",
         "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
+            "Eggs",
+            "Butter",
+            "Salt"
         ],
         "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
+            "بيض",
+            "زبدة",
+            "ملح"
         ],
         "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
+            "Fry eggs in butter."
         ],
         "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
+            "اقلي البيض بالزبدة."
         ]
     },
     {
         "category": "suhoor",
-        "name_en": "Suhoor Special #26",
-        "name_ar": "طبق suhoor مميز #26",
-        "desc_en": "A nutritious, home-cooked suhoor meal for a healthy fast.",
-        "desc_ar": "وجبة suhoor منزلية مغذية لصيام صحي ومبارك.",
+        "name_en": "Avocado Sandwich",
+        "name_ar": "ساندويش أفوكادو",
+        "desc_en": "Healthy avocado toast",
+        "desc_ar": "توست أفوكادو صحي",
         "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
+            "Avocado",
+            "Bread",
+            "Salt"
         ],
         "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
+            "أفوكادو",
+            "خبز",
+            "ملح"
         ],
         "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
+            "Mash and spread."
         ],
         "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
+            "اهرس وادهن."
         ]
     },
     {
         "category": "suhoor",
-        "name_en": "Suhoor Special #27",
-        "name_ar": "طبق suhoor مميز #27",
-        "desc_en": "A nutritious, home-cooked suhoor meal for a healthy fast.",
-        "desc_ar": "وجبة suhoor منزلية مغذية لصيام صحي ومبارك.",
+        "name_en": "Yogurt with Fruit",
+        "name_ar": "زبادي بالفواكه",
+        "desc_en": "Fruity yogurt",
+        "desc_ar": "زبادي بالفاكهة",
         "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
+            "Yogurt",
+            "Mixed fruits"
         ],
         "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
+            "زبادي",
+            "فواكه مشكلة"
         ],
         "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
+            "Mix and serve."
         ],
         "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
+            "اخلط وقدم."
         ]
     },
     {
         "category": "suhoor",
-        "name_en": "Suhoor Special #28",
-        "name_ar": "طبق suhoor مميز #28",
-        "desc_en": "A nutritious, home-cooked suhoor meal for a healthy fast.",
-        "desc_ar": "وجبة suhoor منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "suhoor",
-        "name_en": "Suhoor Special #29",
-        "name_ar": "طبق suhoor مميز #29",
-        "desc_en": "A nutritious, home-cooked suhoor meal for a healthy fast.",
-        "desc_ar": "وجبة suhoor منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "suhoor",
-        "name_en": "Suhoor Special #30",
-        "name_ar": "طبق suhoor مميز #30",
-        "desc_en": "A nutritious, home-cooked suhoor meal for a healthy fast.",
-        "desc_ar": "وجبة suhoor منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "suhoor",
-        "name_en": "Suhoor Special #31",
-        "name_ar": "طبق suhoor مميز #31",
-        "desc_en": "A nutritious, home-cooked suhoor meal for a healthy fast.",
-        "desc_ar": "وجبة suhoor منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "suhoor",
-        "name_en": "Suhoor Special #32",
-        "name_ar": "طبق suhoor مميز #32",
-        "desc_en": "A nutritious, home-cooked suhoor meal for a healthy fast.",
-        "desc_ar": "وجبة suhoor منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "suhoor",
-        "name_en": "Suhoor Special #33",
-        "name_ar": "طبق suhoor مميز #33",
-        "desc_en": "A nutritious, home-cooked suhoor meal for a healthy fast.",
-        "desc_ar": "وجبة suhoor منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "suhoor",
-        "name_en": "Suhoor Special #34",
-        "name_ar": "طبق suhoor مميز #34",
-        "desc_en": "A nutritious, home-cooked suhoor meal for a healthy fast.",
-        "desc_ar": "وجبة suhoor منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "suhoor",
-        "name_en": "Suhoor Special #35",
-        "name_ar": "طبق suhoor مميز #35",
-        "desc_en": "A nutritious, home-cooked suhoor meal for a healthy fast.",
-        "desc_ar": "وجبة suhoor منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "suhoor",
-        "name_en": "Suhoor Special #36",
-        "name_ar": "طبق suhoor مميز #36",
-        "desc_en": "A nutritious, home-cooked suhoor meal for a healthy fast.",
-        "desc_ar": "وجبة suhoor منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "suhoor",
-        "name_en": "Suhoor Special #37",
-        "name_ar": "طبق suhoor مميز #37",
-        "desc_en": "A nutritious, home-cooked suhoor meal for a healthy fast.",
-        "desc_ar": "وجبة suhoor منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "suhoor",
-        "name_en": "Suhoor Special #38",
-        "name_ar": "طبق suhoor مميز #38",
-        "desc_en": "A nutritious, home-cooked suhoor meal for a healthy fast.",
-        "desc_ar": "وجبة suhoor منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "suhoor",
-        "name_en": "Suhoor Special #39",
-        "name_ar": "طبق suhoor مميز #39",
-        "desc_en": "A nutritious, home-cooked suhoor meal for a healthy fast.",
-        "desc_ar": "وجبة suhoor منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "suhoor",
-        "name_en": "Suhoor Special #40",
-        "name_ar": "طبق suhoor مميز #40",
-        "desc_en": "A nutritious, home-cooked suhoor meal for a healthy fast.",
-        "desc_ar": "وجبة suhoor منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "suhoor",
-        "name_en": "Suhoor Special #41",
-        "name_ar": "طبق suhoor مميز #41",
-        "desc_en": "A nutritious, home-cooked suhoor meal for a healthy fast.",
-        "desc_ar": "وجبة suhoor منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "suhoor",
-        "name_en": "Suhoor Special #42",
-        "name_ar": "طبق suhoor مميز #42",
-        "desc_en": "A nutritious, home-cooked suhoor meal for a healthy fast.",
-        "desc_ar": "وجبة suhoor منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "suhoor",
-        "name_en": "Suhoor Special #43",
-        "name_ar": "طبق suhoor مميز #43",
-        "desc_en": "A nutritious, home-cooked suhoor meal for a healthy fast.",
-        "desc_ar": "وجبة suhoor منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "suhoor",
-        "name_en": "Suhoor Special #44",
-        "name_ar": "طبق suhoor مميز #44",
-        "desc_en": "A nutritious, home-cooked suhoor meal for a healthy fast.",
-        "desc_ar": "وجبة suhoor منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "suhoor",
-        "name_en": "Suhoor Special #45",
-        "name_ar": "طبق suhoor مميز #45",
-        "desc_en": "A nutritious, home-cooked suhoor meal for a healthy fast.",
-        "desc_ar": "وجبة suhoor منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "suhoor",
-        "name_en": "Suhoor Special #46",
-        "name_ar": "طبق suhoor مميز #46",
-        "desc_en": "A nutritious, home-cooked suhoor meal for a healthy fast.",
-        "desc_ar": "وجبة suhoor منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "suhoor",
-        "name_en": "Suhoor Special #47",
-        "name_ar": "طبق suhoor مميز #47",
-        "desc_en": "A nutritious, home-cooked suhoor meal for a healthy fast.",
-        "desc_ar": "وجبة suhoor منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "suhoor",
-        "name_en": "Suhoor Special #48",
-        "name_ar": "طبق suhoor مميز #48",
-        "desc_en": "A nutritious, home-cooked suhoor meal for a healthy fast.",
-        "desc_ar": "وجبة suhoor منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "suhoor",
-        "name_en": "Suhoor Special #49",
-        "name_ar": "طبق suhoor مميز #49",
-        "desc_en": "A nutritious, home-cooked suhoor meal for a healthy fast.",
-        "desc_ar": "وجبة suhoor منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "suhoor",
-        "name_en": "Suhoor Special #50",
-        "name_ar": "طبق suhoor مميز #50",
-        "desc_en": "A nutritious, home-cooked suhoor meal for a healthy fast.",
-        "desc_ar": "وجبة suhoor منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "iftar",
-        "name_en": "Lamb Mansaf",
-        "name_ar": "منسف لحم",
-        "desc_en": "Jordanian lamb in jameed sauce over rice.",
-        "desc_ar": "منسف أردني أصيل باللحم والجميد.",
-        "ingr_en": [
-            "Lamb chunks",
-            "Jameed balls",
-            "Turmeric rice",
-            "Shrak bread",
-            "Almonds"
-        ],
-        "ingr_ar": [
-            "لحم هبر",
-            "كرات جميد",
-            "أرز بالكركم",
-            "خبز شراك",
-            "لوز"
-        ],
-        "instr_en": [
-            "Carefully select and clean the fresh ingredients for Lamb Mansaf.",
-            "Sauté aromatics in high-quality olive oil or ghee according to iftar tradition.",
-            "Add the main components and simmer until perfectly cooked and tender.",
-            "Adjust spices, salt, and acidity to achieve the authentic flavor profile.",
-            "Plate beautifully, garnish with herbs or nuts, and serve to your waiting guests."
-        ],
-        "instr_ar": [
-            "اختر ونظف المكونات الطازجة بعناية لعمل منسف لحم.",
-            "شوح البصل والثوم في زيت زيتون بكر أو سمن بلدي حسب أصول الـ iftar.",
-            "أضف المكونات الرئيسية واتركها تنضج على نار هادئة حتى تمام الاستواء.",
-            "عدل البهارات والملح والحموضة لتصل إلى النكهة الأصلية المطلوبة.",
-            "اسكب الطبق في وعاء التقديم وزينه بالمكسرات أو الأعشاب وقدمه لضيوفك."
-        ]
-    },
-    {
-        "category": "iftar",
-        "name_en": "Chicken Maqluba",
-        "name_ar": "مقلوبة دجاج",
-        "desc_en": "Traditional upside-down rice and eggplant dish.",
-        "desc_ar": "مقلوبة دجاج بالباذنجان والزهرة أكلة زمان.",
-        "ingr_en": [
-            "Chicken",
-            "Eggplant",
-            "Cauliflower",
-            "Rice",
-            "Spices"
-        ],
-        "ingr_ar": [
-            "دجاج",
-            "باذنجان",
-            "زهرة",
-            "أرز",
-            "بهارات المقلوبة"
-        ],
-        "instr_en": [
-            "Carefully select and clean the fresh ingredients for Chicken Maqluba.",
-            "Sauté aromatics in high-quality olive oil or ghee according to iftar tradition.",
-            "Add the main components and simmer until perfectly cooked and tender.",
-            "Adjust spices, salt, and acidity to achieve the authentic flavor profile.",
-            "Plate beautifully, garnish with herbs or nuts, and serve to your waiting guests."
-        ],
-        "instr_ar": [
-            "اختر ونظف المكونات الطازجة بعناية لعمل مقلوبة دجاج.",
-            "شوح البصل والثوم في زيت زيتون بكر أو سمن بلدي حسب أصول الـ iftar.",
-            "أضف المكونات الرئيسية واتركها تنضج على نار هادئة حتى تمام الاستواء.",
-            "عدل البهارات والملح والحموضة لتصل إلى النكهة الأصلية المطلوبة.",
-            "اسكب الطبق في وعاء التقديم وزينه بالمكسرات أو الأعشاب وقدمه لضيوفك."
-        ]
-    },
-    {
-        "category": "iftar",
-        "name_en": "Egyptian Koshary",
-        "name_ar": "كشري مصري",
-        "desc_en": "National dish with lentils, rice, and pasta.",
-        "desc_ar": "كشري مصري أصلي بكل تفاصيله.",
+        "name_en": "Lentil Soup",
+        "name_ar": "شوربة عدس",
+        "desc_en": "Warm lentil soup",
+        "desc_ar": "شوربة عدس دافئة",
         "ingr_en": [
             "Lentils",
-            "Rice",
-            "Macaroni",
-            "Fried onions",
-            "Tomato sauce"
+            "Onion",
+            "Cumin"
         ],
         "ingr_ar": [
             "عدس",
-            "أرز",
-            "مكرونة",
-            "بصل مقلي",
-            "صلصة طماطم"
-        ],
-        "instr_en": [
-            "Carefully select and clean the fresh ingredients for Egyptian Koshary.",
-            "Sauté aromatics in high-quality olive oil or ghee according to iftar tradition.",
-            "Add the main components and simmer until perfectly cooked and tender.",
-            "Adjust spices, salt, and acidity to achieve the authentic flavor profile.",
-            "Plate beautifully, garnish with herbs or nuts, and serve to your waiting guests."
-        ],
-        "instr_ar": [
-            "اختر ونظف المكونات الطازجة بعناية لعمل كشري مصري.",
-            "شوح البصل والثوم في زيت زيتون بكر أو سمن بلدي حسب أصول الـ iftar.",
-            "أضف المكونات الرئيسية واتركها تنضج على نار هادئة حتى تمام الاستواء.",
-            "عدل البهارات والملح والحموضة لتصل إلى النكهة الأصلية المطلوبة.",
-            "اسكب الطبق في وعاء التقديم وزينه بالمكسرات أو الأعشاب وقدمه لضيوفك."
-        ]
-    },
-    {
-        "category": "iftar",
-        "name_en": "Chicken Musakhan",
-        "name_ar": "مسخن دجاج",
-        "desc_en": "Sumac-spiced chicken on Taboon bread.",
-        "desc_ar": "مسخن دجاج فلسطيني بالسماق والزيت.",
-        "ingr_en": [
-            "Chicken",
-            "Taboon bread",
-            "Sumac",
-            "Onions",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "دجاج",
-            "خبز طابون",
-            "سماق",
-            "بصل كثير",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Carefully select and clean the fresh ingredients for Chicken Musakhan.",
-            "Sauté aromatics in high-quality olive oil or ghee according to iftar tradition.",
-            "Add the main components and simmer until perfectly cooked and tender.",
-            "Adjust spices, salt, and acidity to achieve the authentic flavor profile.",
-            "Plate beautifully, garnish with herbs or nuts, and serve to your waiting guests."
-        ],
-        "instr_ar": [
-            "اختر ونظف المكونات الطازجة بعناية لعمل مسخن دجاج.",
-            "شوح البصل والثوم في زيت زيتون بكر أو سمن بلدي حسب أصول الـ iftar.",
-            "أضف المكونات الرئيسية واتركها تنضج على نار هادئة حتى تمام الاستواء.",
-            "عدل البهارات والملح والحموضة لتصل إلى النكهة الأصلية المطلوبة.",
-            "اسكب الطبق في وعاء التقديم وزينه بالمكسرات أو الأعشاب وقدمه لضيوفك."
-        ]
-    },
-    {
-        "category": "iftar",
-        "name_en": "Kousa Mahshi",
-        "name_ar": "كوسا محشي",
-        "desc_en": "Stuffed zucchini in a rich tomato broth.",
-        "desc_ar": "كوسا محشية بالأرز واللحم المفروم.",
-        "ingr_en": [
-            "Zucchini",
-            "Rice",
-            "Ground meat",
-            "Tomato paste",
-            "Mint"
-        ],
-        "ingr_ar": [
-            "كوسا",
-            "أرز",
-            "لحم مفروم",
-            "رب البندورة",
-            "نعناع"
-        ],
-        "instr_en": [
-            "Carefully select and clean the fresh ingredients for Kousa Mahshi.",
-            "Sauté aromatics in high-quality olive oil or ghee according to iftar tradition.",
-            "Add the main components and simmer until perfectly cooked and tender.",
-            "Adjust spices, salt, and acidity to achieve the authentic flavor profile.",
-            "Plate beautifully, garnish with herbs or nuts, and serve to your waiting guests."
-        ],
-        "instr_ar": [
-            "اختر ونظف المكونات الطازجة بعناية لعمل كوسا محشي.",
-            "شوح البصل والثوم في زيت زيتون بكر أو سمن بلدي حسب أصول الـ iftar.",
-            "أضف المكونات الرئيسية واتركها تنضج على نار هادئة حتى تمام الاستواء.",
-            "عدل البهارات والملح والحموضة لتصل إلى النكهة الأصلية المطلوبة.",
-            "اسكب الطبق في وعاء التقديم وزينه بالمكسرات أو الأعشاب وقدمه لضيوفك."
-        ]
-    },
-    {
-        "category": "iftar",
-        "name_en": "Sayadieh Fish",
-        "name_ar": "صيادية سمك",
-        "desc_en": "Fisherman's spiced rice and fried fish.",
-        "desc_ar": "صيادية سمك بيروتية بالأرز البني.",
-        "ingr_en": [
-            "Fish fillets",
-            "Rice",
-            "Onions",
-            "Cumin",
-            "Nuts"
-        ],
-        "ingr_ar": [
-            "سمك فيليه",
-            "أرز",
             "بصل",
-            "كمون",
-            "مكسرات"
+            "كمون"
         ],
         "instr_en": [
-            "Carefully select and clean the fresh ingredients for Sayadieh Fish.",
-            "Sauté aromatics in high-quality olive oil or ghee according to iftar tradition.",
-            "Add the main components and simmer until perfectly cooked and tender.",
-            "Adjust spices, salt, and acidity to achieve the authentic flavor profile.",
-            "Plate beautifully, garnish with herbs or nuts, and serve to your waiting guests."
+            "Warm and serve."
         ],
         "instr_ar": [
-            "اختر ونظف المكونات الطازجة بعناية لعمل صيادية سمك.",
-            "شوح البصل والثوم في زيت زيتون بكر أو سمن بلدي حسب أصول الـ iftar.",
-            "أضف المكونات الرئيسية واتركها تنضج على نار هادئة حتى تمام الاستواء.",
-            "عدل البهارات والملح والحموضة لتصل إلى النكهة الأصلية المطلوبة.",
-            "اسكب الطبق في وعاء التقديم وزينه بالمكسرات أو الأعشاب وقدمه لضيوفك."
+            "سخن وقدم."
         ]
     },
     {
-        "category": "iftar",
-        "name_en": "Lamb Quzi",
-        "name_ar": "قوزي لحم",
-        "desc_en": "Slow-roasted lamb over aromatic spiced rice.",
-        "desc_ar": "قوزي لحم عراقي فاخر للمناسبات.",
+        "category": "suhoor",
+        "name_en": "Cheese Fatayer",
+        "name_ar": "فطائر جبنة",
+        "desc_en": "Cheese pastries",
+        "desc_ar": "فطائر بالجبنة",
         "ingr_en": [
-            "Whole lamb leg",
-            "Basmati rice",
-            "Aromatic spices",
-            "Nuts"
+            "Dough",
+            "Cheese"
         ],
         "ingr_ar": [
-            "فخذ غنم",
-            "أرز بسمتي",
-            "بهارات عربية",
-            "مكسرات"
+            "عجينة",
+            "جبنة"
         ],
         "instr_en": [
-            "Carefully select and clean the fresh ingredients for Lamb Quzi.",
-            "Sauté aromatics in high-quality olive oil or ghee according to iftar tradition.",
-            "Add the main components and simmer until perfectly cooked and tender.",
-            "Adjust spices, salt, and acidity to achieve the authentic flavor profile.",
-            "Plate beautifully, garnish with herbs or nuts, and serve to your waiting guests."
+            "Bake until golden."
         ],
         "instr_ar": [
-            "اختر ونظف المكونات الطازجة بعناية لعمل قوزي لحم.",
-            "شوح البصل والثوم في زيت زيتون بكر أو سمن بلدي حسب أصول الـ iftar.",
-            "أضف المكونات الرئيسية واتركها تنضج على نار هادئة حتى تمام الاستواء.",
-            "عدل البهارات والملح والحموضة لتصل إلى النكهة الأصلية المطلوبة.",
-            "اسكب الطبق في وعاء التقديم وزينه بالمكسرات أو الأعشاب وقدمه لضيوفك."
+            "اخبز حتى يذهب."
         ]
     },
     {
-        "category": "iftar",
-        "name_en": "Mulukhiyah",
-        "name_ar": "ملوخية",
-        "desc_en": "Jute mallow stew served with chicken and rice.",
-        "desc_ar": "ملوخية ورق أو مطحونة مع الدجاج.",
+        "category": "suhoor",
+        "name_en": "Apple Oats",
+        "name_ar": "شوفان بالتفاح",
+        "desc_en": "Healthy apple oats",
+        "desc_ar": "شوفان صحي بالتفاح",
         "ingr_en": [
-            "Mulukhiyah leaves",
-            "Chicken",
-            "Garlic",
-            "Coriander",
-            "Rice"
+            "Oats",
+            "Apple",
+            "Cinnamon"
         ],
         "ingr_ar": [
-            "ملوخية",
-            "دجاج",
-            "ثوم",
-            "كزبرة",
-            "أرز"
+            "شوفان",
+            "تفاح",
+            "قرفة"
         ],
         "instr_en": [
-            "Carefully select and clean the fresh ingredients for Mulukhiyah.",
-            "Sauté aromatics in high-quality olive oil or ghee according to iftar tradition.",
-            "Add the main components and simmer until perfectly cooked and tender.",
-            "Adjust spices, salt, and acidity to achieve the authentic flavor profile.",
-            "Plate beautifully, garnish with herbs or nuts, and serve to your waiting guests."
+            "Cook with apple."
         ],
         "instr_ar": [
-            "اختر ونظف المكونات الطازجة بعناية لعمل ملوخية.",
-            "شوح البصل والثوم في زيت زيتون بكر أو سمن بلدي حسب أصول الـ iftar.",
-            "أضف المكونات الرئيسية واتركها تنضج على نار هادئة حتى تمام الاستواء.",
-            "عدل البهارات والملح والحموضة لتصل إلى النكهة الأصلية المطلوبة.",
-            "اسكب الطبق في وعاء التقديم وزينه بالمكسرات أو الأعشاب وقدمه لضيوفك."
+            "اطبخ مع التفاح."
         ]
     },
     {
-        "category": "iftar",
-        "name_en": "Jordanian Maglooba",
-        "name_ar": "مقلوبة أردنية",
-        "desc_en": "Rice, meat, and vegetables with special spices.",
-        "desc_ar": "المقلوبة الأردنية الشهيرة باللحم.",
+        "category": "suhoor",
+        "name_en": "Egg Sandwich",
+        "name_ar": "ساندويش بيض",
+        "desc_en": "Simple egg sandwich",
+        "desc_ar": "ساندويش بيض بسيط",
         "ingr_en": [
-            "Lamb meat",
-            "Eggplant",
-            "Rice",
-            "Baharat spices"
+            "Eggs",
+            "Bread",
+            "Mayonnaise"
         ],
         "ingr_ar": [
-            "لحم غنم",
-            "باذنجان",
-            "أرز",
-            "بهارات مشكلة"
+            "بيض",
+            "خبز",
+            "مايونيز"
         ],
         "instr_en": [
-            "Carefully select and clean the fresh ingredients for Jordanian Maglooba.",
-            "Sauté aromatics in high-quality olive oil or ghee according to iftar tradition.",
-            "Add the main components and simmer until perfectly cooked and tender.",
-            "Adjust spices, salt, and acidity to achieve the authentic flavor profile.",
-            "Plate beautifully, garnish with herbs or nuts, and serve to your waiting guests."
+            "Assemble sandwich."
         ],
         "instr_ar": [
-            "اختر ونظف المكونات الطازجة بعناية لعمل مقلوبة أردنية.",
-            "شوح البصل والثوم في زيت زيتون بكر أو سمن بلدي حسب أصول الـ iftar.",
-            "أضف المكونات الرئيسية واتركها تنضج على نار هادئة حتى تمام الاستواء.",
-            "عدل البهارات والملح والحموضة لتصل إلى النكهة الأصلية المطلوبة.",
-            "اسكب الطبق في وعاء التقديم وزينه بالمكسرات أو الأعشاب وقدمه لضيوفك."
+            "جمع الساندويش."
         ]
     },
     {
-        "category": "iftar",
-        "name_en": "Stuffed Grape Leaves",
-        "name_ar": "ورق عنب محشي",
-        "desc_en": "Tangy vine leaves with rice and herbs.",
-        "desc_ar": "ورق عنب حامض ولذيذ بدبس الرمان.",
+        "category": "suhoor",
+        "name_en": "Hummus Wrap",
+        "name_ar": "لفة حمص",
+        "desc_en": "Hummus wrap",
+        "desc_ar": "لفة بالحمص",
         "ingr_en": [
-            "Grape leaves",
-            "Rice",
-            "Herbs",
-            "Lemon juice",
-            "Olive oil"
+            "Hummus",
+            "Bread",
+            "Vegetables"
         ],
         "ingr_ar": [
-            "ورق عنب",
-            "أرز",
-            "أعشاب",
-            "ليمون",
-            "زيت زيتون"
+            "حمص",
+            "خبز",
+            "خضار"
         ],
         "instr_en": [
-            "Carefully select and clean the fresh ingredients for Stuffed Grape Leaves.",
-            "Sauté aromatics in high-quality olive oil or ghee according to iftar tradition.",
-            "Add the main components and simmer until perfectly cooked and tender.",
-            "Adjust spices, salt, and acidity to achieve the authentic flavor profile.",
-            "Plate beautifully, garnish with herbs or nuts, and serve to your waiting guests."
+            "Wrap and serve."
         ],
         "instr_ar": [
-            "اختر ونظف المكونات الطازجة بعناية لعمل ورق عنب محشي.",
-            "شوح البصل والثوم في زيت زيتون بكر أو سمن بلدي حسب أصول الـ iftar.",
-            "أضف المكونات الرئيسية واتركها تنضج على نار هادئة حتى تمام الاستواء.",
-            "عدل البهارات والملح والحموضة لتصل إلى النكهة الأصلية المطلوبة.",
-            "اسكب الطبق في وعاء التقديم وزينه بالمكسرات أو الأعشاب وقدمه لضيوفك."
+            "لف وقدم."
         ]
     },
     {
-        "category": "iftar",
-        "name_en": "Chicken Kabsa",
-        "name_ar": "كبسة دجاج",
-        "desc_en": "Saudi style spiced rice with roasted chicken.",
-        "desc_ar": "كبسة دجاج سعودية بالبهارات الخليجية.",
+        "category": "suhoor",
+        "name_en": "Date Energy Balls",
+        "name_ar": "كرات طاقة بالتمر",
+        "desc_en": "Energy date balls",
+        "desc_ar": "كرات تمر للطاقة",
         "ingr_en": [
-            "Chicken",
-            "Basmati rice",
-            "Kabsa spices",
-            "Dry lime"
+            "Dates",
+            "Nuts",
+            "Coconut"
         ],
         "ingr_ar": [
-            "دجاج",
-            "أرز بسمتي",
-            "بهارات كبسة",
-            "لومي"
+            "تمر",
+            "مكسرات",
+            "جوز هند"
         ],
         "instr_en": [
-            "Carefully select and clean the fresh ingredients for Chicken Kabsa.",
-            "Sauté aromatics in high-quality olive oil or ghee according to iftar tradition.",
-            "Add the main components and simmer until perfectly cooked and tender.",
-            "Adjust spices, salt, and acidity to achieve the authentic flavor profile.",
-            "Plate beautifully, garnish with herbs or nuts, and serve to your waiting guests."
+            "Roll into balls."
         ],
         "instr_ar": [
-            "اختر ونظف المكونات الطازجة بعناية لعمل كبسة دجاج.",
-            "شوح البصل والثوم في زيت زيتون بكر أو سمن بلدي حسب أصول الـ iftar.",
-            "أضف المكونات الرئيسية واتركها تنضج على نار هادئة حتى تمام الاستواء.",
-            "عدل البهارات والملح والحموضة لتصل إلى النكهة الأصلية المطلوبة.",
-            "اسكب الطبق في وعاء التقديم وزينه بالمكسرات أو الأعشاب وقدمه لضيوفك."
+            "شكل كرات."
         ]
     },
     {
-        "category": "iftar",
-        "name_en": "Lamb Mandi",
-        "name_ar": "مندي لحم",
-        "desc_en": "Smoky Yemeni style lamb and rice.",
-        "desc_ar": "مندي لحم يمني مطهو بحفرة النار.",
+        "category": "suhoor",
+        "name_en": "Milk Porridge",
+        "name_ar": "عصيدة حليب",
+        "desc_en": "Warm milk porridge",
+        "desc_ar": "عصيدة حليب دافئة",
         "ingr_en": [
-            "Lamb chunks",
-            "Long grain rice",
-            "Charcoal for smoke",
-            "Spices"
+            "Milk",
+            "Flour",
+            "Sugar"
         ],
         "ingr_ar": [
-            "لحم غنم",
-            "أرز طويل الحبة",
-            "فحم للتدخين",
-            "بهارات"
+            "حليب",
+            "طحين",
+            "سكر"
         ],
         "instr_en": [
-            "Carefully select and clean the fresh ingredients for Lamb Mandi.",
-            "Sauté aromatics in high-quality olive oil or ghee according to iftar tradition.",
-            "Add the main components and simmer until perfectly cooked and tender.",
-            "Adjust spices, salt, and acidity to achieve the authentic flavor profile.",
-            "Plate beautifully, garnish with herbs or nuts, and serve to your waiting guests."
+            "Cook until thick."
         ],
         "instr_ar": [
-            "اختر ونظف المكونات الطازجة بعناية لعمل مندي لحم.",
-            "شوح البصل والثوم في زيت زيتون بكر أو سمن بلدي حسب أصول الـ iftar.",
-            "أضف المكونات الرئيسية واتركها تنضج على نار هادئة حتى تمام الاستواء.",
-            "عدل البهارات والملح والحموضة لتصل إلى النكهة الأصلية المطلوبة.",
-            "اسكب الطبق في وعاء التقديم وزينه بالمكسرات أو الأعشاب وقدمه لضيوفك."
+            "اطبخ حتى يثخن."
         ]
     },
     {
-        "category": "iftar",
-        "name_en": "Meat Sambousek",
-        "name_ar": "سمبوسك لحم",
-        "desc_en": "Crispy fried pastry filled with spiced meat.",
-        "desc_ar": "سمبوسك مقرمشة بحشوة اللحم والبهارات.",
+        "category": "suhoor",
+        "name_en": "Peanut Smoothie",
+        "name_ar": "سموذي فول سوداني",
+        "desc_en": "Protein smoothie",
+        "desc_ar": "سموذي بروتين",
         "ingr_en": [
-            "Pastry sheets",
-            "Ground beef",
-            "Onions",
-            "Spices"
+            "Peanut butter",
+            "Milk",
+            "Banana"
         ],
         "ingr_ar": [
-            "عجينة سمبوسك",
-            "لحم مفروم",
-            "بصل",
-            "بهارات"
+            "زبدة فول سوداني",
+            "حليب",
+            "موز"
         ],
         "instr_en": [
-            "Carefully select and clean the fresh ingredients for Meat Sambousek.",
-            "Sauté aromatics in high-quality olive oil or ghee according to iftar tradition.",
-            "Add the main components and simmer until perfectly cooked and tender.",
-            "Adjust spices, salt, and acidity to achieve the authentic flavor profile.",
-            "Plate beautifully, garnish with herbs or nuts, and serve to your waiting guests."
+            "Blend together."
         ],
         "instr_ar": [
-            "اختر ونظف المكونات الطازجة بعناية لعمل سمبوسك لحم.",
-            "شوح البصل والثوم في زيت زيتون بكر أو سمن بلدي حسب أصول الـ iftar.",
-            "أضف المكونات الرئيسية واتركها تنضج على نار هادئة حتى تمام الاستواء.",
-            "عدل البهارات والملح والحموضة لتصل إلى النكهة الأصلية المطلوبة.",
-            "اسكب الطبق في وعاء التقديم وزينه بالمكسرات أو الأعشاب وقدمه لضيوفك."
+            "اخلط معاً."
+        ]
+    },
+    {
+        "category": "suhoor",
+        "name_en": "Yogurt Drink",
+        "name_ar": "شراب زبادي",
+        "desc_en": "Refreshing yogurt drink",
+        "desc_ar": "مشروب زبادي منعش",
+        "ingr_en": [
+            "Yogurt",
+            "Water",
+            "Salt"
+        ],
+        "ingr_ar": [
+            "زبادي",
+            "ماء",
+            "ملح"
+        ],
+        "instr_en": [
+            "Blend and chill."
+        ],
+        "instr_ar": [
+            "اخلط وبرد."
+        ]
+    },
+    {
+        "category": "suhoor",
+        "name_en": "Toast with Honey",
+        "name_ar": "توست بالعسل",
+        "desc_en": "Sweet honey toast",
+        "desc_ar": "توست حلو بالعسل",
+        "ingr_en": [
+            "Bread",
+            "Honey",
+            "Butter"
+        ],
+        "ingr_ar": [
+            "خبز",
+            "عسل",
+            "زبدة"
+        ],
+        "instr_en": [
+            "Toast and drizzle."
+        ],
+        "instr_ar": [
+            "حمص ورش."
+        ]
+    },
+    {
+        "category": "suhoor",
+        "name_en": "Chickpea Salad",
+        "name_ar": "سلطة حمص",
+        "desc_en": "Healthy chickpea salad",
+        "desc_ar": "سلطة حمص صحية",
+        "ingr_en": [
+            "Chickpeas",
+            "Vegetables",
+            "Lemon"
+        ],
+        "ingr_ar": [
+            "حمص",
+            "خضار",
+            "ليمون"
+        ],
+        "instr_en": [
+            "Mix all ingredients."
+        ],
+        "instr_ar": [
+            "اخلط المكونات."
+        ]
+    },
+    {
+        "category": "suhoor",
+        "name_en": "Cheese Omelet",
+        "name_ar": "أومليت جبنة",
+        "desc_en": "Cheesy omelet",
+        "desc_ar": "أومليت بالجبنة",
+        "ingr_en": [
+            "Eggs",
+            "Cheese",
+            "Butter"
+        ],
+        "ingr_ar": [
+            "بيض",
+            "جبنة",
+            "زبدة"
+        ],
+        "instr_en": [
+            "Cook with cheese."
+        ],
+        "instr_ar": [
+            "اطبخ مع الجبنة."
+        ]
+    },
+    {
+        "category": "suhoor",
+        "name_en": "Banana Toast",
+        "name_ar": "توست موز",
+        "desc_en": "Banana topped toast",
+        "desc_ar": "توست بالموز",
+        "ingr_en": [
+            "Bread",
+            "Banana",
+            "Honey"
+        ],
+        "ingr_ar": [
+            "خبز",
+            "موز",
+            "عسل"
+        ],
+        "instr_en": [
+            "Mash and spread."
+        ],
+        "instr_ar": [
+            "اهرس وادهن."
+        ]
+    },
+    {
+        "category": "suhoor",
+        "name_en": "Nuts & Milk",
+        "name_ar": "مكسرات وحليب",
+        "desc_en": "Nuts with cold milk",
+        "desc_ar": "مكسرات مع حليب بارد",
+        "ingr_en": [
+            "Mixed nuts",
+            "Milk"
+        ],
+        "ingr_ar": [
+            "مكسرات مشكلة",
+            "حليب"
+        ],
+        "instr_en": [
+            "Serve together."
+        ],
+        "instr_ar": [
+            "قدم معاً."
         ]
     },
     {
         "category": "iftar",
         "name_en": "Lentil Soup",
         "name_ar": "شوربة عدس",
-        "desc_en": "Classic golden starter for every Iftar.",
-        "desc_ar": "شوربة العدس الأصفر، ملكة مائدة الإفطار.",
+        "desc_en": "Classic lentil soup",
+        "desc_ar": "شوربة عدس كلاسيكية",
         "ingr_en": [
-            "Red lentils",
-            "Carrot",
-            "Cumin",
+            "Lentils",
             "Onion",
-            "Lemon"
+            "Cumin"
         ],
         "ingr_ar": [
-            "عدس أحمر",
-            "جزر",
-            "كمون",
+            "عدس",
             "بصل",
-            "ليمون"
+            "كمون"
         ],
         "instr_en": [
-            "Carefully select and clean the fresh ingredients for Lentil Soup.",
-            "Sauté aromatics in high-quality olive oil or ghee according to iftar tradition.",
-            "Add the main components and simmer until perfectly cooked and tender.",
-            "Adjust spices, salt, and acidity to achieve the authentic flavor profile.",
-            "Plate beautifully, garnish with herbs or nuts, and serve to your waiting guests."
+            "Boil lentils, blend, season."
         ],
         "instr_ar": [
-            "اختر ونظف المكونات الطازجة بعناية لعمل شوربة عدس.",
-            "شوح البصل والثوم في زيت زيتون بكر أو سمن بلدي حسب أصول الـ iftar.",
-            "أضف المكونات الرئيسية واتركها تنضج على نار هادئة حتى تمام الاستواء.",
-            "عدل البهارات والملح والحموضة لتصل إلى النكهة الأصلية المطلوبة.",
-            "اسكب الطبق في وعاء التقديم وزينه بالمكسرات أو الأعشاب وقدمه لضيوفك."
+            "اسلق العدس واخلط وتبل."
         ]
     },
     {
         "category": "iftar",
-        "name_en": "Fattoush Salad",
-        "name_ar": "سلطة فتوش",
-        "desc_en": "Zesty garden salad with toasted pita bits.",
-        "desc_ar": "سلطة فتوش بالرمان والخبز المحمص.",
+        "name_en": "Sambousek",
+        "name_ar": "سمبوسك",
+        "desc_en": "Meat filled pastry",
+        "desc_ar": "معجنات باللحم",
         "ingr_en": [
-            "Mixed greens",
-            "Radishes",
-            "Pomegranate molasses",
-            "Fried pita"
+            "Dough",
+            "Meat",
+            "Onion"
+        ],
+        "ingr_ar": [
+            "عجينة",
+            "لحم",
+            "بصل"
+        ],
+        "instr_en": [
+            "Fill and fry."
+        ],
+        "instr_ar": [
+            "احشِ واقلي."
+        ]
+    },
+    {
+        "category": "iftar",
+        "name_en": "Stuffed Grape Leaves",
+        "name_ar": "ورق عنب",
+        "desc_en": "Rice stuffed leaves",
+        "desc_ar": "ورق عنب محشي",
+        "ingr_en": [
+            "Grape leaves",
+            "Rice",
+            "Spices"
+        ],
+        "ingr_ar": [
+            "ورق عنب",
+            "رز",
+            "بهارات"
+        ],
+        "instr_en": [
+            "Roll and simmer."
+        ],
+        "instr_ar": [
+            "لف واطبخ."
+        ]
+    },
+    {
+        "category": "iftar",
+        "name_en": "Chicken Shawarma",
+        "name_ar": "شاورما دجاج",
+        "desc_en": "Spiced grilled chicken",
+        "desc_ar": "دجاج مشوي متبل",
+        "ingr_en": [
+            "Chicken",
+            "Spices",
+            "Garlic"
+        ],
+        "ingr_ar": [
+            "دجاج",
+            "بهارات",
+            "ثوم"
+        ],
+        "instr_en": [
+            "Marinate and grill."
+        ],
+        "instr_ar": [
+            "تبل واشوي."
+        ]
+    },
+    {
+        "category": "iftar",
+        "name_en": "Falafel",
+        "name_ar": "فلافل",
+        "desc_en": "Crispy chickpea fritters",
+        "desc_ar": "فلافل مقرمشة",
+        "ingr_en": [
+            "Chickpeas",
+            "Herbs",
+            "Spices"
+        ],
+        "ingr_ar": [
+            "حمص",
+            "أعشاب",
+            "بهارات"
+        ],
+        "instr_en": [
+            "Blend and fry."
+        ],
+        "instr_ar": [
+            "اخلط واقلي."
+        ]
+    },
+    {
+        "category": "iftar",
+        "name_en": "Fattoush",
+        "name_ar": "فتوش",
+        "desc_en": "Lebanese bread salad",
+        "desc_ar": "سلطة خبز لبنانية",
+        "ingr_en": [
+            "Vegetables",
+            "Pita",
+            "Sumac"
+        ],
+        "ingr_ar": [
+            "خضار",
+            "خبز",
+            "سماق"
+        ],
+        "instr_en": [
+            "Toss with dressing."
+        ],
+        "instr_ar": [
+            "اخلط مع الصلصة."
+        ]
+    },
+    {
+        "category": "iftar",
+        "name_en": "Dates & Milk",
+        "name_ar": "تمر وحليب",
+        "desc_en": "Traditional iftar starter",
+        "desc_ar": "بداية إفطار تقليدية",
+        "ingr_en": [
+            "Dates",
+            "Milk"
+        ],
+        "ingr_ar": [
+            "تمر",
+            "حليب"
+        ],
+        "instr_en": [
+            "Serve together."
+        ],
+        "instr_ar": [
+            "قدم معاً."
+        ]
+    },
+    {
+        "category": "iftar",
+        "name_en": "Meat Samosa",
+        "name_ar": "سمبوسة لحم",
+        "desc_en": "Fried meat pastry",
+        "desc_ar": "معجنات لحم مقلية",
+        "ingr_en": [
+            "Minced beef",
+            "Dough",
+            "Spices"
+        ],
+        "ingr_ar": [
+            "لحم مفروم",
+            "عجينة",
+            "بهارات"
+        ],
+        "instr_en": [
+            "Fry filled pastry."
+        ],
+        "instr_ar": [
+            "اقلي المعجنات المحشية."
+        ]
+    },
+    {
+        "category": "iftar",
+        "name_en": "Vegetable Soup",
+        "name_ar": "شوربة خضار",
+        "desc_en": "Mixed vegetable soup",
+        "desc_ar": "شوربة خضار مشكلة",
+        "ingr_en": [
+            "Mixed vegetables",
+            "Broth"
         ],
         "ingr_ar": [
             "خضار مشكلة",
-            "فجل",
-            "دبس رمان",
-            "خبز مقلي"
+            "مرق"
         ],
         "instr_en": [
-            "Carefully select and clean the fresh ingredients for Fattoush Salad.",
-            "Sauté aromatics in high-quality olive oil or ghee according to iftar tradition.",
-            "Add the main components and simmer until perfectly cooked and tender.",
-            "Adjust spices, salt, and acidity to achieve the authentic flavor profile.",
-            "Plate beautifully, garnish with herbs or nuts, and serve to your waiting guests."
+            "Boil and season."
         ],
         "instr_ar": [
-            "اختر ونظف المكونات الطازجة بعناية لعمل سلطة فتوش.",
-            "شوح البصل والثوم في زيت زيتون بكر أو سمن بلدي حسب أصول الـ iftar.",
-            "أضف المكونات الرئيسية واتركها تنضج على نار هادئة حتى تمام الاستواء.",
-            "عدل البهارات والملح والحموضة لتصل إلى النكهة الأصلية المطلوبة.",
-            "اسكب الطبق في وعاء التقديم وزينه بالمكسرات أو الأعشاب وقدمه لضيوفك."
+            "اسلق وتبل."
         ]
     },
     {
         "category": "iftar",
-        "name_en": "Hummus with Meat",
-        "name_ar": "حمص باللحمة",
-        "desc_en": "Creamy hummus topped with sautéed lamb nuts.",
-        "desc_ar": "صحن حمص كريمي مغطى بلحم الغنم واللوز.",
+        "name_en": "Hummus",
+        "name_ar": "حمص",
+        "desc_en": "Creamy chickpea dip",
+        "desc_ar": "حمص كريمي",
         "ingr_en": [
             "Chickpeas",
             "Tahini",
-            "Sautéed lamb",
-            "Pine nuts"
+            "Lemon"
         ],
         "ingr_ar": [
             "حمص",
             "طحينة",
-            "لحم مقلي",
-            "صنوبر"
-        ],
-        "instr_en": [
-            "Carefully select and clean the fresh ingredients for Hummus with Meat.",
-            "Sauté aromatics in high-quality olive oil or ghee according to iftar tradition.",
-            "Add the main components and simmer until perfectly cooked and tender.",
-            "Adjust spices, salt, and acidity to achieve the authentic flavor profile.",
-            "Plate beautifully, garnish with herbs or nuts, and serve to your waiting guests."
-        ],
-        "instr_ar": [
-            "اختر ونظف المكونات الطازجة بعناية لعمل حمص باللحمة.",
-            "شوح البصل والثوم في زيت زيتون بكر أو سمن بلدي حسب أصول الـ iftar.",
-            "أضف المكونات الرئيسية واتركها تنضج على نار هادئة حتى تمام الاستواء.",
-            "عدل البهارات والملح والحموضة لتصل إلى النكهة الأصلية المطلوبة.",
-            "اسكب الطبق في وعاء التقديم وزينه بالمكسرات أو الأعشاب وقدمه لضيوفك."
-        ]
-    },
-    {
-        "category": "iftar",
-        "name_en": "Spiced Roast Chicken",
-        "name_ar": "دجاج مشوي متبل",
-        "desc_en": "Oven roasted with herbs and lemon.",
-        "desc_ar": "دجاج مشوي بالفرن بتتبيلة الليمون.",
-        "ingr_en": [
-            "1 Whole chicken",
-            "Garlic sauce",
-            "Yogurt marinade",
-            "Herbs"
-        ],
-        "ingr_ar": [
-            "دجاجة كاملة",
-            "ثومية",
-            "تتبيلة لبن",
-            "أعشاب"
-        ],
-        "instr_en": [
-            "Carefully select and clean the fresh ingredients for Spiced Roast Chicken.",
-            "Sauté aromatics in high-quality olive oil or ghee according to iftar tradition.",
-            "Add the main components and simmer until perfectly cooked and tender.",
-            "Adjust spices, salt, and acidity to achieve the authentic flavor profile.",
-            "Plate beautifully, garnish with herbs or nuts, and serve to your waiting guests."
-        ],
-        "instr_ar": [
-            "اختر ونظف المكونات الطازجة بعناية لعمل دجاج مشوي متبل.",
-            "شوح البصل والثوم في زيت زيتون بكر أو سمن بلدي حسب أصول الـ iftar.",
-            "أضف المكونات الرئيسية واتركها تنضج على نار هادئة حتى تمام الاستواء.",
-            "عدل البهارات والملح والحموضة لتصل إلى النكهة الأصلية المطلوبة.",
-            "اسكب الطبق في وعاء التقديم وزينه بالمكسرات أو الأعشاب وقدمه لضيوفك."
-        ]
-    },
-    {
-        "category": "iftar",
-        "name_en": "Baked Fish (Siniyah)",
-        "name_ar": "صينية سمك",
-        "desc_en": "White fish baked with tahini or tomatoes.",
-        "desc_ar": "صينية سمك بالفرن بصلصة الطحينة.",
-        "ingr_en": [
-            "White fish",
-            "Tahini sauce",
-            "Onions",
-            "Lemon"
-        ],
-        "ingr_ar": [
-            "سمك أبيض",
-            "صلصة طحينة",
-            "بصل",
             "ليمون"
         ],
         "instr_en": [
-            "Carefully select and clean the fresh ingredients for Baked Fish (Siniyah).",
-            "Sauté aromatics in high-quality olive oil or ghee according to iftar tradition.",
-            "Add the main components and simmer until perfectly cooked and tender.",
-            "Adjust spices, salt, and acidity to achieve the authentic flavor profile.",
-            "Plate beautifully, garnish with herbs or nuts, and serve to your waiting guests."
+            "Blend smooth."
         ],
         "instr_ar": [
-            "اختر ونظف المكونات الطازجة بعناية لعمل صينية سمك.",
-            "شوح البصل والثوم في زيت زيتون بكر أو سمن بلدي حسب أصول الـ iftar.",
-            "أضف المكونات الرئيسية واتركها تنضج على نار هادئة حتى تمام الاستواء.",
-            "عدل البهارات والملح والحموضة لتصل إلى النكهة الأصلية المطلوبة.",
-            "اسكب الطبق في وعاء التقديم وزينه بالمكسرات أو الأعشاب وقدمه لضيوفك."
+            "اخلط ناعم."
         ]
     },
     {
         "category": "iftar",
-        "name_en": "Lamb Stew (Bamya)",
-        "name_ar": "بامية باللحم",
-        "desc_en": "Okra cooked in tomato sauce with tender lamb.",
-        "desc_ar": "بامية باللحم والثوم والكزبرة.",
+        "name_en": "Baba Ghanoush",
+        "name_ar": "بابا غنوج",
+        "desc_en": "Smoky eggplant dip",
+        "desc_ar": "بابا غنوج مدخن",
         "ingr_en": [
-            "Okra (Bamya)",
-            "Lamb chunks",
-            "Tomato sauce",
+            "Eggplant",
+            "Tahini",
             "Garlic"
         ],
         "ingr_ar": [
-            "بامية",
-            "لحم غنم",
-            "صلصة طماطم",
+            "باذنجان",
+            "طحينة",
             "ثوم"
         ],
         "instr_en": [
-            "Carefully select and clean the fresh ingredients for Lamb Stew (Bamya).",
-            "Sauté aromatics in high-quality olive oil or ghee according to iftar tradition.",
-            "Add the main components and simmer until perfectly cooked and tender.",
-            "Adjust spices, salt, and acidity to achieve the authentic flavor profile.",
-            "Plate beautifully, garnish with herbs or nuts, and serve to your waiting guests."
+            "Roast and mash."
         ],
         "instr_ar": [
-            "اختر ونظف المكونات الطازجة بعناية لعمل بامية باللحم.",
-            "شوح البصل والثوم في زيت زيتون بكر أو سمن بلدي حسب أصول الـ iftar.",
-            "أضف المكونات الرئيسية واتركها تنضج على نار هادئة حتى تمام الاستواء.",
-            "عدل البهارات والملح والحموضة لتصل إلى النكهة الأصلية المطلوبة.",
-            "اسكب الطبق في وعاء التقديم وزينه بالمكسرات أو الأعشاب وقدمه لضيوفك."
+            "اشوي واهرس."
         ]
     },
     {
         "category": "iftar",
-        "name_en": "Chicken Biryani",
-        "name_ar": "برياني دجاج",
-        "desc_en": "Fragrant Indian-influenced rice dish.",
-        "desc_ar": "برياني دجاج هندي متبل وحار.",
+        "name_en": "Cheese Rolls",
+        "name_ar": "لفائف جبنة",
+        "desc_en": "Crispy cheese rolls",
+        "desc_ar": "لفائف جبنة مقرمشة",
+        "ingr_en": [
+            "Cheese",
+            "Phyllo",
+            "Butter"
+        ],
+        "ingr_ar": [
+            "جبنة",
+            "جلاش",
+            "زبدة"
+        ],
+        "instr_en": [
+            "Roll and fry."
+        ],
+        "instr_ar": [
+            "لف واقلي."
+        ]
+    },
+    {
+        "category": "iftar",
+        "name_en": "Spinach Fatayer",
+        "name_ar": "فطائر سبانخ",
+        "desc_en": "Spinach triangles",
+        "desc_ar": "مثلثات سبانخ",
+        "ingr_en": [
+            "Spinach",
+            "Dough",
+            "Onion"
+        ],
+        "ingr_ar": [
+            "سبانخ",
+            "عجينة",
+            "بصل"
+        ],
+        "instr_en": [
+            "Bake triangles."
+        ],
+        "instr_ar": [
+            "اخبز المثلثات."
+        ]
+    },
+    {
+        "category": "iftar",
+        "name_en": "Chicken Soup",
+        "name_ar": "شوربة دجاج",
+        "desc_en": "Hearty chicken soup",
+        "desc_ar": "شوربة دجاج دسمة",
         "ingr_en": [
             "Chicken",
-            "Basmati rice",
-            "Saffron",
-            "Biryani spices",
-            "Yogurt"
+            "Vegetables",
+            "Noodles"
         ],
         "ingr_ar": [
             "دجاج",
-            "أرز بسمتي",
-            "زعفران",
-            "بهارات برياني",
-            "لبن"
+            "خضار",
+            "شعيرية"
         ],
         "instr_en": [
-            "Carefully select and clean the fresh ingredients for Chicken Biryani.",
-            "Sauté aromatics in high-quality olive oil or ghee according to iftar tradition.",
-            "Add the main components and simmer until perfectly cooked and tender.",
-            "Adjust spices, salt, and acidity to achieve the authentic flavor profile.",
-            "Plate beautifully, garnish with herbs or nuts, and serve to your waiting guests."
+            "Simmer until done."
         ],
         "instr_ar": [
-            "اختر ونظف المكونات الطازجة بعناية لعمل برياني دجاج.",
-            "شوح البصل والثوم في زيت زيتون بكر أو سمن بلدي حسب أصول الـ iftar.",
-            "أضف المكونات الرئيسية واتركها تنضج على نار هادئة حتى تمام الاستواء.",
-            "عدل البهارات والملح والحموضة لتصل إلى النكهة الأصلية المطلوبة.",
-            "اسكب الطبق في وعاء التقديم وزينه بالمكسرات أو الأعشاب وقدمه لضيوفك."
+            "اطبخ حتى ينضج."
         ]
     },
     {
         "category": "iftar",
-        "name_en": "Iftar Special #21",
-        "name_ar": "طبق iftar مميز #21",
-        "desc_en": "A nutritious, home-cooked iftar meal for a healthy fast.",
-        "desc_ar": "وجبة iftar منزلية مغذية لصيام صحي ومبارك.",
+        "name_en": "Kibbeh Balls",
+        "name_ar": "كبة",
+        "desc_en": "Fried meat balls",
+        "desc_ar": "كرات لحم مقلية",
         "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
+            "Bulgur",
+            "Meat",
+            "Spices"
         ],
         "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
+            "برغل",
+            "لحم",
+            "بهارات"
         ],
         "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
+            "Shape and fry."
         ],
         "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
+            "شكل واقلي."
         ]
     },
     {
         "category": "iftar",
-        "name_en": "Iftar Special #22",
-        "name_ar": "طبق iftar مميز #22",
-        "desc_en": "A nutritious, home-cooked iftar meal for a healthy fast.",
-        "desc_ar": "وجبة iftar منزلية مغذية لصيام صحي ومبارك.",
+        "name_en": "Fried Cauliflower",
+        "name_ar": "قرنبيط مقلي",
+        "desc_en": "Crispy cauliflower",
+        "desc_ar": "قرنبيط مقرمش",
         "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
+            "Cauliflower",
+            "Oil",
+            "Salt"
         ],
         "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
+            "قرنبيط",
+            "زيت",
+            "ملح"
         ],
         "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
+            "Fry until golden."
         ],
         "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
+            "اقلي حتى يذهب."
         ]
     },
     {
         "category": "iftar",
-        "name_en": "Iftar Special #23",
-        "name_ar": "طبق iftar مميز #23",
-        "desc_en": "A nutritious, home-cooked iftar meal for a healthy fast.",
-        "desc_ar": "وجبة iftar منزلية مغذية لصيام صحي ومبارك.",
+        "name_en": "Yogurt Salad",
+        "name_ar": "سلطة زبادي",
+        "desc_en": "Cool yogurt salad",
+        "desc_ar": "سلطة زبادي باردة",
         "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
+            "Yogurt",
+            "Cucumber",
+            "Mint"
         ],
         "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
+            "زبادي",
+            "خيار",
+            "نعناع"
         ],
         "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
+            "Mix together."
         ],
         "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
+            "اخلط معاً."
         ]
     },
     {
         "category": "iftar",
-        "name_en": "Iftar Special #24",
-        "name_ar": "طبق iftar مميز #24",
-        "desc_en": "A nutritious, home-cooked iftar meal for a healthy fast.",
-        "desc_ar": "وجبة iftar منزلية مغذية لصيام صحي ومبارك.",
+        "name_en": "Lentil Patties",
+        "name_ar": "أقراص عدس",
+        "desc_en": "Fried lentil patties",
+        "desc_ar": "أقراص عدس مقلية",
         "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "iftar",
-        "name_en": "Iftar Special #25",
-        "name_ar": "طبق iftar مميز #25",
-        "desc_en": "A nutritious, home-cooked iftar meal for a healthy fast.",
-        "desc_ar": "وجبة iftar منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "iftar",
-        "name_en": "Iftar Special #26",
-        "name_ar": "طبق iftar مميز #26",
-        "desc_en": "A nutritious, home-cooked iftar meal for a healthy fast.",
-        "desc_ar": "وجبة iftar منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "iftar",
-        "name_en": "Iftar Special #27",
-        "name_ar": "طبق iftar مميز #27",
-        "desc_en": "A nutritious, home-cooked iftar meal for a healthy fast.",
-        "desc_ar": "وجبة iftar منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "iftar",
-        "name_en": "Iftar Special #28",
-        "name_ar": "طبق iftar مميز #28",
-        "desc_en": "A nutritious, home-cooked iftar meal for a healthy fast.",
-        "desc_ar": "وجبة iftar منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "iftar",
-        "name_en": "Iftar Special #29",
-        "name_ar": "طبق iftar مميز #29",
-        "desc_en": "A nutritious, home-cooked iftar meal for a healthy fast.",
-        "desc_ar": "وجبة iftar منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "iftar",
-        "name_en": "Iftar Special #30",
-        "name_ar": "طبق iftar مميز #30",
-        "desc_en": "A nutritious, home-cooked iftar meal for a healthy fast.",
-        "desc_ar": "وجبة iftar منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "iftar",
-        "name_en": "Iftar Special #31",
-        "name_ar": "طبق iftar مميز #31",
-        "desc_en": "A nutritious, home-cooked iftar meal for a healthy fast.",
-        "desc_ar": "وجبة iftar منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "iftar",
-        "name_en": "Iftar Special #32",
-        "name_ar": "طبق iftar مميز #32",
-        "desc_en": "A nutritious, home-cooked iftar meal for a healthy fast.",
-        "desc_ar": "وجبة iftar منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "iftar",
-        "name_en": "Iftar Special #33",
-        "name_ar": "طبق iftar مميز #33",
-        "desc_en": "A nutritious, home-cooked iftar meal for a healthy fast.",
-        "desc_ar": "وجبة iftar منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "iftar",
-        "name_en": "Iftar Special #34",
-        "name_ar": "طبق iftar مميز #34",
-        "desc_en": "A nutritious, home-cooked iftar meal for a healthy fast.",
-        "desc_ar": "وجبة iftar منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "iftar",
-        "name_en": "Iftar Special #35",
-        "name_ar": "طبق iftar مميز #35",
-        "desc_en": "A nutritious, home-cooked iftar meal for a healthy fast.",
-        "desc_ar": "وجبة iftar منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "iftar",
-        "name_en": "Iftar Special #36",
-        "name_ar": "طبق iftar مميز #36",
-        "desc_en": "A nutritious, home-cooked iftar meal for a healthy fast.",
-        "desc_ar": "وجبة iftar منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "iftar",
-        "name_en": "Iftar Special #37",
-        "name_ar": "طبق iftar مميز #37",
-        "desc_en": "A nutritious, home-cooked iftar meal for a healthy fast.",
-        "desc_ar": "وجبة iftar منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "iftar",
-        "name_en": "Iftar Special #38",
-        "name_ar": "طبق iftar مميز #38",
-        "desc_en": "A nutritious, home-cooked iftar meal for a healthy fast.",
-        "desc_ar": "وجبة iftar منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "iftar",
-        "name_en": "Iftar Special #39",
-        "name_ar": "طبق iftar مميز #39",
-        "desc_en": "A nutritious, home-cooked iftar meal for a healthy fast.",
-        "desc_ar": "وجبة iftar منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "iftar",
-        "name_en": "Iftar Special #40",
-        "name_ar": "طبق iftar مميز #40",
-        "desc_en": "A nutritious, home-cooked iftar meal for a healthy fast.",
-        "desc_ar": "وجبة iftar منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "iftar",
-        "name_en": "Iftar Special #41",
-        "name_ar": "طبق iftar مميز #41",
-        "desc_en": "A nutritious, home-cooked iftar meal for a healthy fast.",
-        "desc_ar": "وجبة iftar منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "iftar",
-        "name_en": "Iftar Special #42",
-        "name_ar": "طبق iftar مميز #42",
-        "desc_en": "A nutritious, home-cooked iftar meal for a healthy fast.",
-        "desc_ar": "وجبة iftar منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "iftar",
-        "name_en": "Iftar Special #43",
-        "name_ar": "طبق iftar مميز #43",
-        "desc_en": "A nutritious, home-cooked iftar meal for a healthy fast.",
-        "desc_ar": "وجبة iftar منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "iftar",
-        "name_en": "Iftar Special #44",
-        "name_ar": "طبق iftar مميز #44",
-        "desc_en": "A nutritious, home-cooked iftar meal for a healthy fast.",
-        "desc_ar": "وجبة iftar منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "iftar",
-        "name_en": "Iftar Special #45",
-        "name_ar": "طبق iftar مميز #45",
-        "desc_en": "A nutritious, home-cooked iftar meal for a healthy fast.",
-        "desc_ar": "وجبة iftar منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "iftar",
-        "name_en": "Iftar Special #46",
-        "name_ar": "طبق iftar مميز #46",
-        "desc_en": "A nutritious, home-cooked iftar meal for a healthy fast.",
-        "desc_ar": "وجبة iftar منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "iftar",
-        "name_en": "Iftar Special #47",
-        "name_ar": "طبق iftar مميز #47",
-        "desc_en": "A nutritious, home-cooked iftar meal for a healthy fast.",
-        "desc_ar": "وجبة iftar منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "iftar",
-        "name_en": "Iftar Special #48",
-        "name_ar": "طبق iftar مميز #48",
-        "desc_en": "A nutritious, home-cooked iftar meal for a healthy fast.",
-        "desc_ar": "وجبة iftar منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "iftar",
-        "name_en": "Iftar Special #49",
-        "name_ar": "طبق iftar مميز #49",
-        "desc_en": "A nutritious, home-cooked iftar meal for a healthy fast.",
-        "desc_ar": "وجبة iftar منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "iftar",
-        "name_en": "Iftar Special #50",
-        "name_ar": "طبق iftar مميز #50",
-        "desc_en": "A nutritious, home-cooked iftar meal for a healthy fast.",
-        "desc_ar": "وجبة iftar منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "dinner",
-        "name_en": "Adas Soup",
-        "name_ar": "شوربة عدس",
-        "desc_en": "Light red lentil soup with lemon.",
-        "desc_ar": "شوربة عدس أحمر خفيفة بالليمون.",
-        "ingr_en": [
-            "Red lentils",
+            "Lentils",
             "Onion",
-            "Turmeric",
-            "Cumin"
+            "Spices"
         ],
         "ingr_ar": [
-            "عدس أحمر",
+            "عدس",
             "بصل",
-            "كركم",
-            "كمون"
+            "بهارات"
         ],
         "instr_en": [
-            "Carefully select and clean the fresh ingredients for Adas Soup.",
-            "Sauté aromatics in high-quality olive oil or ghee according to dinner tradition.",
-            "Add the main components and simmer until perfectly cooked and tender.",
-            "Adjust spices, salt, and acidity to achieve the authentic flavor profile.",
-            "Plate beautifully, garnish with herbs or nuts, and serve to your waiting guests."
+            "Shape and fry."
         ],
         "instr_ar": [
-            "اختر ونظف المكونات الطازجة بعناية لعمل شوربة عدس.",
-            "شوح البصل والثوم في زيت زيتون بكر أو سمن بلدي حسب أصول الـ dinner.",
-            "أضف المكونات الرئيسية واتركها تنضج على نار هادئة حتى تمام الاستواء.",
-            "عدل البهارات والملح والحموضة لتصل إلى النكهة الأصلية المطلوبة.",
-            "اسكب الطبق في وعاء التقديم وزينه بالمكسرات أو الأعشاب وقدمه لضيوفك."
+            "شكل واقلي."
+        ]
+    },
+    {
+        "category": "iftar",
+        "name_en": "Tomato Soup",
+        "name_ar": "شوربة طماطم",
+        "desc_en": "Fresh tomato soup",
+        "desc_ar": "شوربة طماطم طازجة",
+        "ingr_en": [
+            "Tomatoes",
+            "Onion",
+            "Basil"
+        ],
+        "ingr_ar": [
+            "طماطم",
+            "بصل",
+            "ريحان"
+        ],
+        "instr_en": [
+            "Cook and blend."
+        ],
+        "instr_ar": [
+            "اطبخ واخلط."
+        ]
+    },
+    {
+        "category": "iftar",
+        "name_en": "Fried Potatoes",
+        "name_ar": "بطاطس مقلية",
+        "desc_en": "Crispy fried potatoes",
+        "desc_ar": "بطاطس مقلية مقرمشة",
+        "ingr_en": [
+            "Potatoes",
+            "Oil",
+            "Salt"
+        ],
+        "ingr_ar": [
+            "بطاطس",
+            "زيت",
+            "ملح"
+        ],
+        "instr_en": [
+            "Fry and season."
+        ],
+        "instr_ar": [
+            "اقلي وتبل."
+        ]
+    },
+    {
+        "category": "iftar",
+        "name_en": "Meat Pastries",
+        "name_ar": "معجنات لحم",
+        "desc_en": "Baked meat pastries",
+        "desc_ar": "معجنات لحم مخبوزة",
+        "ingr_en": [
+            "Dough",
+            "Meat",
+            "Onion"
+        ],
+        "ingr_ar": [
+            "عجينة",
+            "لحم",
+            "بصل"
+        ],
+        "instr_en": [
+            "Bake until golden."
+        ],
+        "instr_ar": [
+            "اخبز حتى يذهب."
+        ]
+    },
+    {
+        "category": "iftar",
+        "name_en": "Eggplant Fatteh",
+        "name_ar": "فتة باذنجان",
+        "desc_en": "Layered eggplant dish",
+        "desc_ar": "طبق باذنجان طبقات",
+        "ingr_en": [
+            "Eggplant",
+            "Yogurt",
+            "Bread"
+        ],
+        "ingr_ar": [
+            "باذنجان",
+            "زبادي",
+            "خبز"
+        ],
+        "instr_en": [
+            "Layer and serve."
+        ],
+        "instr_ar": [
+            "رتب وقدم."
+        ]
+    },
+    {
+        "category": "iftar",
+        "name_en": "Fried Cheese",
+        "name_ar": "جبنة مقلية",
+        "desc_en": "Fried halloumi",
+        "desc_ar": "حلوم مقلي",
+        "ingr_en": [
+            "Halloumi",
+            "Oil"
+        ],
+        "ingr_ar": [
+            "حلوم",
+            "زيت"
+        ],
+        "instr_en": [
+            "Fry slices."
+        ],
+        "instr_ar": [
+            "اقلي الشرائح."
+        ]
+    },
+    {
+        "category": "iftar",
+        "name_en": "Chicken Spring Rolls",
+        "name_ar": "سبرنغ رول دجاج",
+        "desc_en": "Crispy chicken rolls",
+        "desc_ar": "لفائف دجاج مقرمشة",
+        "ingr_en": [
+            "Chicken",
+            "Wrapper",
+            "Vegetables"
+        ],
+        "ingr_ar": [
+            "دجاج",
+            "رقائق",
+            "خضار"
+        ],
+        "instr_en": [
+            "Roll and fry."
+        ],
+        "instr_ar": [
+            "لف واقلي."
+        ]
+    },
+    {
+        "category": "iftar",
+        "name_en": "Rice with Vermicelli",
+        "name_ar": "رز بالشعيرية",
+        "desc_en": "Classic Arabic rice",
+        "desc_ar": "رز عربي كلاسيكي",
+        "ingr_en": [
+            "Rice",
+            "Vermicelli",
+            "Butter"
+        ],
+        "ingr_ar": [
+            "رز",
+            "شعيرية",
+            "زبدة"
+        ],
+        "instr_en": [
+            "Cook together."
+        ],
+        "instr_ar": [
+            "اطبخ معاً."
+        ]
+    },
+    {
+        "category": "iftar",
+        "name_en": "Spiced Olives",
+        "name_ar": "زيتون متبل",
+        "desc_en": "Marinated olives",
+        "desc_ar": "زيتون مخلل",
+        "ingr_en": [
+            "Olives",
+            "Garlic",
+            "Herbs"
+        ],
+        "ingr_ar": [
+            "زيتون",
+            "ثوم",
+            "أعشاب"
+        ],
+        "instr_en": [
+            "Marinate overnight."
+        ],
+        "instr_ar": [
+            "خلل ليلة."
+        ]
+    },
+    {
+        "category": "iftar",
+        "name_en": "Lentil Salad",
+        "name_ar": "سلطة عدس",
+        "desc_en": "Cold lentil salad",
+        "desc_ar": "سلطة عدس باردة",
+        "ingr_en": [
+            "Lentils",
+            "Vegetables",
+            "Lemon"
+        ],
+        "ingr_ar": [
+            "عدس",
+            "خضار",
+            "ليمون"
+        ],
+        "instr_en": [
+            "Mix all."
+        ],
+        "instr_ar": [
+            "اخلط الكل."
+        ]
+    },
+    {
+        "category": "iftar",
+        "name_en": "Vegetable Patties",
+        "name_ar": "أقراص خضار",
+        "desc_en": "Fried veggie patties",
+        "desc_ar": "أقراص خضار مقلية",
+        "ingr_en": [
+            "Mixed veggies",
+            "Flour",
+            "Spices"
+        ],
+        "ingr_ar": [
+            "خضار مشكلة",
+            "طحين",
+            "بهارات"
+        ],
+        "instr_en": [
+            "Fry until done."
+        ],
+        "instr_ar": [
+            "اقلي حتى ينضج."
+        ]
+    },
+    {
+        "category": "iftar",
+        "name_en": "Cheese Sambousek",
+        "name_ar": "سمبوسك جبنة",
+        "desc_en": "Cheese filled pastry",
+        "desc_ar": "معجنات بالجبنة",
+        "ingr_en": [
+            "Cheese",
+            "Dough"
+        ],
+        "ingr_ar": [
+            "جبنة",
+            "عجينة"
+        ],
+        "instr_en": [
+            "Fill and fry."
+        ],
+        "instr_ar": [
+            "احشِ واقلي."
+        ]
+    },
+    {
+        "category": "iftar",
+        "name_en": "Date Smoothie",
+        "name_ar": "سموذي تمر",
+        "desc_en": "Sweet date smoothie",
+        "desc_ar": "سموذي تمر حلو",
+        "ingr_en": [
+            "Dates",
+            "Milk",
+            "Ice"
+        ],
+        "ingr_ar": [
+            "تمر",
+            "حليب",
+            "ثلج"
+        ],
+        "instr_en": [
+            "Blend all."
+        ],
+        "instr_ar": [
+            "اخلط الكل."
         ]
     },
     {
         "category": "dinner",
-        "name_en": "Mixed Grill",
-        "name_ar": "مشاوي مشكلة",
-        "desc_en": "Selection of kebabs and tandoori meats.",
-        "desc_ar": "مشاوي مشكلة كباب وشيش طاووق وجناحات.",
+        "name_en": "Chicken Kabsa",
+        "name_ar": "كبسة دجاج",
+        "desc_en": "Spiced chicken rice",
+        "desc_ar": "رز بالدجاج المتبل",
         "ingr_en": [
-            "Lamb kebabs",
-            "Chicken skewers",
-            "Grilled onions"
+            "Chicken",
+            "Rice",
+            "Spices"
         ],
         "ingr_ar": [
-            "كباب غنم",
-            "شيش طاووق",
-            "بصل مشوي"
+            "دجاج",
+            "رز",
+            "بهارات"
         ],
         "instr_en": [
-            "Carefully select and clean the fresh ingredients for Mixed Grill.",
-            "Sauté aromatics in high-quality olive oil or ghee according to dinner tradition.",
-            "Add the main components and simmer until perfectly cooked and tender.",
-            "Adjust spices, salt, and acidity to achieve the authentic flavor profile.",
-            "Plate beautifully, garnish with herbs or nuts, and serve to your waiting guests."
+            "Cook spiced rice with chicken."
         ],
         "instr_ar": [
-            "اختر ونظف المكونات الطازجة بعناية لعمل مشاوي مشكلة.",
-            "شوح البصل والثوم في زيت زيتون بكر أو سمن بلدي حسب أصول الـ dinner.",
-            "أضف المكونات الرئيسية واتركها تنضج على نار هادئة حتى تمام الاستواء.",
-            "عدل البهارات والملح والحموضة لتصل إلى النكهة الأصلية المطلوبة.",
-            "اسكب الطبق في وعاء التقديم وزينه بالمكسرات أو الأعشاب وقدمه لضيوفك."
+            "اطبخ الرز المتبل مع الدجاج."
+        ]
+    },
+    {
+        "category": "dinner",
+        "name_en": "Lamb Mandi",
+        "name_ar": "مندي لحم",
+        "desc_en": "Slow cooked lamb",
+        "desc_ar": "لحم مطبوخ ببطء",
+        "ingr_en": [
+            "Lamb",
+            "Rice",
+            "Spices"
+        ],
+        "ingr_ar": [
+            "لحم",
+            "رز",
+            "بهارات"
+        ],
+        "instr_en": [
+            "Slow cook lamb."
+        ],
+        "instr_ar": [
+            "اطبخ اللحم ببطء."
+        ]
+    },
+    {
+        "category": "dinner",
+        "name_en": "Maqluba",
+        "name_ar": "مقلوبة",
+        "desc_en": "Upside down rice",
+        "desc_ar": "رز مقلوب",
+        "ingr_en": [
+            "Rice",
+            "Chicken",
+            "Eggplant"
+        ],
+        "ingr_ar": [
+            "رز",
+            "دجاج",
+            "باذنجان"
+        ],
+        "instr_en": [
+            "Layer and flip."
+        ],
+        "instr_ar": [
+            "رتب واقلب."
+        ]
+    },
+    {
+        "category": "dinner",
+        "name_en": "Molokhia",
+        "name_ar": "ملوخية",
+        "desc_en": "Jute leaf stew",
+        "desc_ar": "يخنة ملوخية",
+        "ingr_en": [
+            "Molokhia leaves",
+            "Chicken",
+            "Garlic"
+        ],
+        "ingr_ar": [
+            "ملوخية",
+            "دجاج",
+            "ثوم"
+        ],
+        "instr_en": [
+            "Simmer with garlic."
+        ],
+        "instr_ar": [
+            "اطبخ مع الثوم."
+        ]
+    },
+    {
+        "category": "dinner",
+        "name_en": "Stuffed Zucchini",
+        "name_ar": "كوسا محشي",
+        "desc_en": "Rice stuffed zucchini",
+        "desc_ar": "كوسا محشية رز",
+        "ingr_en": [
+            "Zucchini",
+            "Rice",
+            "Meat"
+        ],
+        "ingr_ar": [
+            "كوسا",
+            "رز",
+            "لحم"
+        ],
+        "instr_en": [
+            "Stuff and cook."
+        ],
+        "instr_ar": [
+            "احشِ واطبخ."
+        ]
+    },
+    {
+        "category": "dinner",
+        "name_en": "Okra Stew",
+        "name_ar": "بامية",
+        "desc_en": "Okra tomato stew",
+        "desc_ar": "يخنة بامية بالطماطم",
+        "ingr_en": [
+            "Okra",
+            "Tomato",
+            "Meat"
+        ],
+        "ingr_ar": [
+            "بامية",
+            "طماطم",
+            "لحم"
+        ],
+        "instr_en": [
+            "Simmer until done."
+        ],
+        "instr_ar": [
+            "اطبخ حتى ينضج."
+        ]
+    },
+    {
+        "category": "dinner",
+        "name_en": "Chicken Biryani",
+        "name_ar": "برياني دجاج",
+        "desc_en": "Layered spiced rice",
+        "desc_ar": "رز متبل طبقات",
+        "ingr_en": [
+            "Rice",
+            "Chicken",
+            "Spices"
+        ],
+        "ingr_ar": [
+            "رز",
+            "دجاج",
+            "بهارات"
+        ],
+        "instr_en": [
+            "Layer and cook."
+        ],
+        "instr_ar": [
+            "رتب واطبخ."
+        ]
+    },
+    {
+        "category": "dinner",
+        "name_en": "Beef Kofta",
+        "name_ar": "كفتة لحم",
+        "desc_en": "Grilled meat skewers",
+        "desc_ar": "أسياخ لحم مشوية",
+        "ingr_en": [
+            "Ground beef",
+            "Onion",
+            "Spices"
+        ],
+        "ingr_ar": [
+            "لحم مفروم",
+            "بصل",
+            "بهارات"
+        ],
+        "instr_en": [
+            "Grill on skewers."
+        ],
+        "instr_ar": [
+            "اشوي على أسياخ."
+        ]
+    },
+    {
+        "category": "dinner",
+        "name_en": "Fish Sayadiya",
+        "name_ar": "صيادية سمك",
+        "desc_en": "Fish with rice",
+        "desc_ar": "سمك مع رز",
+        "ingr_en": [
+            "Fish",
+            "Rice",
+            "Onion"
+        ],
+        "ingr_ar": [
+            "سمك",
+            "رز",
+            "بصل"
+        ],
+        "instr_en": [
+            "Cook together."
+        ],
+        "instr_ar": [
+            "اطبخ معاً."
+        ]
+    },
+    {
+        "category": "dinner",
+        "name_en": "Shawarma Plate",
+        "name_ar": "صحن شاورما",
+        "desc_en": "Shawarma with sides",
+        "desc_ar": "شاورما مع مقبلات",
+        "ingr_en": [
+            "Meat",
+            "Bread",
+            "Pickles"
+        ],
+        "ingr_ar": [
+            "لحم",
+            "خبز",
+            "مخللات"
+        ],
+        "instr_en": [
+            "Grill and serve."
+        ],
+        "instr_ar": [
+            "اشوي وقدم."
+        ]
+    },
+    {
+        "category": "dinner",
+        "name_en": "Spinach Stew",
+        "name_ar": "يخنة سبانخ",
+        "desc_en": "Spinach meat stew",
+        "desc_ar": "يخنة سبانخ ولحم",
+        "ingr_en": [
+            "Spinach",
+            "Meat",
+            "Onion"
+        ],
+        "ingr_ar": [
+            "سبانخ",
+            "لحم",
+            "بصل"
+        ],
+        "instr_en": [
+            "Cook until done."
+        ],
+        "instr_ar": [
+            "اطبخ حتى ينضج."
+        ]
+    },
+    {
+        "category": "dinner",
+        "name_en": "Grilled Chicken",
+        "name_ar": "دجاج مشوي",
+        "desc_en": "Marinated grilled chicken",
+        "desc_ar": "دجاج مشوي متبل",
+        "ingr_en": [
+            "Chicken",
+            "Lemon",
+            "Garlic"
+        ],
+        "ingr_ar": [
+            "دجاج",
+            "ليمون",
+            "ثوم"
+        ],
+        "instr_en": [
+            "Grill until done."
+        ],
+        "instr_ar": [
+            "اشوي حتى ينضج."
         ]
     },
     {
         "category": "dinner",
         "name_en": "Stuffed Peppers",
         "name_ar": "فلفل محشي",
-        "desc_en": "Bell peppers filled with spiced rice/meat.",
-        "desc_ar": "فلفل حلو محشي أرز وخلطة لذيذة.",
+        "desc_en": "Rice stuffed peppers",
+        "desc_ar": "فلفل محشي رز",
         "ingr_en": [
             "Bell peppers",
             "Rice",
-            "Meat",
-            "Tomato sauce"
+            "Meat"
         ],
         "ingr_ar": [
-            "فلفل حلو",
-            "أرز",
+            "فلفل",
+            "رز",
+            "لحم"
+        ],
+        "instr_en": [
+            "Stuff and bake."
+        ],
+        "instr_ar": [
+            "احشِ واخبز."
+        ]
+    },
+    {
+        "category": "dinner",
+        "name_en": "Chicken Freekeh",
+        "name_ar": "فريكة بالدجاج",
+        "desc_en": "Smoked wheat with chicken",
+        "desc_ar": "قمح مدخن مع دجاج",
+        "ingr_en": [
+            "Freekeh",
+            "Chicken",
+            "Spices"
+        ],
+        "ingr_ar": [
+            "فريكة",
+            "دجاج",
+            "بهارات"
+        ],
+        "instr_en": [
+            "Cook together."
+        ],
+        "instr_ar": [
+            "اطبخ معاً."
+        ]
+    },
+    {
+        "category": "dinner",
+        "name_en": "Meat Stew",
+        "name_ar": "يخنة لحم",
+        "desc_en": "Hearty meat stew",
+        "desc_ar": "يخنة لحم دسمة",
+        "ingr_en": [
+            "Beef",
+            "Vegetables",
+            "Broth"
+        ],
+        "ingr_ar": [
             "لحم",
-            "صلصة طماطم"
-        ],
-        "instr_en": [
-            "Carefully select and clean the fresh ingredients for Stuffed Peppers.",
-            "Sauté aromatics in high-quality olive oil or ghee according to dinner tradition.",
-            "Add the main components and simmer until perfectly cooked and tender.",
-            "Adjust spices, salt, and acidity to achieve the authentic flavor profile.",
-            "Plate beautifully, garnish with herbs or nuts, and serve to your waiting guests."
-        ],
-        "instr_ar": [
-            "اختر ونظف المكونات الطازجة بعناية لعمل فلفل محشي.",
-            "شوح البصل والثوم في زيت زيتون بكر أو سمن بلدي حسب أصول الـ dinner.",
-            "أضف المكونات الرئيسية واتركها تنضج على نار هادئة حتى تمام الاستواء.",
-            "عدل البهارات والملح والحموضة لتصل إلى النكهة الأصلية المطلوبة.",
-            "اسكب الطبق في وعاء التقديم وزينه بالمكسرات أو الأعشاب وقدمه لضيوفك."
-        ]
-    },
-    {
-        "category": "dinner",
-        "name_en": "Chicken Shawarma",
-        "name_ar": "شاورما دجاج",
-        "desc_en": "Spiced chicken wraps with garlic sauce.",
-        "desc_ar": "شاورما دجاج بيتية بصلصة الثومية.",
-        "ingr_en": [
-            "Chicken breast",
-            "Garlic paste",
-            "Pickles",
-            "Wraps"
-        ],
-        "ingr_ar": [
-            "صدور دجاج",
-            "ثومية",
-            "مخلل",
-            "خبز شاورما"
-        ],
-        "instr_en": [
-            "Carefully select and clean the fresh ingredients for Chicken Shawarma.",
-            "Sauté aromatics in high-quality olive oil or ghee according to dinner tradition.",
-            "Add the main components and simmer until perfectly cooked and tender.",
-            "Adjust spices, salt, and acidity to achieve the authentic flavor profile.",
-            "Plate beautifully, garnish with herbs or nuts, and serve to your waiting guests."
-        ],
-        "instr_ar": [
-            "اختر ونظف المكونات الطازجة بعناية لعمل شاورما دجاج.",
-            "شوح البصل والثوم في زيت زيتون بكر أو سمن بلدي حسب أصول الـ dinner.",
-            "أضف المكونات الرئيسية واتركها تنضج على نار هادئة حتى تمام الاستواء.",
-            "عدل البهارات والملح والحموضة لتصل إلى النكهة الأصلية المطلوبة.",
-            "اسكب الطبق في وعاء التقديم وزينه بالمكسرات أو الأعشاب وقدمه لضيوفك."
-        ]
-    },
-    {
-        "category": "dinner",
-        "name_en": "Beef Stroganoff",
-        "name_ar": "ستروجانوف بقري",
-        "desc_en": "Tender beef in a creamy mushroom sauce.",
-        "desc_ar": "ستروجانوف بقري كريمي مع المشروم.",
-        "ingr_en": [
-            "Beef strips",
-            "Mushrooms",
-            "Cream",
-            "Onions"
-        ],
-        "ingr_ar": [
-            "شرائح لحم",
-            "فطر",
-            "كريمة",
-            "بصل"
-        ],
-        "instr_en": [
-            "Carefully select and clean the fresh ingredients for Beef Stroganoff.",
-            "Sauté aromatics in high-quality olive oil or ghee according to dinner tradition.",
-            "Add the main components and simmer until perfectly cooked and tender.",
-            "Adjust spices, salt, and acidity to achieve the authentic flavor profile.",
-            "Plate beautifully, garnish with herbs or nuts, and serve to your waiting guests."
-        ],
-        "instr_ar": [
-            "اختر ونظف المكونات الطازجة بعناية لعمل ستروجانوف بقري.",
-            "شوح البصل والثوم في زيت زيتون بكر أو سمن بلدي حسب أصول الـ dinner.",
-            "أضف المكونات الرئيسية واتركها تنضج على نار هادئة حتى تمام الاستواء.",
-            "عدل البهارات والملح والحموضة لتصل إلى النكهة الأصلية المطلوبة.",
-            "اسكب الطبق في وعاء التقديم وزينه بالمكسرات أو الأعشاب وقدمه لضيوفك."
-        ]
-    },
-    {
-        "category": "dinner",
-        "name_en": "Pumpkin Soup",
-        "name_ar": "شوربة قرع",
-        "desc_en": "Velvety roasted pumpkin and ginger soup.",
-        "desc_ar": "شوربة القرع الكريمية بالزنجبيل.",
-        "ingr_en": [
-            "Pumpkin",
-            "Ginger",
-            "Cream",
-            "Stock"
-        ],
-        "ingr_ar": [
-            "قرع",
-            "زنجبيل",
-            "كريمة",
+            "خضار",
             "مرق"
         ],
         "instr_en": [
-            "Carefully select and clean the fresh ingredients for Pumpkin Soup.",
-            "Sauté aromatics in high-quality olive oil or ghee according to dinner tradition.",
-            "Add the main components and simmer until perfectly cooked and tender.",
-            "Adjust spices, salt, and acidity to achieve the authentic flavor profile.",
-            "Plate beautifully, garnish with herbs or nuts, and serve to your waiting guests."
+            "Simmer slowly."
         ],
         "instr_ar": [
-            "اختر ونظف المكونات الطازجة بعناية لعمل شوربة قرع.",
-            "شوح البصل والثوم في زيت زيتون بكر أو سمن بلدي حسب أصول الـ dinner.",
-            "أضف المكونات الرئيسية واتركها تنضج على نار هادئة حتى تمام الاستواء.",
-            "عدل البهارات والملح والحموضة لتصل إلى النكهة الأصلية المطلوبة.",
-            "اسكب الطبق في وعاء التقديم وزينه بالمكسرات أو الأعشاب وقدمه لضيوفك."
+            "اطبخ ببطء."
         ]
     },
     {
         "category": "dinner",
-        "name_en": "Vegetable Curry",
-        "name_ar": "كاري خضار",
-        "desc_en": "Spicy mixed vegetables with coconut milk.",
-        "desc_ar": "كاري خضار حار بحليب جوز الهند.",
+        "name_en": "Eggplant Moussaka",
+        "name_ar": "مسقعة",
+        "desc_en": "Baked eggplant dish",
+        "desc_ar": "طبق باذنجان مخبوز",
         "ingr_en": [
-            "Mixed veggies",
-            "Curry paste",
+            "Eggplant",
+            "Meat",
+            "Tomato"
+        ],
+        "ingr_ar": [
+            "باذنجان",
+            "لحم",
+            "طماطم"
+        ],
+        "instr_en": [
+            "Bake until golden."
+        ],
+        "instr_ar": [
+            "اخبز حتى يذهب."
+        ]
+    },
+    {
+        "category": "dinner",
+        "name_en": "Lentil Mujadara",
+        "name_ar": "مجدرة",
+        "desc_en": "Lentils with rice",
+        "desc_ar": "عدس مع رز",
+        "ingr_en": [
+            "Lentils",
+            "Rice",
+            "Onion"
+        ],
+        "ingr_ar": [
+            "عدس",
+            "رز",
+            "بصل"
+        ],
+        "instr_en": [
+            "Cook with rice."
+        ],
+        "instr_ar": [
+            "اطبخ مع الرز."
+        ]
+    },
+    {
+        "category": "dinner",
+        "name_en": "Chicken Curry",
+        "name_ar": "كاري دجاج",
+        "desc_en": "Spiced chicken curry",
+        "desc_ar": "كاري دجاج متبل",
+        "ingr_en": [
+            "Chicken",
+            "Curry",
             "Coconut milk"
         ],
         "ingr_ar": [
-            "خضار مشكلة",
+            "دجاج",
             "كاري",
-            "حليب جوز الهند"
+            "حليب جوز هند"
         ],
         "instr_en": [
-            "Carefully select and clean the fresh ingredients for Vegetable Curry.",
-            "Sauté aromatics in high-quality olive oil or ghee according to dinner tradition.",
-            "Add the main components and simmer until perfectly cooked and tender.",
-            "Adjust spices, salt, and acidity to achieve the authentic flavor profile.",
-            "Plate beautifully, garnish with herbs or nuts, and serve to your waiting guests."
+            "Simmer in sauce."
         ],
         "instr_ar": [
-            "اختر ونظف المكونات الطازجة بعناية لعمل كاري خضار.",
-            "شوح البصل والثوم في زيت زيتون بكر أو سمن بلدي حسب أصول الـ dinner.",
-            "أضف المكونات الرئيسية واتركها تنضج على نار هادئة حتى تمام الاستواء.",
-            "عدل البهارات والملح والحموضة لتصل إلى النكهة الأصلية المطلوبة.",
-            "اسكب الطبق في وعاء التقديم وزينه بالمكسرات أو الأعشاب وقدمه لضيوفك."
+            "اطبخ في الصلصة."
         ]
     },
     {
         "category": "dinner",
-        "name_en": "Pesto Pasta",
-        "name_ar": "مكرونة بيستو",
-        "desc_en": "Light pasta with basil and pine nuts.",
-        "desc_ar": "مكرونة بصلصة البيستو الإيطالية والخضراء.",
+        "name_en": "Rice & Beans",
+        "name_ar": "رز وفاصوليا",
+        "desc_en": "Rice with beans",
+        "desc_ar": "رز مع فاصوليا",
+        "ingr_en": [
+            "Rice",
+            "Beans",
+            "Tomato"
+        ],
+        "ingr_ar": [
+            "رز",
+            "فاصوليا",
+            "طماطم"
+        ],
+        "instr_en": [
+            "Cook together."
+        ],
+        "instr_ar": [
+            "اطبخ معاً."
+        ]
+    },
+    {
+        "category": "dinner",
+        "name_en": "Grilled Fish",
+        "name_ar": "سمك مشوي",
+        "desc_en": "Seasoned grilled fish",
+        "desc_ar": "سمك مشوي متبل",
+        "ingr_en": [
+            "Fish",
+            "Lemon",
+            "Herbs"
+        ],
+        "ingr_ar": [
+            "سمك",
+            "ليمون",
+            "أعشاب"
+        ],
+        "instr_en": [
+            "Grill until done."
+        ],
+        "instr_ar": [
+            "اشوي حتى ينضج."
+        ]
+    },
+    {
+        "category": "dinner",
+        "name_en": "Vegetable Stew",
+        "name_ar": "يخنة خضار",
+        "desc_en": "Mixed veggie stew",
+        "desc_ar": "يخنة خضار مشكلة",
+        "ingr_en": [
+            "Vegetables",
+            "Tomato",
+            "Broth"
+        ],
+        "ingr_ar": [
+            "خضار",
+            "طماطم",
+            "مرق"
+        ],
+        "instr_en": [
+            "Simmer slowly."
+        ],
+        "instr_ar": [
+            "اطبخ ببطء."
+        ]
+    },
+    {
+        "category": "dinner",
+        "name_en": "Lamb Chops",
+        "name_ar": "ريش غنم",
+        "desc_en": "Grilled lamb chops",
+        "desc_ar": "ريش غنم مشوية",
+        "ingr_en": [
+            "Lamb chops",
+            "Rosemary",
+            "Garlic"
+        ],
+        "ingr_ar": [
+            "ريش غنم",
+            "روزماري",
+            "ثوم"
+        ],
+        "instr_en": [
+            "Grill to preference."
+        ],
+        "instr_ar": [
+            "اشوي حسب الرغبة."
+        ]
+    },
+    {
+        "category": "dinner",
+        "name_en": "Chicken Pasta",
+        "name_ar": "باستا دجاج",
+        "desc_en": "Creamy chicken pasta",
+        "desc_ar": "باستا دجاج كريمية",
         "ingr_en": [
             "Pasta",
-            "Basil pesto",
-            "Parmesan cheese"
+            "Chicken",
+            "Cream"
         ],
         "ingr_ar": [
-            "مكرونة",
-            "بيستو ريحان",
-            "جبن بارميزان"
+            "باستا",
+            "دجاج",
+            "كريمة"
         ],
         "instr_en": [
-            "Carefully select and clean the fresh ingredients for Pesto Pasta.",
-            "Sauté aromatics in high-quality olive oil or ghee according to dinner tradition.",
-            "Add the main components and simmer until perfectly cooked and tender.",
-            "Adjust spices, salt, and acidity to achieve the authentic flavor profile.",
-            "Plate beautifully, garnish with herbs or nuts, and serve to your waiting guests."
+            "Cook and mix."
         ],
         "instr_ar": [
-            "اختر ونظف المكونات الطازجة بعناية لعمل مكرونة بيستو.",
-            "شوح البصل والثوم في زيت زيتون بكر أو سمن بلدي حسب أصول الـ dinner.",
-            "أضف المكونات الرئيسية واتركها تنضج على نار هادئة حتى تمام الاستواء.",
-            "عدل البهارات والملح والحموضة لتصل إلى النكهة الأصلية المطلوبة.",
-            "اسكب الطبق في وعاء التقديم وزينه بالمكسرات أو الأعشاب وقدمه لضيوفك."
+            "اطبخ واخلط."
         ]
     },
     {
         "category": "dinner",
-        "name_en": "Grilled Salmon",
-        "name_ar": "سلمون مشوي",
-        "desc_en": "Healthy omega-3 rich fish with asparagus.",
-        "desc_ar": "سلمون مشوي بصلصة الزبدة والليمون.",
+        "name_en": "Beef Stir Fry",
+        "name_ar": "لحم مقلي",
+        "desc_en": "Quick beef stir fry",
+        "desc_ar": "لحم مقلي سريع",
         "ingr_en": [
-            "Salmon fillets",
-            "Lemon",
-            "Garlic",
-            "Asparagus"
+            "Beef",
+            "Vegetables",
+            "Soy sauce"
         ],
         "ingr_ar": [
-            "سمك سلمون",
-            "ليمون",
-            "ثوم",
-            "هليون"
+            "لحم",
+            "خضار",
+            "صوص صويا"
         ],
         "instr_en": [
-            "Carefully select and clean the fresh ingredients for Grilled Salmon.",
-            "Sauté aromatics in high-quality olive oil or ghee according to dinner tradition.",
-            "Add the main components and simmer until perfectly cooked and tender.",
-            "Adjust spices, salt, and acidity to achieve the authentic flavor profile.",
-            "Plate beautifully, garnish with herbs or nuts, and serve to your waiting guests."
+            "Fry quickly."
         ],
         "instr_ar": [
-            "اختر ونظف المكونات الطازجة بعناية لعمل سلمون مشوي.",
-            "شوح البصل والثوم في زيت زيتون بكر أو سمن بلدي حسب أصول الـ dinner.",
-            "أضف المكونات الرئيسية واتركها تنضج على نار هادئة حتى تمام الاستواء.",
-            "عدل البهارات والملح والحموضة لتصل إلى النكهة الأصلية المطلوبة.",
-            "اسكب الطبق في وعاء التقديم وزينه بالمكسرات أو الأعشاب وقدمه لضيوفك."
+            "اقلي بسرعة."
         ]
     },
     {
         "category": "dinner",
-        "name_en": "Quinoa Salad",
-        "name_ar": "سلطة كينوا",
-        "desc_en": "Modern protein-rich salad with pomegranate.",
-        "desc_ar": "سلطة كينوا صحية بحبوب الرمان.",
+        "name_en": "Stuffed Eggplant",
+        "name_ar": "باذنجان محشي",
+        "desc_en": "Meat stuffed eggplant",
+        "desc_ar": "باذنجان محشي لحم",
         "ingr_en": [
-            "Quinoa",
-            "Cucumber",
-            "Tomato",
-            "Pomegranate"
+            "Eggplant",
+            "Meat",
+            "Rice"
         ],
         "ingr_ar": [
-            "كينوا",
-            "خيار",
-            "طماطم",
-            "رمان"
+            "باذنجان",
+            "لحم",
+            "رز"
         ],
         "instr_en": [
-            "Carefully select and clean the fresh ingredients for Quinoa Salad.",
-            "Sauté aromatics in high-quality olive oil or ghee according to dinner tradition.",
-            "Add the main components and simmer until perfectly cooked and tender.",
-            "Adjust spices, salt, and acidity to achieve the authentic flavor profile.",
-            "Plate beautifully, garnish with herbs or nuts, and serve to your waiting guests."
+            "Stuff and bake."
         ],
         "instr_ar": [
-            "اختر ونظف المكونات الطازجة بعناية لعمل سلطة كينوا.",
-            "شوح البصل والثوم في زيت زيتون بكر أو سمن بلدي حسب أصول الـ dinner.",
-            "أضف المكونات الرئيسية واتركها تنضج على نار هادئة حتى تمام الاستواء.",
-            "عدل البهارات والملح والحموضة لتصل إلى النكهة الأصلية المطلوبة.",
-            "اسكب الطبق في وعاء التقديم وزينه بالمكسرات أو الأعشاب وقدمه لضيوفك."
+            "احشِ واخبز."
         ]
     },
     {
         "category": "dinner",
-        "name_en": "Dinner Special #11",
-        "name_ar": "طبق dinner مميز #11",
-        "desc_en": "A nutritious, home-cooked dinner meal for a healthy fast.",
-        "desc_ar": "وجبة dinner منزلية مغذية لصيام صحي ومبارك.",
+        "name_en": "Chicken Soup",
+        "name_ar": "شوربة دجاج",
+        "desc_en": "Comforting chicken soup",
+        "desc_ar": "شوربة دجاج مريحة",
         "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
+            "Chicken",
+            "Vegetables",
+            "Noodles"
         ],
         "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
+            "دجاج",
+            "خضار",
+            "شعيرية"
         ],
         "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
+            "Simmer gently."
         ],
         "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
+            "اطبخ برفق."
         ]
     },
     {
         "category": "dinner",
-        "name_en": "Dinner Special #12",
-        "name_ar": "طبق dinner مميز #12",
-        "desc_en": "A nutritious, home-cooked dinner meal for a healthy fast.",
-        "desc_ar": "وجبة dinner منزلية مغذية لصيام صحي ومبارك.",
+        "name_en": "Rice Pilaf",
+        "name_ar": "رز بيلاف",
+        "desc_en": "Buttery rice pilaf",
+        "desc_ar": "رز بالزبدة",
         "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
+            "Rice",
+            "Butter",
+            "Broth"
         ],
         "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
+            "رز",
+            "زبدة",
+            "مرق"
         ],
         "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
+            "Cook until fluffy."
         ],
         "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
+            "اطبخ حتى ينتفخ."
         ]
     },
     {
         "category": "dinner",
-        "name_en": "Dinner Special #13",
-        "name_ar": "طبق dinner مميز #13",
-        "desc_en": "A nutritious, home-cooked dinner meal for a healthy fast.",
-        "desc_ar": "وجبة dinner منزلية مغذية لصيام صحي ومبارك.",
+        "name_en": "Baked Chicken",
+        "name_ar": "دجاج مخبوز",
+        "desc_en": "Oven baked chicken",
+        "desc_ar": "دجاج مخبوز بالفرن",
         "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
+            "Chicken",
+            "Potatoes",
+            "Spices"
         ],
         "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
+            "دجاج",
+            "بطاطس",
+            "بهارات"
         ],
         "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
+            "Bake until done."
         ],
         "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
+            "اخبز حتى ينضج."
         ]
     },
     {
         "category": "dinner",
-        "name_en": "Dinner Special #14",
-        "name_ar": "طبق dinner مميز #14",
-        "desc_en": "A nutritious, home-cooked dinner meal for a healthy fast.",
-        "desc_ar": "وجبة dinner منزلية مغذية لصيام صحي ومبارك.",
+        "name_en": "Minced Meat Skillet",
+        "name_ar": "صاج لحم مفروم",
+        "desc_en": "Pan fried minced meat",
+        "desc_ar": "لحم مفروم بالصاج",
         "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
+            "Minced meat",
+            "Onion",
+            "Spices"
         ],
         "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
+            "لحم مفروم",
+            "بصل",
+            "بهارات"
         ],
         "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
+            "Fry in skillet."
         ],
         "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
+            "اقلي بالصاج."
         ]
     },
     {
         "category": "dinner",
-        "name_en": "Dinner Special #15",
-        "name_ar": "طبق dinner مميز #15",
-        "desc_en": "A nutritious, home-cooked dinner meal for a healthy fast.",
-        "desc_ar": "وجبة dinner منزلية مغذية لصيام صحي ومبارك.",
+        "name_en": "Vegetable Rice",
+        "name_ar": "رز بالخضار",
+        "desc_en": "Mixed vegetable rice",
+        "desc_ar": "رز بالخضار المشكلة",
         "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "dinner",
-        "name_en": "Dinner Special #16",
-        "name_ar": "طبق dinner مميز #16",
-        "desc_en": "A nutritious, home-cooked dinner meal for a healthy fast.",
-        "desc_ar": "وجبة dinner منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "dinner",
-        "name_en": "Dinner Special #17",
-        "name_ar": "طبق dinner مميز #17",
-        "desc_en": "A nutritious, home-cooked dinner meal for a healthy fast.",
-        "desc_ar": "وجبة dinner منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "dinner",
-        "name_en": "Dinner Special #18",
-        "name_ar": "طبق dinner مميز #18",
-        "desc_en": "A nutritious, home-cooked dinner meal for a healthy fast.",
-        "desc_ar": "وجبة dinner منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "dinner",
-        "name_en": "Dinner Special #19",
-        "name_ar": "طبق dinner مميز #19",
-        "desc_en": "A nutritious, home-cooked dinner meal for a healthy fast.",
-        "desc_ar": "وجبة dinner منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "dinner",
-        "name_en": "Dinner Special #20",
-        "name_ar": "طبق dinner مميز #20",
-        "desc_en": "A nutritious, home-cooked dinner meal for a healthy fast.",
-        "desc_ar": "وجبة dinner منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "dinner",
-        "name_en": "Dinner Special #21",
-        "name_ar": "طبق dinner مميز #21",
-        "desc_en": "A nutritious, home-cooked dinner meal for a healthy fast.",
-        "desc_ar": "وجبة dinner منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "dinner",
-        "name_en": "Dinner Special #22",
-        "name_ar": "طبق dinner مميز #22",
-        "desc_en": "A nutritious, home-cooked dinner meal for a healthy fast.",
-        "desc_ar": "وجبة dinner منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "dinner",
-        "name_en": "Dinner Special #23",
-        "name_ar": "طبق dinner مميز #23",
-        "desc_en": "A nutritious, home-cooked dinner meal for a healthy fast.",
-        "desc_ar": "وجبة dinner منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "dinner",
-        "name_en": "Dinner Special #24",
-        "name_ar": "طبق dinner مميز #24",
-        "desc_en": "A nutritious, home-cooked dinner meal for a healthy fast.",
-        "desc_ar": "وجبة dinner منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "dinner",
-        "name_en": "Dinner Special #25",
-        "name_ar": "طبق dinner مميز #25",
-        "desc_en": "A nutritious, home-cooked dinner meal for a healthy fast.",
-        "desc_ar": "وجبة dinner منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "dinner",
-        "name_en": "Dinner Special #26",
-        "name_ar": "طبق dinner مميز #26",
-        "desc_en": "A nutritious, home-cooked dinner meal for a healthy fast.",
-        "desc_ar": "وجبة dinner منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "dinner",
-        "name_en": "Dinner Special #27",
-        "name_ar": "طبق dinner مميز #27",
-        "desc_en": "A nutritious, home-cooked dinner meal for a healthy fast.",
-        "desc_ar": "وجبة dinner منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "dinner",
-        "name_en": "Dinner Special #28",
-        "name_ar": "طبق dinner مميز #28",
-        "desc_en": "A nutritious, home-cooked dinner meal for a healthy fast.",
-        "desc_ar": "وجبة dinner منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "dinner",
-        "name_en": "Dinner Special #29",
-        "name_ar": "طبق dinner مميز #29",
-        "desc_en": "A nutritious, home-cooked dinner meal for a healthy fast.",
-        "desc_ar": "وجبة dinner منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "dinner",
-        "name_en": "Dinner Special #30",
-        "name_ar": "طبق dinner مميز #30",
-        "desc_en": "A nutritious, home-cooked dinner meal for a healthy fast.",
-        "desc_ar": "وجبة dinner منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "dinner",
-        "name_en": "Dinner Special #31",
-        "name_ar": "طبق dinner مميز #31",
-        "desc_en": "A nutritious, home-cooked dinner meal for a healthy fast.",
-        "desc_ar": "وجبة dinner منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "dinner",
-        "name_en": "Dinner Special #32",
-        "name_ar": "طبق dinner مميز #32",
-        "desc_en": "A nutritious, home-cooked dinner meal for a healthy fast.",
-        "desc_ar": "وجبة dinner منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "dinner",
-        "name_en": "Dinner Special #33",
-        "name_ar": "طبق dinner مميز #33",
-        "desc_en": "A nutritious, home-cooked dinner meal for a healthy fast.",
-        "desc_ar": "وجبة dinner منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "dinner",
-        "name_en": "Dinner Special #34",
-        "name_ar": "طبق dinner مميز #34",
-        "desc_en": "A nutritious, home-cooked dinner meal for a healthy fast.",
-        "desc_ar": "وجبة dinner منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "dinner",
-        "name_en": "Dinner Special #35",
-        "name_ar": "طبق dinner مميز #35",
-        "desc_en": "A nutritious, home-cooked dinner meal for a healthy fast.",
-        "desc_ar": "وجبة dinner منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "dinner",
-        "name_en": "Dinner Special #36",
-        "name_ar": "طبق dinner مميز #36",
-        "desc_en": "A nutritious, home-cooked dinner meal for a healthy fast.",
-        "desc_ar": "وجبة dinner منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "dinner",
-        "name_en": "Dinner Special #37",
-        "name_ar": "طبق dinner مميز #37",
-        "desc_en": "A nutritious, home-cooked dinner meal for a healthy fast.",
-        "desc_ar": "وجبة dinner منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "dinner",
-        "name_en": "Dinner Special #38",
-        "name_ar": "طبق dinner مميز #38",
-        "desc_en": "A nutritious, home-cooked dinner meal for a healthy fast.",
-        "desc_ar": "وجبة dinner منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "dinner",
-        "name_en": "Dinner Special #39",
-        "name_ar": "طبق dinner مميز #39",
-        "desc_en": "A nutritious, home-cooked dinner meal for a healthy fast.",
-        "desc_ar": "وجبة dinner منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "dinner",
-        "name_en": "Dinner Special #40",
-        "name_ar": "طبق dinner مميز #40",
-        "desc_en": "A nutritious, home-cooked dinner meal for a healthy fast.",
-        "desc_ar": "وجبة dinner منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "dinner",
-        "name_en": "Dinner Special #41",
-        "name_ar": "طبق dinner مميز #41",
-        "desc_en": "A nutritious, home-cooked dinner meal for a healthy fast.",
-        "desc_ar": "وجبة dinner منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "dinner",
-        "name_en": "Dinner Special #42",
-        "name_ar": "طبق dinner مميز #42",
-        "desc_en": "A nutritious, home-cooked dinner meal for a healthy fast.",
-        "desc_ar": "وجبة dinner منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "dinner",
-        "name_en": "Dinner Special #43",
-        "name_ar": "طبق dinner مميز #43",
-        "desc_en": "A nutritious, home-cooked dinner meal for a healthy fast.",
-        "desc_ar": "وجبة dinner منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "dinner",
-        "name_en": "Dinner Special #44",
-        "name_ar": "طبق dinner مميز #44",
-        "desc_en": "A nutritious, home-cooked dinner meal for a healthy fast.",
-        "desc_ar": "وجبة dinner منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "dinner",
-        "name_en": "Dinner Special #45",
-        "name_ar": "طبق dinner مميز #45",
-        "desc_en": "A nutritious, home-cooked dinner meal for a healthy fast.",
-        "desc_ar": "وجبة dinner منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "dinner",
-        "name_en": "Dinner Special #46",
-        "name_ar": "طبق dinner مميز #46",
-        "desc_en": "A nutritious, home-cooked dinner meal for a healthy fast.",
-        "desc_ar": "وجبة dinner منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "dinner",
-        "name_en": "Dinner Special #47",
-        "name_ar": "طبق dinner مميز #47",
-        "desc_en": "A nutritious, home-cooked dinner meal for a healthy fast.",
-        "desc_ar": "وجبة dinner منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "dinner",
-        "name_en": "Dinner Special #48",
-        "name_ar": "طبق dinner مميز #48",
-        "desc_en": "A nutritious, home-cooked dinner meal for a healthy fast.",
-        "desc_ar": "وجبة dinner منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "dinner",
-        "name_en": "Dinner Special #49",
-        "name_ar": "طبق dinner مميز #49",
-        "desc_en": "A nutritious, home-cooked dinner meal for a healthy fast.",
-        "desc_ar": "وجبة dinner منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "dinner",
-        "name_en": "Dinner Special #50",
-        "name_ar": "طبق dinner مميز #50",
-        "desc_en": "A nutritious, home-cooked dinner meal for a healthy fast.",
-        "desc_ar": "وجبة dinner منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "dessert",
-        "name_en": "Cheese Kunafa",
-        "name_ar": "كنافة بالجبن",
-        "desc_en": "Nabulsi specialty with rose syrup.",
-        "desc_ar": "كنافة نابلسية سخنة بالجبنة والقطر.",
-        "ingr_en": [
-            "Kunafa dough",
-            "Sweet cheese",
-            "Ghee",
-            "Syrup"
-        ],
-        "ingr_ar": [
-            "عجينة كنافة",
-            "جبن محلى",
-            "سمن",
-            "قطر"
-        ],
-        "instr_en": [
-            "Carefully select and clean the fresh ingredients for Cheese Kunafa.",
-            "Sauté aromatics in high-quality olive oil or ghee according to dessert tradition.",
-            "Add the main components and simmer until perfectly cooked and tender.",
-            "Adjust spices, salt, and acidity to achieve the authentic flavor profile.",
-            "Plate beautifully, garnish with herbs or nuts, and serve to your waiting guests."
-        ],
-        "instr_ar": [
-            "اختر ونظف المكونات الطازجة بعناية لعمل كنافة بالجبن.",
-            "شوح البصل والثوم في زيت زيتون بكر أو سمن بلدي حسب أصول الـ dessert.",
-            "أضف المكونات الرئيسية واتركها تنضج على نار هادئة حتى تمام الاستواء.",
-            "عدل البهارات والملح والحموضة لتصل إلى النكهة الأصلية المطلوبة.",
-            "اسكب الطبق في وعاء التقديم وزينه بالمكسرات أو الأعشاب وقدمه لضيوفك."
-        ]
-    },
-    {
-        "category": "dessert",
-        "name_en": "Baklava",
-        "name_ar": "بقلاوة",
-        "desc_en": "Flaky pastry layers with nuts and honey.",
-        "desc_ar": "بقلاوة مشكلة بالفستق والجوز.",
-        "ingr_en": [
-            "Phyllo dough",
-            "Pistachios",
-            "Honey syrup",
+            "Rice",
+            "Mixed vegetables",
             "Butter"
         ],
         "ingr_ar": [
-            "عجينة جلاش",
-            "فستق حلبي",
-            "عسل",
+            "رز",
+            "خضار مشكلة",
             "زبدة"
         ],
         "instr_en": [
-            "Carefully select and clean the fresh ingredients for Baklava.",
-            "Sauté aromatics in high-quality olive oil or ghee according to dessert tradition.",
-            "Add the main components and simmer until perfectly cooked and tender.",
-            "Adjust spices, salt, and acidity to achieve the authentic flavor profile.",
-            "Plate beautifully, garnish with herbs or nuts, and serve to your waiting guests."
+            "Cook together."
         ],
         "instr_ar": [
-            "اختر ونظف المكونات الطازجة بعناية لعمل بقلاوة.",
-            "شوح البصل والثوم في زيت زيتون بكر أو سمن بلدي حسب أصول الـ dessert.",
-            "أضف المكونات الرئيسية واتركها تنضج على نار هادئة حتى تمام الاستواء.",
-            "عدل البهارات والملح والحموضة لتصل إلى النكهة الأصلية المطلوبة.",
-            "اسكب الطبق في وعاء التقديم وزينه بالمكسرات أو الأعشاب وقدمه لضيوفك."
+            "اطبخ معاً."
         ]
     },
     {
         "category": "dessert",
-        "name_en": "Umm Ali",
-        "name_ar": "أم علي",
-        "desc_en": "Egyptian bread pudding with nuts and cream.",
-        "desc_ar": "أم علي مصرية غنية بالقشطة والمكسرات.",
+        "name_en": "Kunafa with Cheese",
+        "name_ar": "كنافة بالجبن",
+        "desc_en": "Sweet cheese pastry",
+        "desc_ar": "حلوى جبن",
         "ingr_en": [
-            "Pastry",
-            "Milk",
-            "Cream",
-            "Nuts",
-            "Raisins"
+            "Kunafa dough",
+            "Mozzarella",
+            "Sugar syrup"
         ],
         "ingr_ar": [
-            "عجينة بف باستري",
-            "حليب",
-            "كريمة",
-            "مكسرات",
-            "زبيب"
+            "عجينة كنافة",
+            "موزاريلا",
+            "قطر"
         ],
         "instr_en": [
-            "Carefully select and clean the fresh ingredients for Umm Ali.",
-            "Sauté aromatics in high-quality olive oil or ghee according to dessert tradition.",
-            "Add the main components and simmer until perfectly cooked and tender.",
-            "Adjust spices, salt, and acidity to achieve the authentic flavor profile.",
-            "Plate beautifully, garnish with herbs or nuts, and serve to your waiting guests."
+            "Bake at 180°C for 30 min, add syrup."
         ],
         "instr_ar": [
-            "اختر ونظف المكونات الطازجة بعناية لعمل أم علي.",
-            "شوح البصل والثوم في زيت زيتون بكر أو سمن بلدي حسب أصول الـ dessert.",
-            "أضف المكونات الرئيسية واتركها تنضج على نار هادئة حتى تمام الاستواء.",
-            "عدل البهارات والملح والحموضة لتصل إلى النكهة الأصلية المطلوبة.",
-            "اسكب الطبق في وعاء التقديم وزينه بالمكسرات أو الأعشاب وقدمه لضيوفك."
+            "اخبز ١٨٠ درجة ٣٠ دقيقة وأضف القطر."
         ]
     },
     {
         "category": "dessert",
         "name_en": "Qatayef with Cream",
         "name_ar": "قطايف بالقشطة",
-        "desc_en": "Ramadan pancakes with clotted cream.",
-        "desc_ar": "قطايف عصافيري بالقشطة والفستق.",
+        "desc_en": "Cream filled pancakes",
+        "desc_ar": "فطائر بالقشطة",
         "ingr_en": [
-            "Qatayef dough",
+            "Qatayef",
             "Ashta cream",
-            "Pistachios"
+            "Syrup"
         ],
         "ingr_ar": [
-            "عجينة قطايف",
-            "قشطة بلدي",
-            "فستق"
+            "قطايف",
+            "قشطة",
+            "قطر"
         ],
         "instr_en": [
-            "Carefully select and clean the fresh ingredients for Qatayef with Cream.",
-            "Sauté aromatics in high-quality olive oil or ghee according to dessert tradition.",
-            "Add the main components and simmer until perfectly cooked and tender.",
-            "Adjust spices, salt, and acidity to achieve the authentic flavor profile.",
-            "Plate beautifully, garnish with herbs or nuts, and serve to your waiting guests."
+            "Fill, fry, drizzle syrup."
         ],
         "instr_ar": [
-            "اختر ونظف المكونات الطازجة بعناية لعمل قطايف بالقشطة.",
-            "شوح البصل والثوم في زيت زيتون بكر أو سمن بلدي حسب أصول الـ dessert.",
-            "أضف المكونات الرئيسية واتركها تنضج على نار هادئة حتى تمام الاستواء.",
-            "عدل البهارات والملح والحموضة لتصل إلى النكهة الأصلية المطلوبة.",
-            "اسكب الطبق في وعاء التقديم وزينه بالمكسرات أو الأعشاب وقدمه لضيوفك."
-        ]
-    },
-    {
-        "category": "dessert",
-        "name_en": "Rice Pudding",
-        "name_ar": "أرز بالحليب",
-        "desc_en": "Creamy vanilla and orange blossom rice.",
-        "desc_ar": "بودينج الأرز بالحليب وماء الزهر.",
-        "ingr_en": [
-            "Rice",
-            "Milk",
-            "Sugar",
-            "Orange blossom water"
-        ],
-        "ingr_ar": [
-            "أرز",
-            "حليب",
-            "سكر",
-            "ماء زهر"
-        ],
-        "instr_en": [
-            "Carefully select and clean the fresh ingredients for Rice Pudding.",
-            "Sauté aromatics in high-quality olive oil or ghee according to dessert tradition.",
-            "Add the main components and simmer until perfectly cooked and tender.",
-            "Adjust spices, salt, and acidity to achieve the authentic flavor profile.",
-            "Plate beautifully, garnish with herbs or nuts, and serve to your waiting guests."
-        ],
-        "instr_ar": [
-            "اختر ونظف المكونات الطازجة بعناية لعمل أرز بالحليب.",
-            "شوح البصل والثوم في زيت زيتون بكر أو سمن بلدي حسب أصول الـ dessert.",
-            "أضف المكونات الرئيسية واتركها تنضج على نار هادئة حتى تمام الاستواء.",
-            "عدل البهارات والملح والحموضة لتصل إلى النكهة الأصلية المطلوبة.",
-            "اسكب الطبق في وعاء التقديم وزينه بالمكسرات أو الأعشاب وقدمه لضيوفك."
-        ]
-    },
-    {
-        "category": "dessert",
-        "name_en": "Luqaimat",
-        "name_ar": "لقيمات",
-        "desc_en": "Sweet fried dough balls with date syrup.",
-        "desc_ar": "عوامة أو لقيمات مقرمشة بدبس التمر.",
-        "ingr_en": [
-            "Flour",
-            "Yeast",
-            "Date syrup",
-            "Sesame"
-        ],
-        "ingr_ar": [
-            "طحين",
-            "خميرة",
-            "دبس تمر",
-            "سمسم"
-        ],
-        "instr_en": [
-            "Carefully select and clean the fresh ingredients for Luqaimat.",
-            "Sauté aromatics in high-quality olive oil or ghee according to dessert tradition.",
-            "Add the main components and simmer until perfectly cooked and tender.",
-            "Adjust spices, salt, and acidity to achieve the authentic flavor profile.",
-            "Plate beautifully, garnish with herbs or nuts, and serve to your waiting guests."
-        ],
-        "instr_ar": [
-            "اختر ونظف المكونات الطازجة بعناية لعمل لقيمات.",
-            "شوح البصل والثوم في زيت زيتون بكر أو سمن بلدي حسب أصول الـ dessert.",
-            "أضف المكونات الرئيسية واتركها تنضج على نار هادئة حتى تمام الاستواء.",
-            "عدل البهارات والملح والحموضة لتصل إلى النكهة الأصلية المطلوبة.",
-            "اسكب الطبق في وعاء التقديم وزينه بالمكسرات أو الأعشاب وقدمه لضيوفك."
+            "احشِ واقلي ورش القطر."
         ]
     },
     {
         "category": "dessert",
         "name_en": "Basbousa",
         "name_ar": "بسبوسة",
-        "desc_en": "Semolina cake soaked in citrus syrup.",
-        "desc_ar": "بسبوسة جوز الهند المرملة واللذيذة.",
+        "desc_en": "Semolina cake",
+        "desc_ar": "كيكة سميد",
+        "ingr_en": [
+            "Semolina",
+            "Yogurt",
+            "Sugar",
+            "Syrup"
+        ],
+        "ingr_ar": [
+            "سميد",
+            "زبادي",
+            "سكر",
+            "قطر"
+        ],
+        "instr_en": [
+            "Bake 35 min, add syrup."
+        ],
+        "instr_ar": [
+            "اخبز ٣٥ دقيقة وأضف القطر."
+        ]
+    },
+    {
+        "category": "dessert",
+        "name_en": "Muhallabia",
+        "name_ar": "مهلبية",
+        "desc_en": "Milk pudding",
+        "desc_ar": "بودينج حليب",
+        "ingr_en": [
+            "Milk",
+            "Cornstarch",
+            "Sugar",
+            "Rose water"
+        ],
+        "ingr_ar": [
+            "حليب",
+            "نشا",
+            "سكر",
+            "ماء ورد"
+        ],
+        "instr_en": [
+            "Cook until thick, chill."
+        ],
+        "instr_ar": [
+            "اطبخ حتى يثخن وبرد."
+        ]
+    },
+    {
+        "category": "dessert",
+        "name_en": "Rice Pudding",
+        "name_ar": "أرز بالحليب",
+        "desc_en": "Creamy rice pudding",
+        "desc_ar": "أرز بالحليب كريمي",
+        "ingr_en": [
+            "Rice",
+            "Milk",
+            "Sugar",
+            "Cinnamon"
+        ],
+        "ingr_ar": [
+            "رز",
+            "حليب",
+            "سكر",
+            "قرفة"
+        ],
+        "instr_en": [
+            "Simmer until creamy."
+        ],
+        "instr_ar": [
+            "اطبخ حتى يصبح كريمي."
+        ]
+    },
+    {
+        "category": "dessert",
+        "name_en": "Date Maamoul",
+        "name_ar": "معمول تمر",
+        "desc_en": "Date filled cookies",
+        "desc_ar": "كعك بالتمر",
+        "ingr_en": [
+            "Semolina",
+            "Butter",
+            "Dates"
+        ],
+        "ingr_ar": [
+            "سميد",
+            "زبدة",
+            "تمر"
+        ],
+        "instr_en": [
+            "Fill and bake 20 min."
+        ],
+        "instr_ar": [
+            "احشِ واخبز ٢٠ دقيقة."
+        ]
+    },
+    {
+        "category": "dessert",
+        "name_en": "Baklava",
+        "name_ar": "بقلاوة",
+        "desc_en": "Layered nut pastry",
+        "desc_ar": "حلوى مكسرات طبقات",
+        "ingr_en": [
+            "Phyllo",
+            "Nuts",
+            "Butter",
+            "Syrup"
+        ],
+        "ingr_ar": [
+            "جلاش",
+            "مكسرات",
+            "زبدة",
+            "قطر"
+        ],
+        "instr_en": [
+            "Bake 45 min, add syrup."
+        ],
+        "instr_ar": [
+            "اخبز ٤٥ دقيقة وأضف القطر."
+        ]
+    },
+    {
+        "category": "dessert",
+        "name_en": "Halawa",
+        "name_ar": "حلاوة طحينية",
+        "desc_en": "Tahini sweet",
+        "desc_ar": "حلوى طحينية",
+        "ingr_en": [
+            "Tahini",
+            "Sugar",
+            "Milk powder"
+        ],
+        "ingr_ar": [
+            "طحينة",
+            "سكر",
+            "حليب بودرة"
+        ],
+        "instr_en": [
+            "Mix and set."
+        ],
+        "instr_ar": [
+            "اخلط واتركه يتماسك."
+        ]
+    },
+    {
+        "category": "dessert",
+        "name_en": "Zalabia",
+        "name_ar": "زلابية",
+        "desc_en": "Fried dough in syrup",
+        "desc_ar": "عجين مقلي بالقطر",
+        "ingr_en": [
+            "Flour",
+            "Yeast",
+            "Sugar",
+            "Syrup"
+        ],
+        "ingr_ar": [
+            "طحين",
+            "خميرة",
+            "سكر",
+            "قطر"
+        ],
+        "instr_en": [
+            "Fry and soak in syrup."
+        ],
+        "instr_ar": [
+            "اقلي وانقع بالقطر."
+        ]
+    },
+    {
+        "category": "dessert",
+        "name_en": "Umm Ali",
+        "name_ar": "أم علي",
+        "desc_en": "Bread pudding",
+        "desc_ar": "بودينج خبز",
+        "ingr_en": [
+            "Puff pastry",
+            "Milk",
+            "Nuts",
+            "Sugar"
+        ],
+        "ingr_ar": [
+            "باف باستري",
+            "حليب",
+            "مكسرات",
+            "سكر"
+        ],
+        "instr_en": [
+            "Bake with milk and nuts."
+        ],
+        "instr_ar": [
+            "اخبز مع الحليب والمكسرات."
+        ]
+    },
+    {
+        "category": "dessert",
+        "name_en": "Semolina Coconut Cake",
+        "name_ar": "كيكة سميد وجوز هند",
+        "desc_en": "Coconut semolina cake",
+        "desc_ar": "كيكة سميد جوز هند",
         "ingr_en": [
             "Semolina",
             "Coconut",
             "Yogurt",
-            "Sugar syrup"
+            "Syrup"
         ],
         "ingr_ar": [
             "سميد",
             "جوز هند",
-            "لبن زبادي",
+            "زبادي",
             "قطر"
         ],
         "instr_en": [
-            "Carefully select and clean the fresh ingredients for Basbousa.",
-            "Sauté aromatics in high-quality olive oil or ghee according to dessert tradition.",
-            "Add the main components and simmer until perfectly cooked and tender.",
-            "Adjust spices, salt, and acidity to achieve the authentic flavor profile.",
-            "Plate beautifully, garnish with herbs or nuts, and serve to your waiting guests."
+            "Mix, bake, add syrup."
         ],
         "instr_ar": [
-            "اختر ونظف المكونات الطازجة بعناية لعمل بسبوسة.",
-            "شوح البصل والثوم في زيت زيتون بكر أو سمن بلدي حسب أصول الـ dessert.",
-            "أضف المكونات الرئيسية واتركها تنضج على نار هادئة حتى تمام الاستواء.",
-            "عدل البهارات والملح والحموضة لتصل إلى النكهة الأصلية المطلوبة.",
-            "اسكب الطبق في وعاء التقديم وزينه بالمكسرات أو الأعشاب وقدمه لضيوفك."
+            "اخلط واخبز وأضف القطر."
         ]
     },
     {
         "category": "dessert",
-        "name_en": "Chocolate Dates",
-        "name_ar": "تمر بالشوكولاتة",
-        "desc_en": "Stuffed dates dipped in dark chocolate.",
-        "desc_ar": "تمر محشي لوز ومغطى بالشوكولاتة.",
+        "name_en": "Arabic Jelly",
+        "name_ar": "جيلي عربي",
+        "desc_en": "Flavored jelly cups",
+        "desc_ar": "أكواب جيلي",
+        "ingr_en": [
+            "Gelatin",
+            "Sugar",
+            "Water",
+            "Flavor"
+        ],
+        "ingr_ar": [
+            "جيلاتين",
+            "سكر",
+            "ماء",
+            "نكهة"
+        ],
+        "instr_en": [
+            "Dissolve and chill."
+        ],
+        "instr_ar": [
+            "ذوب وبرد."
+        ]
+    },
+    {
+        "category": "dessert",
+        "name_en": "Date Balls",
+        "name_ar": "كرات التمر",
+        "desc_en": "No-bake date balls",
+        "desc_ar": "كرات تمر بدون خبز",
         "ingr_en": [
             "Dates",
-            "Dark chocolate",
-            "Almonds"
+            "Nuts",
+            "Coconut"
         ],
         "ingr_ar": [
             "تمر",
-            "شوكولاتة داكنة",
-            "لوز"
+            "مكسرات",
+            "جوز هند"
         ],
         "instr_en": [
-            "Carefully select and clean the fresh ingredients for Chocolate Dates.",
-            "Sauté aromatics in high-quality olive oil or ghee according to dessert tradition.",
-            "Add the main components and simmer until perfectly cooked and tender.",
-            "Adjust spices, salt, and acidity to achieve the authentic flavor profile.",
-            "Plate beautifully, garnish with herbs or nuts, and serve to your waiting guests."
+            "Blend, roll, coat."
         ],
         "instr_ar": [
-            "اختر ونظف المكونات الطازجة بعناية لعمل تمر بالشوكولاتة.",
-            "شوح البصل والثوم في زيت زيتون بكر أو سمن بلدي حسب أصول الـ dessert.",
-            "أضف المكونات الرئيسية واتركها تنضج على نار هادئة حتى تمام الاستواء.",
-            "عدل البهارات والملح والحموضة لتصل إلى النكهة الأصلية المطلوبة.",
-            "اسكب الطبق في وعاء التقديم وزينه بالمكسرات أو الأعشاب وقدمه لضيوفك."
+            "اخلط وشكل وغطي."
         ]
     },
     {
         "category": "dessert",
-        "name_en": "Fruit Salad",
-        "name_ar": "سلطة فواكه",
-        "desc_en": "Fresh seasonal fruits with rose water.",
-        "desc_ar": "فواكه الموسم بماء الورد والنعناع.",
+        "name_en": "Carrot Halawa",
+        "name_ar": "حلاوة جزر",
+        "desc_en": "Sweet carrot dessert",
+        "desc_ar": "حلوى جزر",
         "ingr_en": [
-            "Seasonal fruits",
-            "Rose water",
-            "Mint"
+            "Carrots",
+            "Sugar",
+            "Milk",
+            "Cardamom"
         ],
         "ingr_ar": [
-            "فواكه موسمية",
-            "ماء ورد",
-            "نعناع"
+            "جزر",
+            "سكر",
+            "حليب",
+            "هيل"
         ],
         "instr_en": [
-            "Carefully select and clean the fresh ingredients for Fruit Salad.",
-            "Sauté aromatics in high-quality olive oil or ghee according to dessert tradition.",
-            "Add the main components and simmer until perfectly cooked and tender.",
-            "Adjust spices, salt, and acidity to achieve the authentic flavor profile.",
-            "Plate beautifully, garnish with herbs or nuts, and serve to your waiting guests."
+            "Cook until thick."
         ],
         "instr_ar": [
-            "اختر ونظف المكونات الطازجة بعناية لعمل سلطة فواكه.",
-            "شوح البصل والثوم في زيت زيتون بكر أو سمن بلدي حسب أصول الـ dessert.",
-            "أضف المكونات الرئيسية واتركها تنضج على نار هادئة حتى تمام الاستواء.",
-            "عدل البهارات والملح والحموضة لتصل إلى النكهة الأصلية المطلوبة.",
-            "اسكب الطبق في وعاء التقديم وزينه بالمكسرات أو الأعشاب وقدمه لضيوفك."
+            "اطبخ حتى يثخن."
         ]
     },
     {
         "category": "dessert",
-        "name_en": "Halawat el Jibn",
-        "name_ar": "حلاوة الجبن",
-        "desc_en": "Sweet cheese rolls with ashta cream.",
-        "desc_ar": "حلاوة الجبن الحموية بالقشطة البلدية.",
+        "name_en": "Pistachio Kunafa",
+        "name_ar": "كنافة بالفستق",
+        "desc_en": "Kunafa with pistachios",
+        "desc_ar": "كنافة فستق",
         "ingr_en": [
-            "Cheese dough",
-            "Ashta cream",
+            "Kunafa",
             "Pistachios",
             "Syrup"
         ],
         "ingr_ar": [
-            "عجينة بالجبن",
-            "قشطة",
+            "كنافة",
             "فستق",
             "قطر"
         ],
         "instr_en": [
-            "Carefully select and clean the fresh ingredients for Halawat el Jibn.",
-            "Sauté aromatics in high-quality olive oil or ghee according to dessert tradition.",
-            "Add the main components and simmer until perfectly cooked and tender.",
-            "Adjust spices, salt, and acidity to achieve the authentic flavor profile.",
-            "Plate beautifully, garnish with herbs or nuts, and serve to your waiting guests."
+            "Bake and top with pistachios."
         ],
         "instr_ar": [
-            "اختر ونظف المكونات الطازجة بعناية لعمل حلاوة الجبن.",
-            "شوح البصل والثوم في زيت زيتون بكر أو سمن بلدي حسب أصول الـ dessert.",
-            "أضف المكونات الرئيسية واتركها تنضج على نار هادئة حتى تمام الاستواء.",
-            "عدل البهارات والملح والحموضة لتصل إلى النكهة الأصلية المطلوبة.",
-            "اسكب الطبق في وعاء التقديم وزينه بالمكسرات أو الأعشاب وقدمه لضيوفك."
+            "اخبز وزين بالفستق."
         ]
     },
     {
         "category": "dessert",
-        "name_en": "Dessert Special #11",
-        "name_ar": "طبق dessert مميز #11",
-        "desc_en": "A nutritious, home-cooked dessert meal for a healthy fast.",
-        "desc_ar": "وجبة dessert منزلية مغذية لصيام صحي ومبارك.",
+        "name_en": "Cream Baklava Rolls",
+        "name_ar": "لفائف بقلاوة",
+        "desc_en": "Rolled baklava with cream",
+        "desc_ar": "بقلاوة ملفوفة بالقشطة",
         "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
+            "Phyllo",
+            "Cream",
+            "Syrup"
         ],
         "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
+            "جلاش",
+            "قشطة",
+            "قطر"
         ],
         "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
+            "Roll, bake, soak."
         ],
         "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
+            "لف واخبز وانقع."
         ]
     },
     {
         "category": "dessert",
-        "name_en": "Dessert Special #12",
-        "name_ar": "طبق dessert مميز #12",
-        "desc_en": "A nutritious, home-cooked dessert meal for a healthy fast.",
-        "desc_ar": "وجبة dessert منزلية مغذية لصيام صحي ومبارك.",
+        "name_en": "Milk Cake",
+        "name_ar": "كيكة الحليب",
+        "desc_en": "Tres leches style",
+        "desc_ar": "كيكة ثلاث حليب",
         "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
+            "Flour",
+            "Milk",
+            "Sugar",
+            "Cream"
         ],
         "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
+            "طحين",
+            "حليب",
+            "سكر",
+            "كريمة"
         ],
         "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
+            "Bake and soak with milk."
         ],
         "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
+            "اخبز وانقع بالحليب."
         ]
     },
     {
         "category": "dessert",
-        "name_en": "Dessert Special #13",
-        "name_ar": "طبق dessert مميز #13",
-        "desc_en": "A nutritious, home-cooked dessert meal for a healthy fast.",
-        "desc_ar": "وجبة dessert منزلية مغذية لصيام صحي ومبارك.",
+        "name_en": "Arabic Donuts",
+        "name_ar": "لقيمات",
+        "desc_en": "Fried dough balls",
+        "desc_ar": "كرات عجين مقلية",
         "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
+            "Flour",
+            "Yeast",
+            "Syrup"
         ],
         "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
+            "طحين",
+            "خميرة",
+            "قطر"
         ],
         "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
+            "Fry and coat with syrup."
         ],
         "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
+            "اقلي وغطي بالقطر."
         ]
     },
     {
         "category": "dessert",
-        "name_en": "Dessert Special #14",
-        "name_ar": "طبق dessert مميز #14",
-        "desc_en": "A nutritious, home-cooked dessert meal for a healthy fast.",
-        "desc_ar": "وجبة dessert منزلية مغذية لصيام صحي ومبارك.",
+        "name_en": "Chocolate Basbousa",
+        "name_ar": "بسبوسة شوكولاتة",
+        "desc_en": "Chocolate semolina cake",
+        "desc_ar": "بسبوسة بالشوكولاتة",
         "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
+            "Semolina",
+            "Cocoa",
+            "Syrup"
         ],
         "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
+            "سميد",
+            "كاكاو",
+            "قطر"
         ],
         "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
+            "Bake and add syrup."
         ],
         "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
+            "اخبز وأضف القطر."
         ]
     },
     {
         "category": "dessert",
-        "name_en": "Dessert Special #15",
-        "name_ar": "طبق dessert مميز #15",
-        "desc_en": "A nutritious, home-cooked dessert meal for a healthy fast.",
-        "desc_ar": "وجبة dessert منزلية مغذية لصيام صحي ومبارك.",
+        "name_en": "Banana Pudding",
+        "name_ar": "بودينج موز",
+        "desc_en": "Creamy banana pudding",
+        "desc_ar": "بودينج موز كريمي",
         "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
+            "Milk",
+            "Banana",
+            "Starch",
+            "Sugar"
         ],
         "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
+            "حليب",
+            "موز",
+            "نشا",
+            "سكر"
         ],
         "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
+            "Blend and cook until thick."
         ],
         "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
+            "اخلط واطبخ حتى يثخن."
         ]
     },
     {
         "category": "dessert",
-        "name_en": "Dessert Special #16",
-        "name_ar": "طبق dessert مميز #16",
-        "desc_en": "A nutritious, home-cooked dessert meal for a healthy fast.",
-        "desc_ar": "وجبة dessert منزلية مغذية لصيام صحي ومبارك.",
+        "name_en": "Date Pudding",
+        "name_ar": "بودينج تمر",
+        "desc_en": "Sweet date pudding",
+        "desc_ar": "بودينج تمر حلو",
         "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
+            "Dates",
+            "Milk",
+            "Cream"
         ],
         "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
+            "تمر",
+            "حليب",
+            "كريمة"
         ],
         "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
+            "Cook and blend, chill."
         ],
         "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
+            "اطبخ واخلط وبرد."
         ]
     },
     {
         "category": "dessert",
-        "name_en": "Dessert Special #17",
-        "name_ar": "طبق dessert مميز #17",
-        "desc_en": "A nutritious, home-cooked dessert meal for a healthy fast.",
-        "desc_ar": "وجبة dessert منزلية مغذية لصيام صحي ومبارك.",
+        "name_en": "Orange Cake",
+        "name_ar": "كيكة برتقال",
+        "desc_en": "Fresh orange cake",
+        "desc_ar": "كيكة برتقال طازجة",
         "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
+            "Flour",
+            "Orange juice",
+            "Sugar"
         ],
         "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
+            "طحين",
+            "عصير برتقال",
+            "سكر"
         ],
         "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
+            "Bake and glaze."
         ],
         "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
+            "اخبز وزين."
         ]
     },
     {
         "category": "dessert",
-        "name_en": "Dessert Special #18",
-        "name_ar": "طبق dessert مميز #18",
-        "desc_en": "A nutritious, home-cooked dessert meal for a healthy fast.",
-        "desc_ar": "وجبة dessert منزلية مغذية لصيام صحي ومبارك.",
+        "name_en": "Coconut Rolls",
+        "name_ar": "لفائف جوز هند",
+        "desc_en": "Sweet coconut rolls",
+        "desc_ar": "لفائف جوز هند حلوة",
         "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
+            "Coconut",
+            "Condensed milk"
         ],
         "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
+            "جوز هند",
+            "حليب مكثف"
         ],
         "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
+            "Roll and chill."
         ],
         "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
+            "لف وبرد."
         ]
     },
     {
         "category": "dessert",
-        "name_en": "Dessert Special #19",
-        "name_ar": "طبق dessert مميز #19",
-        "desc_en": "A nutritious, home-cooked dessert meal for a healthy fast.",
-        "desc_ar": "وجبة dessert منزلية مغذية لصيام صحي ومبارك.",
+        "name_en": "Almond Cake",
+        "name_ar": "كيكة لوز",
+        "desc_en": "Flourless almond cake",
+        "desc_ar": "كيكة لوز بدون طحين",
         "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
+            "Almond flour",
+            "Eggs",
+            "Sugar"
         ],
         "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
+            "دقيق لوز",
+            "بيض",
+            "سكر"
         ],
         "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
+            "Bake 30 minutes."
         ],
         "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
+            "اخبز ٣٠ دقيقة."
         ]
     },
     {
         "category": "dessert",
-        "name_en": "Dessert Special #20",
-        "name_ar": "طبق dessert مميز #20",
-        "desc_en": "A nutritious, home-cooked dessert meal for a healthy fast.",
-        "desc_ar": "وجبة dessert منزلية مغذية لصيام صحي ومبارك.",
+        "name_en": "Rose Milk Dessert",
+        "name_ar": "حلى الورد بالحليب",
+        "desc_en": "Rose flavored milk dessert",
+        "desc_ar": "حلى حليب بالورد",
         "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
+            "Milk",
+            "Rose syrup",
+            "Starch"
         ],
         "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
+            "حليب",
+            "شراب ورد",
+            "نشا"
         ],
         "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
+            "Cook and chill."
         ],
         "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
+            "اطبخ وبرد."
         ]
     },
     {
         "category": "dessert",
-        "name_en": "Dessert Special #21",
-        "name_ar": "طبق dessert مميز #21",
-        "desc_en": "A nutritious, home-cooked dessert meal for a healthy fast.",
-        "desc_ar": "وجبة dessert منزلية مغذية لصيام صحي ومبارك.",
+        "name_en": "Sesame Candy",
+        "name_ar": "حلاوة سمسم",
+        "desc_en": "Crunchy sesame candy",
+        "desc_ar": "حلوى سمسم مقرمشة",
         "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
+            "Sesame",
+            "Honey",
+            "Sugar"
         ],
         "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
+            "سمسم",
+            "عسل",
+            "سكر"
         ],
         "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
+            "Toast and mix."
         ],
         "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
+            "حمص واخلط."
         ]
     },
     {
         "category": "dessert",
-        "name_en": "Dessert Special #22",
-        "name_ar": "طبق dessert مميز #22",
-        "desc_en": "A nutritious, home-cooked dessert meal for a healthy fast.",
-        "desc_ar": "وجبة dessert منزلية مغذية لصيام صحي ومبارك.",
+        "name_en": "Honey Balls",
+        "name_ar": "كرات العسل",
+        "desc_en": "Fried honey balls",
+        "desc_ar": "كرات عسل مقلية",
         "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
+            "Flour",
+            "Honey",
+            "Oil"
         ],
         "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
+            "طحين",
+            "عسل",
+            "زيت"
         ],
         "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
+            "Fry and drizzle honey."
         ],
         "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
+            "اقلي ورش العسل."
         ]
     },
     {
         "category": "dessert",
-        "name_en": "Dessert Special #23",
-        "name_ar": "طبق dessert مميز #23",
-        "desc_en": "A nutritious, home-cooked dessert meal for a healthy fast.",
-        "desc_ar": "وجبة dessert منزلية مغذية لصيام صحي ومبارك.",
+        "name_en": "Cream Tart",
+        "name_ar": "تارت كريمة",
+        "desc_en": "Sweet cream tart",
+        "desc_ar": "تارت كريمة حلوة",
         "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
+            "Flour",
+            "Butter",
+            "Cream",
+            "Sugar"
         ],
         "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
+            "طحين",
+            "زبدة",
+            "كريمة",
+            "سكر"
         ],
         "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
+            "Bake base, fill with cream."
         ],
         "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
+            "اخبز القاعدة واحشِ بالكريمة."
         ]
     },
     {
         "category": "dessert",
-        "name_en": "Dessert Special #24",
-        "name_ar": "طبق dessert مميز #24",
-        "desc_en": "A nutritious, home-cooked dessert meal for a healthy fast.",
-        "desc_ar": "وجبة dessert منزلية مغذية لصيام صحي ومبارك.",
+        "name_en": "Date Cheesecake",
+        "name_ar": "تشيزكيك تمر",
+        "desc_en": "Date flavored cheesecake",
+        "desc_ar": "تشيزكيك بالتمر",
         "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
+            "Dates",
+            "Cream cheese",
+            "Biscuits"
         ],
         "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
+            "تمر",
+            "جبنة كريمية",
+            "بسكويت"
         ],
         "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
+            "Mix and chill."
         ],
         "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
+            "اخلط وبرد."
         ]
     },
     {
         "category": "dessert",
-        "name_en": "Dessert Special #25",
-        "name_ar": "طبق dessert مميز #25",
-        "desc_en": "A nutritious, home-cooked dessert meal for a healthy fast.",
-        "desc_ar": "وجبة dessert منزلية مغذية لصيام صحي ومبارك.",
+        "name_en": "Arabic Ice Cream",
+        "name_ar": "بوظة عربية",
+        "desc_en": "Stretchy Arabic ice cream",
+        "desc_ar": "بوظة عربية مطاطية",
         "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
+            "Milk",
+            "Sugar",
+            "Mastic",
+            "Salep"
         ],
         "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
+            "حليب",
+            "سكر",
+            "مستكة",
+            "سحلب"
         ],
         "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
+            "Freeze while stirring."
         ],
         "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "dessert",
-        "name_en": "Dessert Special #26",
-        "name_ar": "طبق dessert مميز #26",
-        "desc_en": "A nutritious, home-cooked dessert meal for a healthy fast.",
-        "desc_ar": "وجبة dessert منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "dessert",
-        "name_en": "Dessert Special #27",
-        "name_ar": "طبق dessert مميز #27",
-        "desc_en": "A nutritious, home-cooked dessert meal for a healthy fast.",
-        "desc_ar": "وجبة dessert منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "dessert",
-        "name_en": "Dessert Special #28",
-        "name_ar": "طبق dessert مميز #28",
-        "desc_en": "A nutritious, home-cooked dessert meal for a healthy fast.",
-        "desc_ar": "وجبة dessert منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "dessert",
-        "name_en": "Dessert Special #29",
-        "name_ar": "طبق dessert مميز #29",
-        "desc_en": "A nutritious, home-cooked dessert meal for a healthy fast.",
-        "desc_ar": "وجبة dessert منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "dessert",
-        "name_en": "Dessert Special #30",
-        "name_ar": "طبق dessert مميز #30",
-        "desc_en": "A nutritious, home-cooked dessert meal for a healthy fast.",
-        "desc_ar": "وجبة dessert منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "dessert",
-        "name_en": "Dessert Special #31",
-        "name_ar": "طبق dessert مميز #31",
-        "desc_en": "A nutritious, home-cooked dessert meal for a healthy fast.",
-        "desc_ar": "وجبة dessert منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "dessert",
-        "name_en": "Dessert Special #32",
-        "name_ar": "طبق dessert مميز #32",
-        "desc_en": "A nutritious, home-cooked dessert meal for a healthy fast.",
-        "desc_ar": "وجبة dessert منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "dessert",
-        "name_en": "Dessert Special #33",
-        "name_ar": "طبق dessert مميز #33",
-        "desc_en": "A nutritious, home-cooked dessert meal for a healthy fast.",
-        "desc_ar": "وجبة dessert منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "dessert",
-        "name_en": "Dessert Special #34",
-        "name_ar": "طبق dessert مميز #34",
-        "desc_en": "A nutritious, home-cooked dessert meal for a healthy fast.",
-        "desc_ar": "وجبة dessert منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "dessert",
-        "name_en": "Dessert Special #35",
-        "name_ar": "طبق dessert مميز #35",
-        "desc_en": "A nutritious, home-cooked dessert meal for a healthy fast.",
-        "desc_ar": "وجبة dessert منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "dessert",
-        "name_en": "Dessert Special #36",
-        "name_ar": "طبق dessert مميز #36",
-        "desc_en": "A nutritious, home-cooked dessert meal for a healthy fast.",
-        "desc_ar": "وجبة dessert منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "dessert",
-        "name_en": "Dessert Special #37",
-        "name_ar": "طبق dessert مميز #37",
-        "desc_en": "A nutritious, home-cooked dessert meal for a healthy fast.",
-        "desc_ar": "وجبة dessert منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "dessert",
-        "name_en": "Dessert Special #38",
-        "name_ar": "طبق dessert مميز #38",
-        "desc_en": "A nutritious, home-cooked dessert meal for a healthy fast.",
-        "desc_ar": "وجبة dessert منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "dessert",
-        "name_en": "Dessert Special #39",
-        "name_ar": "طبق dessert مميز #39",
-        "desc_en": "A nutritious, home-cooked dessert meal for a healthy fast.",
-        "desc_ar": "وجبة dessert منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "dessert",
-        "name_en": "Dessert Special #40",
-        "name_ar": "طبق dessert مميز #40",
-        "desc_en": "A nutritious, home-cooked dessert meal for a healthy fast.",
-        "desc_ar": "وجبة dessert منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "dessert",
-        "name_en": "Dessert Special #41",
-        "name_ar": "طبق dessert مميز #41",
-        "desc_en": "A nutritious, home-cooked dessert meal for a healthy fast.",
-        "desc_ar": "وجبة dessert منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "dessert",
-        "name_en": "Dessert Special #42",
-        "name_ar": "طبق dessert مميز #42",
-        "desc_en": "A nutritious, home-cooked dessert meal for a healthy fast.",
-        "desc_ar": "وجبة dessert منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "dessert",
-        "name_en": "Dessert Special #43",
-        "name_ar": "طبق dessert مميز #43",
-        "desc_en": "A nutritious, home-cooked dessert meal for a healthy fast.",
-        "desc_ar": "وجبة dessert منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "dessert",
-        "name_en": "Dessert Special #44",
-        "name_ar": "طبق dessert مميز #44",
-        "desc_en": "A nutritious, home-cooked dessert meal for a healthy fast.",
-        "desc_ar": "وجبة dessert منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "dessert",
-        "name_en": "Dessert Special #45",
-        "name_ar": "طبق dessert مميز #45",
-        "desc_en": "A nutritious, home-cooked dessert meal for a healthy fast.",
-        "desc_ar": "وجبة dessert منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "dessert",
-        "name_en": "Dessert Special #46",
-        "name_ar": "طبق dessert مميز #46",
-        "desc_en": "A nutritious, home-cooked dessert meal for a healthy fast.",
-        "desc_ar": "وجبة dessert منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "dessert",
-        "name_en": "Dessert Special #47",
-        "name_ar": "طبق dessert مميز #47",
-        "desc_en": "A nutritious, home-cooked dessert meal for a healthy fast.",
-        "desc_ar": "وجبة dessert منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "dessert",
-        "name_en": "Dessert Special #48",
-        "name_ar": "طبق dessert مميز #48",
-        "desc_en": "A nutritious, home-cooked dessert meal for a healthy fast.",
-        "desc_ar": "وجبة dessert منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "dessert",
-        "name_en": "Dessert Special #49",
-        "name_ar": "طبق dessert مميز #49",
-        "desc_en": "A nutritious, home-cooked dessert meal for a healthy fast.",
-        "desc_ar": "وجبة dessert منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
-        ]
-    },
-    {
-        "category": "dessert",
-        "name_en": "Dessert Special #50",
-        "name_ar": "طبق dessert مميز #50",
-        "desc_en": "A nutritious, home-cooked dessert meal for a healthy fast.",
-        "desc_ar": "وجبة dessert منزلية مغذية لصيام صحي ومبارك.",
-        "ingr_en": [
-            "Fresh vegetables",
-            "Protein source",
-            "Traditional spices",
-            "Olive oil"
-        ],
-        "ingr_ar": [
-            "خضروات طازجة",
-            "مصدر بروتين",
-            "بهارات تقليدية",
-            "زيت زيتون"
-        ],
-        "instr_en": [
-            "Prep ingredients.",
-            "Cook with love.",
-            "Season perfectly.",
-            "Serve with joy."
-        ],
-        "instr_ar": [
-            "حضر المكونات.",
-            "اطبخها بكل حب.",
-            "تبلها بإتقان.",
-            "قدمها بكل سعادة."
+            "جمد مع التحريك."
         ]
     }
 ];
